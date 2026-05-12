@@ -2,7 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary mt-12">
+    <footer id="contacto" className="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary mt-12">
+      <div id="donde-comprar" className="hidden"></div>
       <div className="w-full rounded-t-xl bg-surface-container-lowest border-t-2 border-outline-variant flex flex-col md:flex-row justify-between items-center py-base px-margin-mobile max-w-container-max mx-auto py-12">
         <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
           <div className="font-headline-md text-headline-md text-primary mb-4">El Drago</div>

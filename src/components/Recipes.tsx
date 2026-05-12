@@ -29,7 +29,7 @@ const Recipes = () => {
   ];
 
   return (
-    <section className="py-section-gap bg-primary text-on-primary">
+    <section id="recetas" className="py-section-gap bg-primary text-on-primary">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div className="w-full md:w-2/3">

@@ -20,7 +20,7 @@ const ProductGrid = () => {
   ];
 
   return (
-    <section className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+    <section id="productos" className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto">
       <div className="text-center mb-16">
         <h2 className="font-display-lg text-headline-lg text-primary uppercase mb-4">Nuestros Destacados</h2>
         <div className="h-2 w-48 bg-secondary-fixed mx-auto rounded-full"></div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Be_Vietnam_Pro } from "next/font/google";
+import { Bricolage_Grotesque, Be_Vietnam_Pro, Luckiest_Guy, Mr_Dafoe } from "next/font/google";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -12,6 +12,18 @@ const beVietnamPro = Be_Vietnam_Pro({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "700"],
+});
+
+const luckiestGuy = Luckiest_Guy({
+  variable: "--font-luckiest-guy",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const mrDafoe = Mr_Dafoe({
+  variable: "--font-mr-dafoe",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +39,8 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${bricolageGrotesque.variable} ${beVietnamPro.variable} light`}
+      suppressHydrationWarning
+      className={`${bricolageGrotesque.variable} ${beVietnamPro.variable} ${luckiestGuy.variable} ${mrDafoe.variable} light`}
     >
       <head>
         <link 
