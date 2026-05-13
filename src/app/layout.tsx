@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Be_Vietnam_Pro, Luckiest_Guy, Mr_Dafoe } from "next/font/google";
+import { Bricolage_Grotesque, Be_Vietnam_Pro, Luckiest_Guy, Mr_Dafoe, Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -26,9 +26,26 @@ const mrDafoe = Mr_Dafoe({
   weight: "400",
 });
 
+const playfairDisplay = Playfair_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  style: ["italic", "normal"],
+});
+
+const manrope = Manrope({
+  variable: "--font-sans-modern",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 export const metadata: Metadata = {
   title: "El Drago | Delicias que atrapan",
   description: "Variedad excepcional de productos embutidos hechos con pasión y tradición.",
+  icons: {
+    icon: "/images/logodrago.png",
+    apple: "/images/logodrago.png",
+  },
 };
 
 export default function RootLayout({
@@ -40,7 +57,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${bricolageGrotesque.variable} ${beVietnamPro.variable} ${luckiestGuy.variable} ${mrDafoe.variable} light`}
+      className={`${bricolageGrotesque.variable} ${beVietnamPro.variable} ${luckiestGuy.variable} ${mrDafoe.variable} ${playfairDisplay.variable} ${manrope.variable} light`}
     >
       <head>
         <link 

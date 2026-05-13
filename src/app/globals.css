@@ -33,18 +33,18 @@
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
   
-  --color-background: #fcf9f8;
+  --color-background: #FCF2E6;
   --color-on-background: #1c1b1b;
   
-  --color-surface: #fcf9f8;
+  --color-surface: #FCF2E6;
   --color-on-surface: #1c1b1b;
   --color-surface-variant: #e5e2e1;
   --color-on-surface-variant: #5c403f;
   --color-surface-dim: #dcd9d9;
-  --color-surface-bright: #fcf9f8;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f6f3f2;
-  --color-surface-container: #f0eded;
+  --color-surface-bright: #FCF2E6;
+  --color-surface-container-lowest: #FCF2E6;
+  --color-surface-container-low: #FCF2E6;
+  --color-surface-container: #FCF2E6;
   --color-surface-container-high: #eae7e7;
   --color-surface-container-highest: #e5e2e1;
   
@@ -159,4 +159,12 @@ body {
   font-size: 36px;
   line-height: 1.2;
   font-weight: 800;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="relative bg-primary overflow-hidden">
       <header className="absolute top-0 left-0 right-0 z-20 flex items-center py-4 px-8 md:px-16">
-        <div className="w-32 md:w-48">
+        <div className="w-32 md:w-48 transition-transform duration-300 hover:-translate-y-1 cursor-pointer inline-block">
           <img 
             src="/images/logodrago.png" 
             alt="El Drago Logo" 
@@ -12,20 +12,31 @@ const Hero = () => {
           />
         </div>
         <nav className="flex-1 hidden lg:flex justify-center gap-10 text-white uppercase font-bold text-[0.95rem] tracking-widest">
-          <a href="#productos" className="hover:text-secondary-fixed transition-colors">productos</a>
-          <a href="#recetas" className="hover:text-secondary-fixed transition-colors">recetas</a>
-          <a href="#nosotros" className="hover:text-secondary-fixed transition-colors">nosotros</a>
-          <a href="#donde-comprar" className="hover:text-secondary-fixed transition-colors">donde comprar</a>
-          <a href="#contacto" className="hover:text-secondary-fixed transition-colors">contacto</a>
+          {[
+            { name: 'productos', href: '#productos' },
+            { name: 'recetas', href: '#recetas' },
+            { name: 'nosotros', href: '#nosotros' },
+            { name: 'donde comprar', href: '#donde-comprar' },
+            { name: 'contacto', href: '#contacto' },
+          ].map((link) => (
+            <a 
+              key={link.name}
+              href={link.href} 
+              className="relative transition-all duration-300 hover:-translate-y-1 hover:text-secondary-container group py-2"
+            >
+              {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-container transition-all duration-500 group-hover:w-full"></span>
+            </a>
+          ))}
         </nav>
         <div className="w-32 md:w-48 hidden lg:block"></div>
       </header>
 
       <div className="absolute top-[20%] left-[0%] md:left-[5%] z-10 -rotate-6 flex flex-col items-start select-none">
-        <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[4rem] md:text-[8rem] text-white leading-[0.8] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+        <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[4rem] md:text-[8rem] text-white leading-[0.8] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-transform duration-500 hover:-translate-y-3 cursor-default inline-block">
           EL SABOR
         </h1>
-        <div className="flex items-center -mt-2 md:-mt-6 ml-4 md:ml-8">
+        <div className="flex items-center -mt-2 md:-mt-6 ml-4 md:ml-8 transition-transform duration-500 hover:-translate-y-3 cursor-default">
           <span className="font-bold text-secondary-fixed text-lg md:text-3xl uppercase mr-2 md:mr-4 -mt-3 md:-mt-5">que</span>
           <h2 className="font-[family-name:var(--font-mr-dafoe)] text-[5rem] md:text-[10rem] text-secondary-fixed -mt-4 md:-mt-8">
             Atrapa
@@ -43,7 +54,7 @@ const Hero = () => {
           <span className="text-base md:text-lg">→</span>
         </a>
 
-        <div className="rotate-6 mt-20 ml-0 md:ml-2 flex items-center justify-between gap-4 md:gap-12 bg-white p-3 md:p-4 px-8 md:px-12 rounded-full shadow-2xl border border-outline-variant/30 max-w-xl">
+        <div className="rotate-6 mt-20 ml-0 md:ml-2 flex items-center justify-between gap-4 md:gap-12 bg-background p-3 md:p-4 px-8 md:px-12 rounded-full shadow-2xl border border-outline-variant/30 max-w-xl">
           <div className="flex flex-col items-center text-center">
             <span className="material-symbols-outlined text-secondary-container text-2xl md:text-3xl mb-1">workspace_premium</span>
             <div className="font-bold text-primary leading-tight">
@@ -73,7 +84,7 @@ const Hero = () => {
           className="w-full h-auto block" 
           src="/images/hero-el-drago.png"
         />
-        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-64 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-64 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
       </div>
     </section>
   );
