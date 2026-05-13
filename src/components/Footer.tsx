@@ -14,15 +14,15 @@ const Footer = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           
-          {/* Column 1: Logo & Slogan */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+          {/* Column 1: Logo & Slogan — full width on mobile */}
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
             <img 
               src="/images/logodrago.png" 
               alt="El Drago Logo" 
-              className="w-32 md:w-40 h-auto"
+              className="w-28 md:w-36 h-auto"
             />
             <p className="font-medium text-sm md:text-base leading-relaxed max-w-[200px]">
               El sabor que atrapa,<br />
@@ -31,31 +31,31 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h3 className="font-bold uppercase tracking-widest text-sm mb-6">Enlaces Rápidos</h3>
-            <ul className="space-y-3 font-medium text-sm">
-              <li><a href="#productos" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Productos</a></li>
-              <li><a href="#recetas" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Recetas</a></li>
-              <li><a href="#nosotros" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Nosotros</a></li>
-              <li><a href="#donde-comprar" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Dónde comprar</a></li>
-              <li><a href="#contacto" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Contacto</a></li>
+          <div className="flex flex-col items-start">
+            <h3 className="font-bold uppercase tracking-widest text-xs mb-4">Enlaces Rápidos</h3>
+            <ul className="space-y-1 font-medium text-sm w-full">
+              <li><a href="#productos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Productos</a></li>
+              <li><a href="#recetas" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Recetas</a></li>
+              <li><a href="#nosotros" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Nosotros</a></li>
+              <li><a href="#donde-comprar" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Dónde comprar</a></li>
+              <li><a href="#contacto" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Contacto</a></li>
             </ul>
           </div>
 
           {/* Column 3: Categories */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h3 className="font-bold uppercase tracking-widest text-sm mb-6">Categorías</h3>
-            <ul className="space-y-3 font-medium text-sm">
-              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Jamón Cocido</a></li>
-              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Pechuga de Pavo</a></li>
-              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Jamón Artesanal</a></li>
-              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2"><span className="text-[6px]">●</span> Otros Embutidos</a></li>
+          <div className="flex flex-col items-start">
+            <h3 className="font-bold uppercase tracking-widest text-xs mb-4">Categorías</h3>
+            <ul className="space-y-1 font-medium text-sm w-full">
+              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Jamón Cocido</a></li>
+              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Pechuga de Pavo</a></li>
+              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Jamón Artesanal</a></li>
+              <li><a href="#" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Otros Embutidos</a></li>
             </ul>
           </div>
 
-          {/* Column 4: Social */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h3 className="font-bold uppercase tracking-widest text-sm mb-6">Síguenos</h3>
+          {/* Column 4: Social — full-width on mobile */}
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start">
+            <h3 className="font-bold uppercase tracking-widest text-xs mb-4">Síguenos</h3>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-[#9a0021] text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-md">
                 <i className="fa-brands fa-instagram"></i>
@@ -78,7 +78,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#9a0021]/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-60 text-center gap-4">
+        <div className="border-t border-[#9a0021]/10 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-60 text-center gap-3">
           <p>© 2024 Embutidos El Drago. Todos los derechos reservados.</p>
           <p className="flex items-center gap-1">Diseñado con <span className="text-red-600">❤</span> para nuestros clientes</p>
         </div>
