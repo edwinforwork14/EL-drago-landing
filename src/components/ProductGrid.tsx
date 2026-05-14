@@ -14,27 +14,27 @@ const ProductGrid = () => {
   }, [activeCategory]);
 
   return (
-    <section id="productos" className="relative py-24 md:py-32 bg-background overflow-hidden">
+    <section id="productos" className="relative py-16 md:py-32 bg-background overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <div className="max-w-7xl mx-auto px-0 md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16 px-5">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block relative mb-6"
+            className="inline-block relative mb-4 md:mb-6"
           >
-            <span className="text-accent font-bold text-xs uppercase tracking-[0.4em] mb-4 block">
+            <span className="text-accent font-bold text-[10px] md:text-xs uppercase tracking-[0.4em] mb-2 md:mb-4 block">
               Excelencia Artesanal
             </span>
-            <h2 className="text-6xl md:text-8xl font-[family-name:var(--font-bebas-neue)] text-primary-dark tracking-[0.05em] leading-[0.9] mb-6">
+            <h2 className="text-5xl md:text-8xl font-[family-name:var(--font-bebas-neue)] text-primary-dark tracking-[0.05em] leading-[0.9] mb-4 md:mb-6">
               NUESTROS <br className="md:hidden" /> <span className="text-primary italic">PRODUCTOS</span>
             </h2>
-            <div className="h-1 w-24 bg-accent mx-auto rounded-full" />
+            <div className="h-1 w-16 md:w-24 bg-accent mx-auto rounded-full" />
           </motion.div>
           
           <motion.p
@@ -42,7 +42,7 @@ const ProductGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-primary-dark/60 font-medium text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            className="text-primary-dark/60 font-medium text-base md:text-xl max-w-2xl mx-auto leading-relaxed"
           >
             Descubre nuestra selección de embutidos premium elaborados con tradición, calidad y el sabor auténtico de El Drago.
           </motion.p>
