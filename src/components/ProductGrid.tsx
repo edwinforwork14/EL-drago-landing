@@ -29,9 +29,7 @@ const ProductGrid = () => {
             viewport={{ once: true }}
             className="inline-block relative mb-4 md:mb-6"
           >
-            <span className="text-secondary-container bg-primary/10 px-4 py-1 rounded-full font-bold uppercase tracking-[0.2em] text-xs mb-4 block">
-              Excelencia Artesanal
-            </span>
+
             <h2 className="text-[3.5rem] md:text-[5.5rem] font-[family-name:var(--font-luckiest-guy)] text-primary-dark tracking-normal leading-[0.9] mb-4 md:mb-6 uppercase">
               NUESTROS <br className="md:hidden" /> <span className="text-primary font-[family-name:var(--font-mr-dafoe)] normal-case text-[4rem] md:text-[6rem] -rotate-2 inline-block">Productos</span>
             </h2>

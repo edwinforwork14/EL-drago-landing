@@ -136,7 +136,7 @@ const Hero = () => {
       </div>
 
       {/* ─── HERO CONTENT ─── */}
-      <div className="relative z-10 flex flex-col justify-end min-h-svh px-5 pb-12 md:px-10 md:pb-20 lg:px-16 lg:pb-24 pt-28">
+      <div className="relative z-10 flex flex-col justify-end min-h-svh px-5 pb-6 md:px-10 md:pb-10 lg:px-16 lg:pb-12 pt-28">
         <div className="max-w-lg lg:max-w-2xl">
           {/* Headline */}
           <motion.div
@@ -144,26 +144,36 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
           >
-            <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] text-white leading-[0.9] uppercase drop-shadow-xl mb-2 transition-transform duration-500 hover:-translate-y-3 cursor-default inline-block">
+            <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7.5rem] text-white leading-[0.85] uppercase drop-shadow-xl mb-0 transition-transform duration-500 hover:-translate-y-2 cursor-default inline-block tracking-tighter -rotate-1">
               EL SABOR
             </h1>
-            <div className="flex items-end gap-3 mb-6">
-              <span className="font-bold text-white/70 text-xl md:text-2xl uppercase leading-none -mb-2">que</span>
-              <span className="font-[family-name:var(--font-mr-dafoe)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] text-secondary-container leading-none drop-shadow-xl transition-transform duration-500 hover:-translate-y-3 cursor-default inline-block">
+            <div className="flex items-center gap-2 -mt-2 sm:-mt-4 md:-mt-6 mb-4 relative z-10">
+              <span className="font-black text-secondary-container text-lg md:text-xl uppercase leading-none tracking-tighter -rotate-3">que</span>
+              <span className="font-[family-name:var(--font-mr-dafoe)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7.5rem] text-secondary-container leading-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)] transition-transform duration-500 hover:-translate-y-2 cursor-default inline-block rotate-2 relative">
                 Atrapa
               </span>
             </div>
           </motion.div>
 
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-            className="text-white/80 font-medium text-base md:text-lg leading-relaxed mb-8 max-w-sm"
-          >
-            Embutidos premium elaborados con pasión y tradición para acompañar tus mejores momentos.
-          </motion.p>
+          {/* Subtext Section */}
+          <div className="mt-12 md:mt-20">
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="font-[family-name:var(--font-bebas-neue)] text-2xl md:text-4xl text-secondary-container tracking-[0.2em] uppercase mb-3"
+            >
+              Los mejores momentos
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
+              className="text-white/80 font-medium text-base md:text-lg leading-relaxed mb-8 max-w-sm"
+            >
+              Embutidos premium elaborados con pasión, tradición y la más alta calidad artesanal.
+            </motion.p>
+          </div>
 
           {/* CTAs */}
           <motion.div
