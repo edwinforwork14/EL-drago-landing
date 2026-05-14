@@ -31,12 +31,6 @@ const SocialMedia = () => {
           <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[-2deg]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH8NIRjm-gLX9_tahXHi05PwlOK3sKFC4BFe-ZELfoSRxuA3FArHfaHELVMvxF4AowNx4KKdjaT0AhHW63Zl2WuAecW4wpOS2_q4SFME_90Zq-QQN6r4Wz1oJT1AuiAS_d0ExPMxkYAzYADn1nhwjbe_sk10LbUX-ye2cWbHiC5Deeo7Cr_eIII8oJuknxMEeELYmVbUFyjyhKUdBWyM4vSSCHAb3OlnbV_pHGPq1a2EB_GsJ-vTaFmX8WnDZTSPZXjNf2gCwHyQc" alt="Social 1" />
           <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[3deg]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD8WaAvSUI1i6Og2rfLQaSz8EvxxdNQi8B60f6gCRH25BORVR6UXu8XfUNpI57UO23FFl456iu8BHuwWGjdsbU9d2ACgbjR9tkc1jw9PjzO4Aa87P2baQWlqWDXwMCrHXpzGLAgu3sSeuLEtelm-YWBZkdfC68iUcoDvqaO-rxIHOu3bgGnw7zdooMmO-BN5My2ZJaM6IGTpeYA99ywEpnaj9iZFhx9y0p4_EWd9bfI9XzZXAJKJ51IPYUWpxJm7FH-XnTaoxYeJ0" alt="Social 2" />
           <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[1deg]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvuEBS1DRR4Vurcjzt579jZ67NylpOcRGJDkWFhRdV50WydPQ5IsQXmnjQ7C0YU4q5kDgVSqs4l8-Dkj7vPloYZ3CgTzx9EKrM6zy6DmBa_WkO_5Ug2EyxFifk_e5A0aLKBf4pgmqhps5WneNdCJolBtUsNylb0CeDxHCWP6JU4IumEza3LIX6oQKVTbv4AsGM3QV0aakiQ-2gcZW-9d3s0iSf5LWEHGwKZwGliqAqFbIvjpk8y7qy1jYbTyinmsQYUMbbLCV4dcA" alt="Social 3" />
-          <div className="bg-secondary-container rounded-xl flex items-center justify-center p-4 rotate-[-4deg] shadow-lg">
-            <div className="text-on-secondary-container text-center">
-              <span className="material-symbols-outlined text-4xl mb-2">qr_code_2</span>
-              <p className="font-label-bold text-xs uppercase">Escanea para ganar</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

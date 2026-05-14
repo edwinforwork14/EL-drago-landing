@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Be_Vietnam_Pro, Luckiest_Guy, Mr_Dafoe, Playfair_Display, Manrope } from "next/font/google";
+import { Bricolage_Grotesque, Be_Vietnam_Pro, Luckiest_Guy, Mr_Dafoe, Playfair_Display, Manrope, Bebas_Neue } from "next/font/google";
 import "./globals.css";
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-headline",
@@ -57,7 +63,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${bricolageGrotesque.variable} ${beVietnamPro.variable} ${luckiestGuy.variable} ${mrDafoe.variable} ${playfairDisplay.variable} ${manrope.variable} light`}
+      className={`${bebasNeue.variable} ${bricolageGrotesque.variable} ${beVietnamPro.variable} ${luckiestGuy.variable} ${mrDafoe.variable} ${playfairDisplay.variable} ${manrope.variable} light`}
     >
       <head>
         <link 

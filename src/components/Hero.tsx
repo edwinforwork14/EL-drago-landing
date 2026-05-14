@@ -19,7 +19,7 @@ const Hero = () => {
       {/* ─── NAVBAR ─── */}
       <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between py-4 px-5 md:px-10 lg:px-16">
         {/* Logo */}
-        <a href="#" className="w-24 md:w-36 lg:w-44 shrink-0">
+        <a href="#" className="w-24 md:w-36 lg:w-44 shrink-0 transition-transform duration-300 hover:-translate-y-1 inline-block">
           <img src="/images/logodrago.png" alt="El Drago Logo" className="w-full h-auto" />
         </a>
 
@@ -154,12 +154,12 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
           >
-            <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] text-white leading-[0.9] uppercase drop-shadow-xl mb-2">
+            <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] text-white leading-[0.9] uppercase drop-shadow-xl mb-2 transition-transform duration-500 hover:-translate-y-3 cursor-default inline-block">
               EL SABOR
             </h1>
             <div className="flex items-end gap-3 mb-6">
               <span className="font-bold text-white/70 text-xl md:text-2xl uppercase leading-none -mb-2">que</span>
-              <span className="font-[family-name:var(--font-mr-dafoe)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] text-secondary-container leading-none drop-shadow-xl">
+              <span className="font-[family-name:var(--font-mr-dafoe)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7rem] text-secondary-container leading-none drop-shadow-xl transition-transform duration-500 hover:-translate-y-3 cursor-default inline-block">
                 Atrapa
               </span>
             </div>
@@ -209,9 +209,12 @@ const Hero = () => {
               { icon: 'favorite', label: 'Hechos con pasión' },
               { icon: 'stars', label: 'Calidad premium' },
             ].map((badge) => (
-              <div key={badge.label} className="flex items-center gap-2 shrink-0">
-                <span className="material-symbols-outlined text-secondary-container text-xl">{badge.icon}</span>
-                <span className="text-white/70 font-medium text-xs uppercase tracking-wider whitespace-nowrap">{badge.label}</span>
+              <div
+                key={badge.label}
+                className="flex items-center gap-2 shrink-0 group cursor-default transition-transform duration-300 hover:-translate-y-2"
+              >
+                <span className="material-symbols-outlined text-secondary-container text-xl transition-transform duration-300 group-hover:scale-110">{badge.icon}</span>
+                <span className="text-white/70 font-medium text-xs uppercase tracking-wider whitespace-nowrap group-hover:text-white/90 transition-colors duration-300">{badge.label}</span>
               </div>
             ))}
           </motion.div>
