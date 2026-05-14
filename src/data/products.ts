@@ -8,133 +8,133 @@ export interface Product {
 }
 
 export const CATEGORIES = [
-  "Jamones de Cerdo",
-  "Jamones de Ave",
-  "Embutidos Artesanales",
+  "Jamones",
+  "Pechugas Cocidas",
+  "Mortadelas",
+  "Fiambres",
+  "Tocinetas",
   "Ahumados",
-  "Especialidades Gourmet"
+  "Chuletas",
+  "Espaldas Ahumadas"
 ];
 
 export const products: Product[] = [
-  // Jamones de Cerdo
+  // Jamones
   {
-    id: "cerdo-1",
-    name: "Jamón Cocido de Pierna",
-    description: "Suave, jugoso y seleccionado de las mejores piezas. Calidad premium superior.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCzHGJh40hGr2OYfPHW9-6LL7gzAPAc-ESPp61aFTYs6MlfDZXSHRxUBtH84wQtAj-7HyCnMEjU96wUjIEI13LCPczwX12VNPATcqhU-TdWwg7XM4kVXGUy3x4jTDPTT7vSP1d8kd_6G4JZYkAVr0Z5M1ic68tPllAN6U7ew-TyXtQUhxvWutXuTaH3zzg1KIoZmqUfjdbAG8HeZFTRE1UVuLtVMdbBm2_L7WEXAzUIyFfPY-Ug_zkBqHB2yJE2J_738lfgu1m9KDE",
+    id: "jam-1",
+    name: "Jamón Gourmet Selección",
+    description: "Nuestra pieza más exclusiva, curada con procesos tradicionales para un sabor inigualable.",
+    image: "/productos/jamones/page-0003.jpg",
     tag: "Premium",
-    category: "Jamones de Cerdo"
+    category: "Jamones"
   },
   {
-    id: "cerdo-2",
-    name: "Jamón Estilo Artesanal",
-    description: "Tradición y sabor en cada rebanada. Receta familiar guardada por generaciones.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP0vZQ-PGdUkCYL-oakKxEM9do29_aT8wmfK44rvYdJPruAK4p7SV7AMvUG1xDa_GbdcpUJiELetD2d06I0C_veOGxWQ4LBDh6DtfrzSyLtl2GdJfRT6_xnzbv5Rxaj2Ku3yNPtzTLf8jlud5n96SS7cuhC2A4U_F5-PyeduS9bsh4lrrM1dswK7rEa4-1xVs5r_BwZeOHykwYjjDTIBrLs9LR1ZkBp1uVc92g0JVJuytAbsm9rQ2hJAbIs3T4MJH9YvqzWXBTlwc",
-    tag: "Artesanal",
-    category: "Jamones de Cerdo"
+    id: "jam-2",
+    name: "Jamón Tradicional",
+    description: "Sabor auténtico y textura perfecta para acompañar tus mejores momentos familiares.",
+    image: "/productos/jamones/page-0004.jpg",
+    category: "Jamones"
   },
   {
-    id: "cerdo-3",
-    name: "Jamón Virginia",
-    description: "Equilibrio perfecto entre dulzura y salinidad. Ideal para sándwiches gourmet.",
-    image: "https://images.unsplash.com/photo-1544145945-f904253db0ad?auto=format&fit=crop&q=80&w=800",
-    tag: "Clásico",
-    category: "Jamones de Cerdo"
+    id: "jam-3",
+    name: "Jamón Especial El Drago",
+    description: "El equilibrio perfecto entre suavidad y carácter artesanal.",
+    image: "/productos/jamones/page-0005.jpg",
+    category: "Jamones"
   },
   {
-    id: "cerdo-4",
-    name: "Jamón Ahumado Premium",
-    description: "Ahumado lentamente con maderas nobles para un aroma y sabor inigualables.",
-    image: "https://images.unsplash.com/photo-1624246441580-b82b6ac80523?auto=format&fit=crop&q=80&w=800",
-    tag: "Ahumado",
-    category: "Jamones de Cerdo"
+    id: "jam-4",
+    name: "Jamón Cocido Superior",
+    description: "Textura delicada y sabor puro, elaborado con los más altos estándares.",
+    image: "/productos/jamones/page-0011.jpg",
+    category: "Jamones"
   },
 
-  // Jamones de Ave
+  // Pechugas Cocidas
   {
-    id: "ave-1",
-    name: "Pechuga de Pavo",
-    description: "Ligera, deliciosa y perfecta para una alimentación balanceada y saludable.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHPXQ6OXvIGz02TqeAAYzEZDJr0_3moB7-Yo9Jy25BWkTSO9Tg3tF3MnbVEYzEaebwKKKwNJQI-f6u3BMkagX0mHBZGl1P8mF3DtuQOviO9nSg-FH9UyhjAL10QIOitXOqps55xtKpEuV0-WJDL7yS9YvrxNqoZgXris9TxBWbhNNcqg_5hvSIYc2bDomXjGVq-1B9QRV9UtCkZKm8nd_1fSFiJH9MkU8_yw8mn4iQSwhXqHs1_rp49WF1EMPdiTveWwbrcwcElVE",
+    id: "pech-1",
+    name: "Pechuga de Pavo Especial",
+    description: "Seleccionada y cocida lentamente para preservar toda su jugosidad y valor nutricional.",
+    image: "/productos/pechugas-cosidas/page-0008.jpg",
     tag: "Saludable",
-    category: "Jamones de Ave"
+    category: "Pechugas Cocidas"
   },
   {
-    id: "ave-2",
-    name: "Jamón de Pollo Ahumado",
-    description: "Sabor suave de pollo con un toque ahumado sutil. Perfecto para ensaladas.",
-    image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&q=80&w=800",
-    tag: "Ligero",
-    category: "Jamones de Ave"
+    id: "pech-2",
+    name: "Pechuga de Pollo Premium",
+    description: "Sabor suave y natural, ideal para una alimentación balanceada.",
+    image: "/productos/pechugas-cosidas/page-0009.jpg",
+    category: "Pechugas Cocidas"
   },
   {
-    id: "ave-3",
-    name: "Pechuga de Pavo con Hierbas",
-    description: "Seleccionada con finas hierbas para un perfil de sabor mediterráneo.",
-    image: "https://images.unsplash.com/photo-1627485750519-9486c449f874?auto=format&fit=crop&q=80&w=800",
-    tag: "Nuevo",
-    category: "Jamones de Ave"
+    id: "pech-3",
+    name: "Pechuga de Pavo Gourmet",
+    description: "Finas lonjas de pechuga seleccionada con el sello de calidad El Drago.",
+    image: "/productos/pechugas-cosidas/page-0010.jpg",
+    category: "Pechugas Cocidas"
   },
 
-  // Embutidos Artesanales
+  // Mortadelas
   {
-    id: "art-1",
-    name: "Chorizo Riojano",
-    description: "Condimentado con especias tradicionales y curado al aire para un sabor potente.",
-    image: "https://images.unsplash.com/photo-1624246441580-b82b6ac80523?auto=format&fit=crop&q=80&w=800",
-    tag: "Gourmet",
-    category: "Embutidos Artesanales"
+    id: "mort-1",
+    name: "Mortadela Especial",
+    description: "Clásica receta italiana con el toque único de El Drago.",
+    image: "/productos/mortadelas/page-0007.jpg",
+    category: "Mortadelas"
   },
   {
-    id: "art-2",
-    name: "Salchichón de la Casa",
-    description: "Textura firme y sabor equilibrado con pimienta negra entera.",
-    image: "https://images.unsplash.com/photo-1608475249435-8b91171d2042?auto=format&fit=crop&q=80&w=800",
-    tag: "Tradición",
-    category: "Embutidos Artesanales"
+    id: "mort-2",
+    name: "Mortadela Gourmet",
+    description: "Selección de carnes finas condimentadas a la perfección.",
+    image: "/productos/mortadelas/page-0012.jpg",
+    category: "Mortadelas"
   },
+
+  // Fiambres
   {
-    id: "art-3",
-    name: "Longaniza Especial",
-    description: "Preparada con cortes seleccionados de cerdo y un toque de pimentón premium.",
-    image: "https://images.unsplash.com/photo-1544145945-f904253db0ad?auto=format&fit=crop&q=80&w=800",
-    tag: "Recomendado",
-    category: "Embutidos Artesanales"
+    id: "fiam-1",
+    name: "Fiambre de la Casa",
+    description: "Una mezcla magistral de sabores tradicionales para tus tablas gourmet.",
+    image: "/productos/fiambres/page-0013.jpg",
+    tag: "Tradicional",
+    category: "Fiambres"
+  },
+
+  // Tocinetas
+  {
+    id: "toc-1",
+    name: "Tocineta Ahumada",
+    description: "Crujiente y aromática, ahumada naturalmente para un sabor intenso.",
+    image: "/productos/tocinetas/page-0015.jpg",
+    tag: "Favorito",
+    category: "Tocinetas"
   },
 
   // Ahumados
   {
     id: "ahu-1",
-    name: "Tocino Ahumado",
-    description: "Crujiente y lleno de aroma. Ahumado naturalmente en madera de nogal.",
-    image: "https://images.unsplash.com/photo-1606851682839-019b1aaad7ad?auto=format&fit=crop&q=80&w=800",
-    tag: "Ahumado",
-    category: "Ahumados"
-  },
-  {
-    id: "ahu-2",
-    name: "Chuleta Ahumada",
-    description: "Cortes gruesos y jugosos con el sabor ahumado característico de El Drago.",
-    image: "https://images.unsplash.com/photo-1624246441580-b82b6ac80523?auto=format&fit=crop&q=80&w=800",
-    tag: "Top Ventas",
+    name: "Ahumados Selección",
+    description: "La maestría del ahumado natural en cada bocado.",
+    image: "/productos/ahumados/page-0017.jpg",
+    tag: "Especialidad",
     category: "Ahumados"
   },
 
-  // Especialidades Gourmet
+  // Chuletas
   {
-    id: "spec-1",
-    name: "Mix de Carnes Frías",
-    description: "La selección perfecta para tus tablas de embutidos y reuniones especiales.",
-    image: "https://images.unsplash.com/photo-1544145945-f904253db0ad?auto=format&fit=crop&q=80&w=800",
-    tag: "Gourmet",
-    category: "Especialidades Gourmet"
+    id: "chul-1",
+    name: "Chuleta Ahumada Premium",
+    description: "Carne tierna y jugosa con el aroma inconfundible del ahumado artesanal.",
+    image: "/productos/chuletas/page-0018.jpg",
+    category: "Chuletas"
   },
+
+  // Espaldas Ahumadas
   {
-    id: "spec-2",
-    name: "Pate de Campaña",
-    description: "Textura cremosa y sabor profundo. El acompañamiento ideal para vinos tintos.",
-    image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&q=80&w=800",
-    tag: "Especialidad",
-    category: "Especialidades Gourmet"
+    id: "esp-1",
+    name: "Espalda Ahumada",
+    description: "Sabor profundo y textura firme, una delicia para los amantes de lo auténtico.",
+    image: "/productos/espaldas-ahumadas/page-0019.jpg",
+    category: "Espaldas Ahumadas"
   }
 ];

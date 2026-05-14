@@ -8,9 +8,12 @@ import SocialMedia from "@/components/SocialMedia";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Footer from "@/components/Footer";
 
+import LoadingScreen from "@/components/LoadingScreen";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <LoadingScreen />
 
       <main className="flex-1 overflow-x-hidden">
         <Hero />

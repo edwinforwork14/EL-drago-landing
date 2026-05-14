@@ -138,16 +138,6 @@ const Hero = () => {
       {/* ─── HERO CONTENT ─── */}
       <div className="relative z-10 flex flex-col justify-end min-h-svh px-5 pb-12 md:px-10 md:pb-20 lg:px-16 lg:pb-24 pt-28">
         <div className="max-w-lg lg:max-w-2xl">
-          {/* Eyebrow — pushed down with more top margin */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-secondary-container font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-6 mt-4"
-          >
-            Tradición que se comparte
-          </motion.p>
-
           {/* Headline */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
