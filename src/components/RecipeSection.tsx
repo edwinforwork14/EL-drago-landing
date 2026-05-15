@@ -129,7 +129,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`group relative overflow-hidden rounded-[32px] cursor-pointer bg-black ${
-        isVertical ? "h-[380px] md:h-full" : "h-[250px] md:h-[300px]"
+        isVertical ? "h-[500px] md:h-full" : "h-[450px] md:h-[300px]"
       } w-full`}
     >
       <div className="absolute inset-0 z-0 bg-primary/5 flex items-center justify-center">
@@ -137,7 +137,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
           src={recipe.image}
           alt={recipe.title}
           className="w-full h-full object-cover"
-          animate={{ scale: isHovered ? 1.05 : 1 }}
+          animate={{ scale: isHovered ? 1.15 : 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           onError={(e) => {
             console.error("Fallo al cargar imagen:", recipe.image);
@@ -165,7 +165,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
             
             {/* Right: Ingredients & Prep */}
             <div className="flex flex-col justify-center border-l border-white/10 pl-10">
-              <div className="pb-2mb-4">
+              <div className="pb-2 mb-4">
                 <span className="text-accent text-[10px] tracking-widest uppercase font-bold mb-3 block">Ingredientes</span>
                 <div className="flex flex-wrap gap-2">
                   {recipe.ingredients.map((ing, i) => (
@@ -210,31 +210,29 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
                   {recipe.description}
                 </p>
                 
-                {isVertical && (
-                  <div className="space-y-6">
-                    <div className="mb-4">
-                      <span className="text-accent text-[10px] tracking-widest uppercase font-bold mb-2 block">Ingredientes</span>
-                      <div className="flex flex-wrap gap-2">
-                        {recipe.ingredients.map((ing, i) => (
-                          <span key={i} className="text-[10px] text-white/70 bg-white/5 px-2 py-1 rounded-md border border-white/10">
-                            {ing}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <span className="text-accent text-[10px] tracking-widest uppercase font-bold mb-2 block">Preparación</span>
-                      <ul className="space-y-2">
-                        {recipe.preparation.map((step, i) => (
-                          <li key={i} className="text-white/70 text-[11px] leading-snug flex gap-2">
-                            <span className="text-accent font-bold">{i + 1}.</span> {step}
-                          </li>
-                        ))}
-                      </ul>
+                <div className="space-y-6">
+                  <div className="mb-4">
+                    <span className="text-accent text-[10px] tracking-widest uppercase font-bold mb-2 block">Ingredientes</span>
+                    <div className="flex flex-wrap gap-2">
+                      {recipe.ingredients.map((ing, i) => (
+                        <span key={i} className="text-[10px] text-white/70 bg-white/5 px-2 py-1 rounded-md border border-white/10">
+                          {ing}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                )}
+
+                  <div>
+                    <span className="text-accent text-[10px] tracking-widest uppercase font-bold mb-2 block">Preparación</span>
+                    <ul className="space-y-2">
+                      {recipe.preparation.map((step, i) => (
+                        <li key={i} className="text-white/70 text-[11px] leading-snug flex gap-2">
+                          <span className="text-accent font-bold">{i + 1}.</span> {step}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -315,19 +313,29 @@ const RecipeSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="md:col-span-3 flex items-center justify-between bg-primary-dark rounded-[32px] p-8 md:p-12 text-white group cursor-pointer hover:bg-primary transition-colors duration-500 mt-4"
+            className="md:col-span-3 flex flex-col md:flex-row items-center justify-between bg-primary-dark rounded-[32px] p-8 md:p-12 text-white group relative overflow-hidden mt-4"
           >
-            <div className="max-w-2xl">
+            {/* Background Accent Decor */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -mr-32 -mt-32" />
+            
+            <div className="max-w-2xl relative z-10 text-center md:text-left mb-8 md:mb-0">
               <h4 className="font-[family-name:var(--font-luckiest-guy)] text-3xl md:text-6xl uppercase tracking-tighter mb-4 leading-none">
-                ¿TIENES UNA <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5.5rem] -rotate-2 inline-block">Receta</span> PROPIA?
+                ENVÍANOS TU <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5.5rem] -rotate-2 inline-block">Receta</span>
               </h4>
               <p className="text-white/60 text-sm md:text-xl font-light mb-0">
-                Compártenos tu creación y podrías aparecer en nuestra próxima selección gourmet.
+                Comparte tu toque especial. Envíanos tu creación con productos El Drago y forma parte de nuestra selección gourmet.
               </p>
             </div>
-            <div className="hidden md:flex h-24 w-24 rounded-full border border-white/20 items-center justify-center group-hover:bg-white group-hover:text-primary-dark transition-all duration-500">
-              <span className="material-symbols-outlined text-4xl">add</span>
-            </div>
+
+            <motion.a
+              href="mailto:recetas@eldrago.com?subject=Mi%20Receta%20Gourmet%20-%20El%20Drago&body=Hola%20equipo%20El%20Drago,%0A%0AQuiero%20compartir%20mi%20receta%20utilizando%20sus%20productos.%0A%0ANombre%20de%20la%20receta:%20%0AIngredientes:%20%0APreparación:%20%0A%0A¡Espero%20que%20les%20guste!"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-accent text-primary-dark px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm md:text-base hover:bg-white transition-all duration-300 flex items-center gap-3 relative z-10 shadow-xl"
+            >
+              <span className="material-symbols-outlined">mail</span>
+              Enviar por Email
+            </motion.a>
           </motion.div>
         </div>
       </div>
