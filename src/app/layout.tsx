@@ -71,7 +71,7 @@ export default function RootLayout({
           rel="stylesheet" 
         />
       </head>
-      <body className="bg-background font-body-md text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+      <body suppressHydrationWarning className="bg-background font-body-md text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
         {children}
       </body>
     </html>

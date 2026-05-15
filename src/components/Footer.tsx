@@ -20,9 +20,9 @@ const Footer = () => {
           {/* Column 1: Logo & Slogan — full width on mobile */}
           <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
             <img 
-              src="/images/logodrago.png" 
-              alt="El Drago Logo" 
-              className="w-28 md:w-36 h-auto"
+              src="/hero-logo/logodrago.png" 
+              alt="El Drago" 
+              className="w-40 md:w-48 h-auto"
             />
             <p className="font-medium text-sm md:text-base leading-relaxed max-w-[200px]">
               El sabor que atrapa,<br />

@@ -64,9 +64,9 @@ const LoadingScreen = () => {
               className="w-32 md:w-48 lg:w-56"
             >
               <img 
-                src="/images/logodrago.png" 
-                alt="El Drago Logo" 
-                className="w-full h-auto drop-shadow-[0_0_30px_rgba(254,199,12,0.3)]"
+                src="/hero-logo/logodrago.png" 
+                alt="El Drago" 
+                className="w-full h-auto object-contain"
               />
             </motion.div>
             

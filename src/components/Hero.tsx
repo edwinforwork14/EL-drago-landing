@@ -17,10 +17,10 @@ const Hero = () => {
     <section className="relative bg-primary overflow-hidden min-h-svh">
 
       {/* ─── NAVBAR ─── */}
-      <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between py-4 px-5 md:px-10 lg:px-16">
+      <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between py-2 md:py-3 px-5 md:px-10 lg:px-16">
         {/* Logo */}
         <a href="#" className="w-24 md:w-36 lg:w-44 shrink-0 transition-transform duration-300 hover:-translate-y-1 inline-block">
-          <img src="/images/logodrago.png" alt="El Drago Logo" className="w-full h-auto" />
+          <img src="/hero-logo/logodrago.png" alt="El Drago Logo" className="w-full h-auto" />
         </a>
 
         {/* Desktop nav — centered */}
@@ -89,7 +89,7 @@ const Hero = () => {
               </button>
 
               {/* Logo inside sidebar */}
-              <img src="/images/logodrago.png" alt="El Drago" className="w-28 mb-10 opacity-90" />
+              <img src="/hero-logo/logodrago.png" alt="El Drago" className="w-28 mb-10 opacity-90" />
 
               {/* Links */}
               <nav className="flex flex-col gap-2">
@@ -123,98 +123,107 @@ const Hero = () => {
       </AnimatePresence>
 
       {/* ─── HERO IMAGE — Mobile: right-focus, Desktop: full ─── */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/hero-el-drago.png"
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.img
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          src="/hero-logo/hero-el-drago.png"
           alt="El Drago Hero"
           className="w-full h-full object-cover object-right md:object-center"
         />
-        {/* Gradient overlay — reduced opacity, lighter */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/35 to-transparent" />
-        {/* Bottom fade — thinner */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
+        {/* Cinematic Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent z-10" />
+        {/* Bottom fade into background color */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FCF2E6] to-transparent z-10" />
+        
+        {/* Subtle Light Leak */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[120px] z-10 animate-pulse" />
       </div>
 
       {/* ─── HERO CONTENT ─── */}
-      <div className="relative z-10 flex flex-col justify-end min-h-svh px-5 pb-6 md:px-10 md:pb-10 lg:px-16 lg:pb-12 pt-28">
-        <div className="max-w-lg lg:max-w-2xl">
-          {/* Headline */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-          >
-            <h1 className="font-[family-name:var(--font-luckiest-guy)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7.5rem] text-white leading-[0.85] uppercase drop-shadow-xl mb-0 transition-transform duration-500 hover:-translate-y-2 cursor-default inline-block tracking-tighter -rotate-1">
+      <div className="relative z-20 flex flex-col justify-end min-h-svh px-6 md:px-12 lg:px-24 pb-4 md:pb-6">
+        <div className="max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start">
+          
+          {/* Headline Composition */}
+          <div className="relative mb-6 md:mb-8">
+            <motion.h1
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="font-[family-name:var(--font-luckiest-guy)] text-[4.5rem] sm:text-[6.5rem] md:text-[7rem] lg:text-[8.5rem] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-6"
+            >
               EL SABOR
-            </h1>
-            <div className="flex items-center gap-2 -mt-2 sm:-mt-4 md:-mt-6 mb-4 relative z-10">
-              <span className="font-black text-secondary-container text-lg md:text-xl uppercase leading-none tracking-tighter -rotate-3">que</span>
-              <span className="font-[family-name:var(--font-mr-dafoe)] text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[7.5rem] text-secondary-container leading-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)] transition-transform duration-500 hover:-translate-y-2 cursor-default inline-block rotate-2 relative">
+            </motion.h1>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 2 }}
+              transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center justify-center md:justify-start gap-4 -mt-4 sm:-mt-8 md:-mt-10 relative z-10 md:ml-12"
+            >
+              <span className="font-black text-accent text-xl md:text-2xl uppercase leading-none tracking-tighter bg-primary/40 backdrop-blur-sm px-3 py-1 rounded-sm">que</span>
+              <span className="font-[family-name:var(--font-mr-dafoe)] text-[4.8rem] sm:text-[6.5rem] md:text-[7.5rem] lg:text-[9.5rem] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
                 Atrapa
               </span>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* Subtext Section */}
-          <div className="mt-12 md:mt-20">
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="font-[family-name:var(--font-bebas-neue)] text-2xl md:text-4xl text-secondary-container tracking-[0.2em] uppercase mb-3"
-            >
-              Los mejores momentos
-            </motion.h3>
+          {/* Description Block */}
+          <div className="max-w-[300px] sm:max-w-md lg:max-w-lg mb-8 md:mb-10">
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.6 }}
-              className="text-white/80 font-medium text-base md:text-lg leading-relaxed mb-8 max-w-sm"
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="text-white/90 font-medium text-base md:text-lg lg:text-xl leading-relaxed drop-shadow-sm"
             >
-              Embutidos premium elaborados con pasión, tradición y la más alta calidad artesanal.
+              Maestría artesanal en cada pieza. Descubre la excelencia de embutidos creados para los paladares más exigentes.
             </motion.p>
           </div>
 
-          {/* CTAs */}
+          {/* CTAs with Enhanced Polish (15% Smaller) */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3"
+            transition={{ delay: 1, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           >
             <a
               href="#productos"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-secondary-container text-primary font-black uppercase tracking-widest text-sm px-8 py-4 rounded-full shadow-lg hover:brightness-105 hover:scale-[1.02] transition-all duration-200 min-h-[56px]"
+              className="group relative overflow-hidden flex items-center justify-center gap-3 bg-accent text-primary-dark font-black uppercase tracking-[0.15em] text-[0.7rem] md:text-[0.75rem] px-8 md:px-10 py-4 md:py-5 rounded-full shadow-[0_15px_30px_rgba(254,199,12,0.2)] hover:shadow-[0_20px_40px_rgba(254,199,12,0.35)] transition-all duration-500 active:scale-95"
             >
-              Conoce nuestros productos
-              <span className="text-lg">→</span>
+              <span className="relative z-10">Explorar Productos</span>
+              <span className="material-symbols-outlined relative z-10 text-[18px] transition-transform duration-500 group-hover:translate-x-2">arrow_forward</span>
+              {/* Shine Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </a>
+            
             <a
               href="#nosotros"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 border-2 border-white/40 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition-all duration-200 min-h-[56px]"
+              className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-bold uppercase tracking-[0.15em] text-[0.7rem] md:text-[0.75rem] px-8 md:px-10 py-4 md:py-5 rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 active:scale-95"
             >
-              Nuestra historia
+              Nuestra Historia
             </a>
           </motion.div>
 
-          {/* Trust badges */}
+          {/* Floating Trust Indicators */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.6 }}
-            className="flex items-center gap-6 mt-8 overflow-x-auto no-scrollbar pb-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 1 }}
+            className="flex items-center justify-center md:justify-start gap-8 mt-10 md:mt-12 overflow-x-auto no-scrollbar"
           >
             {[
-              { icon: 'workspace_premium', label: '+20 Productos' },
-              { icon: 'favorite', label: 'Hechos con pasión' },
-              { icon: 'stars', label: 'Calidad premium' },
-            ].map((badge) => (
+              { icon: 'verified', label: 'Certificación de Calidad' },
+              { icon: 'temp_preferences_custom', label: 'Curación Artesanal' },
+              { icon: 'restaurant', label: 'Sabor Auténtico' },
+            ].map((badge, i) => (
               <div
                 key={badge.label}
-                className="flex items-center gap-2 shrink-0 group cursor-default transition-transform duration-300 hover:-translate-y-2"
+                className="flex items-center gap-3 shrink-0 group"
               >
-                <span className="material-symbols-outlined text-secondary-container text-xl transition-transform duration-300 group-hover:scale-110">{badge.icon}</span>
-                <span className="text-white/70 font-medium text-xs uppercase tracking-wider whitespace-nowrap group-hover:text-white/90 transition-colors duration-300">{badge.label}</span>
+                <span className="material-symbols-outlined text-accent text-xl md:text-2xl transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">{badge.icon}</span>
+                <span className="text-white/60 font-bold text-[9px] md:text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 group-hover:text-white">{badge.label}</span>
               </div>
             ))}
           </motion.div>
