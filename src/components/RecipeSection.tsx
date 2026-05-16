@@ -253,30 +253,27 @@ const RecipeSection = () => {
   const visibleRecipes = currentPage === 0 ? recipes.slice(0, 3) : recipes.slice(3, 6);
 
   return (
-    <section id="recipes" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="recipes" className="pt-6 md:pt-8 pb-12 md:pb-16 bg-background relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-16 md:mb-24 gap-8 md:gap-12">
-          <div className="max-w-3xl text-left">
+        <div className="flex flex-col items-center justify-center text-center mb-10 md:mb-12 gap-4 md:gap-5">
+          <div className="max-w-4xl w-full">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-[4rem] md:text-[8rem] font-luckiest-guy text-primary-dark tracking-tighter leading-[0.8] mb-0 uppercase"
+              className="text-[2.75rem] md:text-[5.5rem] font-luckiest-guy text-primary-dark tracking-tight leading-none mb-0 uppercase flex flex-wrap items-center justify-center gap-x-5 md:gap-x-8"
             >
-              EL ARTE DE <br /> <span className="text-primary font-mr-dafoe normal-case text-[5rem] md:text-[10rem] -rotate-2 inline-block md:-mt-8">Saborear</span>
+              <span>EL</span> <span>ARTE</span> <span>DE</span> <span className="text-primary font-mr-dafoe normal-case text-[3.85rem] md:text-[7.7rem] -rotate-2 inline-block ml-2">Saborear</span>
             </motion.h2>
           </div>
 
-          {/* Vertical Divider */}
-          <div className="hidden md:block w-1 h-40 bg-primary/60" />
-
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="max-w-md text-center md:text-right"
+            className="max-w-2xl"
           >
             <p className="text-primary-dark/80 font-body text-xl md:text-2xl leading-tight">
               "Descubre recetas exclusivas diseñadas por nuestros maestros para elevar cada bocado a una experiencia editorial."

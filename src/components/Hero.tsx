@@ -14,7 +14,7 @@ const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <section className="relative bg-primary overflow-hidden min-h-svh">
+    <section className="relative bg-primary overflow-hidden min-h-[85vh] md:min-h-[90vh]">
 
       {/* ─── NAVBAR ─── */}
       <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between py-2 md:py-3 px-5 md:px-10 lg:px-16">
@@ -142,7 +142,7 @@ const Hero = () => {
       </div>
 
       {/* ─── HERO CONTENT ─── */}
-      <div className="relative z-20 flex flex-col justify-end min-h-svh px-6 md:px-12 lg:px-24 pb-4 md:pb-6">
+      <div className="relative z-20 flex flex-col justify-end min-h-[85vh] md:min-h-[90vh] px-6 md:px-12 lg:px-24 pb-4 md:pb-6">
         <div className="max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start">
           
           {/* Headline Composition */}

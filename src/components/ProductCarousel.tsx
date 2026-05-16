@@ -95,19 +95,18 @@ const ProductCarousel = ({
   };
 
   if (!products || !products.length) return null;
-
-  const currentProduct = products[current];
+  
+  // Safe index check to prevent crashes during category transitions
+  const safeIndex = current >= products.length ? 0 : current;
+  const currentProduct = products[safeIndex];
 
   return (
     <div className="relative h-[550px] md:h-[620px] w-full max-w-md mx-auto">
-      {/* MAIN SLIDER */}
-      <div className="relative h-full overflow-hidden rounded-[6rem] border border-primary/5 bg-white shadow-2xl">
+      {/* MAIN SLIDER (Container box removed) */}
+      <div className="relative h-full w-full">
         
-        {/* SOFT BACKGROUND */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white to-[#fcf2e6]/30" />
-
-        {/* LIGHT EFFECT */}
-        <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+        {/* LIGHT EFFECT (Subtle glow instead of box) */}
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 h-[400px] w-[400px] rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
 
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
@@ -133,47 +132,48 @@ const ProductCarousel = ({
             }}
             className="absolute inset-0 flex h-full w-full items-center justify-center"
           >
-            {/* CLICKABLE AREA */}
+            {/* CLICKABLE AREA - FLEX LAYOUT FOR STABILITY */}
             <button
               onClick={() => onProductClick(currentProduct)}
-              className="group relative flex h-full w-full cursor-pointer items-center justify-center p-8 md:p-12"
+              className="group relative flex flex-col h-full w-full cursor-pointer items-center p-6 md:p-8"
             >
-              {/* PRODUCT IMAGE */}
-              <motion.img
-                src={currentProduct.image}
-                alt={currentProduct.name}
-                initial={{ scale: 1.00 }}
-                animate={{ scale: 0.92 }}
-                transition={{
-                  duration: 0.9,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="
-                  relative z-10
-                  h-full
-                  w-full
-                  object-contain
-                  drop-shadow-[0_25px_50px_rgba(0,0,0,0.12)]
-                  transition-transform
-                  duration-700
-                  group-hover:scale-[0.95]
-                  will-change-transform
-                "
-              />
+              {/* PRODUCT IMAGE CONTAINER (Flexible space) */}
+              <div className="flex-1 w-full flex items-center justify-center relative min-h-0">
+                <motion.img
+                  src={currentProduct.image}
+                  alt={currentProduct.name}
+                  initial={{ scale: 1.05 }}
+                  animate={{ scale: 0.98 }}
+                  transition={{
+                    duration: 0.9,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="
+                    h-full
+                    w-full
+                    object-contain
+                    drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)]
+                    transition-transform
+                    duration-700
+                    group-hover:scale-[1.02]
+                    will-change-transform
+                  "
+                />
+              </div>
 
-              {/* PRODUCT INFO - PREMIUM OVERLAY */}
-              <div className="absolute bottom-0 left-0 z-20 w-full bg-gradient-to-t from-black/70 via-black/20 to-transparent px-8 pb-10 pt-24 text-left">
+              {/* PRODUCT INFO - FIXED HEIGHT FOR CONSISTENCY */}
+              <div className="w-full pt-8 pb-4 text-center min-h-[140px] md:min-h-[180px] flex flex-col justify-start">
                 <motion.div
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.12 }}
-                  className="max-w-2xl"
+                  className="max-w-2xl mx-auto"
                 >
-                  <h3 className="font-[family-name:var(--font-luckiest-guy)] text-2xl uppercase tracking-wider text-white md:text-3xl">
+                  <h3 className="font-[family-name:var(--font-luckiest-guy)] text-3xl uppercase tracking-tighter text-primary-dark md:text-4xl drop-shadow-sm">
                     {currentProduct.name}
                   </h3>
 
-                  <p className="mt-2 max-w-xl text-[10px] leading-relaxed text-white/80 md:text-sm font-medium">
+                  <p className="mt-2 max-w-xl mx-auto text-xs leading-tight text-primary-dark/60 md:text-base font-medium">
                     {currentProduct.description}
                   </p>
                 </motion.div>

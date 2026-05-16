@@ -15,12 +15,12 @@ const ProductGrid = () => {
   }, [activeCategory]);
 
   return (
-    <section id="productos" className="relative pt-12 md:pt-20 pb-20 md:pb-32 bg-[#FCF2E6] overflow-hidden">
+    <section id="productos" className="relative pt-8 md:pt-12 pb-10 md:pb-16 bg-[#FCF2E6] overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
           
           {/* LEFT BLOCK: Header & Categories */}
           <div className="w-full lg:w-[45%] lg:sticky lg:top-20">
@@ -101,7 +101,7 @@ const ProductGrid = () => {
         </AnimatePresence>
 
         {/* Trust Badges */}
-        <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-primary/10 pt-20">
+        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-primary/10 pt-16">
           {[
             { icon: 'verified', title: 'Calidad Certificada', desc: 'Procesos rigurosos para garantizar la excelencia en cada producto.' },
             { icon: 'restaurant', title: 'Sabor Auténtico', desc: 'Recetas tradicionales que preservan el legado familiar.' },
