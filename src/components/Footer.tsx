@@ -70,7 +70,7 @@ const Footer = () => {
               </a>
               <a href="#" className="w-10 h-10 bg-[#9a0021] text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-md">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.525.02c1.31-.032 2.617-.023 3.91-.006 1.36.016 2.71.049 4.06.103 1.34.054 2.63.153 3.67.433 1.04.28 1.88.731 2.54 1.391.66.66 1.111 1.5 1.391 2.54.28 1.04.379 2.33.433 3.67.054 1.35.087 2.7.103 4.06.017 1.293.026 2.6.006 3.91-.02 1.31-.023 2.617-.006 3.91.016 1.36.049 2.71.103 4.06.054 1.34.153 2.63.433 3.67.28 1.04.731 1.88 1.391 2.54.66.66 1.5 1.111 2.54 1.391 1.04.28 2.33.379 3.67.433 1.35.054 2.7.087 4.06.103 1.293.017 2.6.026 3.91.006 1.31-.02 2.617-.023 3.91-.006 1.36.016 2.71.049 4.06.103 1.34.054 2.63.153 3.67.433 1.04.28 1.88.731 2.54 1.391.66.66 1.111 1.5 1.391 2.54.28 1.04.379 2.33.433 3.67.054 1.35.087 2.7.103 4.06.017 1.293.026 2.6.006 3.91-.02-1.31z"></path>
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298l13.312 17.404z"></path>
                 </svg>
               </a>
             </div>
@@ -78,9 +78,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#9a0021]/10 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-60 text-center gap-3">
+        <div className="border-t border-[#9a0021]/10 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest text-center gap-3">
           <p>© 2024 Embutidos El Drago. Todos los derechos reservados.</p>
-          <p className="flex items-center gap-1">Diseñado con <span className="text-red-600">❤</span> para nuestros clientes</p>
+          <p className="flex items-center gap-1">
+            Hecho con <span className="text-purple-500">💜</span> por{' '}
+            <a 
+              href="https://untitledtechcompany.io" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:underline transition-all"
+            >
+              UNTITLED TECH COMPANY
+            </a>
+          </p>
         </div>
       </div>
     </footer>

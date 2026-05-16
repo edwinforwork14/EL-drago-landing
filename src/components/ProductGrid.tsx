@@ -15,59 +15,47 @@ const ProductGrid = () => {
   }, [activeCategory]);
 
   return (
-    <section id="productos" className="relative py-10 md:py-16 bg-background overflow-hidden">
-      {/* Background Decorative Elements */}
+    <section id="productos" className="relative pt-12 md:pt-20 pb-20 md:pb-32 bg-[#FCF2E6] overflow-hidden">
+      {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       
-      <div className="max-w-7xl mx-auto px-0 md:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-6 md:mb-8 px-5">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block relative mb-4 md:mb-6"
-          >
-
-            <h2 className="text-[3.5rem] md:text-[5.5rem] font-[family-name:var(--font-luckiest-guy)] text-primary-dark tracking-normal leading-[0.9] mb-4 md:mb-6 uppercase">
-              NUESTROS <br className="md:hidden" /> <span className="text-primary font-[family-name:var(--font-mr-dafoe)] normal-case text-[4rem] md:text-[6rem] -rotate-2 inline-block">Productos</span>
-            </h2>
-          </motion.div>
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-primary-dark/60 font-medium text-base md:text-xl max-w-2xl mx-auto leading-relaxed"
-          >
-            Haz clic en cualquier imagen para ver los detalles del catálogo en pantalla completa.
-          </motion.p>
-        </div>
-
-        {/* Categories Navigation */}
-        <CategoryNav 
-          activeCategory={activeCategory} 
-          setActiveCategory={setActiveCategory} 
-        />
-
-        {/* Dynamic Carousel Section */}
-        <div className="mt-2">
-          <AnimatePresence mode="wait">
+          {/* LEFT BLOCK: Header & Categories */}
+          <div className="w-full lg:w-[45%] lg:sticky lg:top-20">
             <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative mb-8 md:mb-12"
             >
-              <ProductCarousel 
-                products={filteredProducts} 
-                onProductClick={(product) => setSelectedProduct(product)}
+              <h2 className="text-[3.5rem] md:text-[5rem] font-[family-name:var(--font-luckiest-guy)] text-primary-dark tracking-normal leading-[0.9] mb-6 uppercase">
+                NUESTROS <br /> 
+                <span className="text-primary font-[family-name:var(--font-mr-dafoe)] normal-case text-[4rem] md:text-[6rem] -rotate-2 inline-block">Productos</span>
+              </h2>
+              
+              <p className="text-primary-dark/70 font-medium text-lg md:text-xl leading-relaxed mb-10">
+                Excelencia artesanal en cada rebanada. Selecciona una categoría para explorar nuestro catálogo premium.
+              </p>
+
+              {/* Categories Navigation - 2 Columns Grid */}
+              <CategoryNav 
+                activeCategory={activeCategory} 
+                setActiveCategory={setActiveCategory} 
+                layout="grid"
               />
             </motion.div>
-          </AnimatePresence>
+          </div>
+
+          {/* RIGHT BLOCK: Dynamic Carousel */}
+          <div className="w-full lg:w-[55%] min-h-[500px]">
+            <ProductCarousel 
+              products={filteredProducts} 
+              activeCategory={activeCategory}
+              onProductClick={(product) => setSelectedProduct(product)}
+            />
+          </div>
         </div>
 
         {/* Lightbox Overlay */}
@@ -77,86 +65,67 @@ const ProductGrid = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10"
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 backdrop-blur-xl"
               onClick={() => setSelectedProduct(null)}
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-4xl w-full h-full flex flex-col items-center justify-center"
+                className="relative max-w-5xl w-full h-full flex flex-col items-center justify-center"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button 
-                  className="absolute top-0 right-0 md:-top-10 md:-right-10 text-white hover:text-accent transition-colors p-2"
+                  className="absolute top-0 right-0 md:-top-16 md:-right-16 text-white hover:text-primary transition-all p-4 bg-white/10 rounded-full backdrop-blur-md"
                   onClick={() => setSelectedProduct(null)}
                 >
                   <span className="material-symbols-outlined text-4xl">close</span>
                 </button>
-                <img 
-                  src={selectedProduct.image} 
-                  alt={selectedProduct.name} 
-                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                />
-                <div className="mt-6 text-center">
-                  <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-4xl md:text-5xl tracking-wide uppercase">{selectedProduct.name}</h3>
-                  <p className="text-white/60 text-base mt-2 max-w-lg mx-auto font-medium">{selectedProduct.description}</p>
+                
+                <div className="relative w-full h-[70vh] flex items-center justify-center">
+                  <img 
+                    src={selectedProduct.image} 
+                    alt={selectedProduct.name} 
+                    className="max-w-full max-h-full object-contain rounded-[3rem] drop-shadow-[0_35px_60px_rgba(0,0,0,0.5)]"
+                  />
+                </div>
+
+                <div className="mt-12 text-center max-w-3xl">
+                  <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-5xl md:text-7xl tracking-wide uppercase mb-4">{selectedProduct.name}</h3>
+                  <div className="w-24 h-1 bg-primary mx-auto mb-6" />
+                  <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed">{selectedProduct.description}</p>
                 </div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Trust Badges / Info */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-primary/10 pt-10"
-        >
-          <div className="text-center group">
-            <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors duration-500">
-              <span className="material-symbols-outlined text-primary group-hover:text-white transition-colors">verified</span>
-            </div>
-            <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase tracking-widest text-lg mb-2">Calidad Certificada</h4>
-            <p className="text-gray-500 text-[11px] leading-relaxed px-8 font-medium">Procesos rigurosos para garantizar la excelencia en cada producto.</p>
-          </div>
-          <div className="text-center group">
-            <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors duration-500">
-              <span className="material-symbols-outlined text-primary group-hover:text-white transition-colors">restaurant</span>
-            </div>
-            <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase tracking-widest text-lg mb-2">Sabor Auténtico</h4>
-            <p className="text-gray-500 text-[11px] leading-relaxed px-8 font-medium">Recetas tradicionales que preservan el legado familiar.</p>
-          </div>
-          <div className="text-center group">
-            <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors duration-500">
-              <span className="material-symbols-outlined text-primary group-hover:text-white transition-colors">eco</span>
-            </div>
-            <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase tracking-widest text-lg mb-2">100% Natural</h4>
-            <p className="text-gray-500 text-[11px] leading-relaxed px-8 font-medium">Ingredientes seleccionados sin conservantes innecesarios.</p>
-          </div>
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="#"
-            className="inline-flex items-center gap-3 bg-primary text-white font-bold py-4 px-10 rounded-full shadow-2xl hover:bg-primary-dark transition-all uppercase tracking-[0.2em] text-[10px]"
-          >
-            Descargar Catálogo Completo
-            <span className="text-lg">↓</span>
-          </motion.a>
+        {/* Trust Badges */}
+        <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-primary/10 pt-20">
+          {[
+            { icon: 'verified', title: 'Calidad Certificada', desc: 'Procesos rigurosos para garantizar la excelencia en cada producto.' },
+            { icon: 'restaurant', title: 'Sabor Auténtico', desc: 'Recetas tradicionales que preservan el legado familiar.' },
+            { icon: 'eco', title: '100% Natural', desc: 'Ingredientes seleccionados sin conservantes innecesarios.' }
+          ].map((badge, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center group"
+            >
+              <div className="w-20 h-20 bg-primary/5 rounded-[2rem] flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-sm">
+                <span className="material-symbols-outlined text-4xl text-primary group-hover:text-white transition-colors">{badge.icon}</span>
+              </div>
+              <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase tracking-widest text-xl mb-3">{badge.title}</h4>
+              <p className="text-primary-dark/60 text-sm leading-relaxed px-6 font-medium">{badge.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
-
-      {/* Decorative Side Gradients */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
     </section>
   );
 };
 
 export default ProductGrid;
-

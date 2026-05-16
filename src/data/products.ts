@@ -115,8 +115,15 @@ export const products: Product[] = [
     id: "ahu-1",
     name: "Ahumados Selección",
     description: "La maestría del ahumado natural en cada bocado.",
-    image: "/productos/ahumados/page-0017.jpg",
+    image: "/productos/ahumados/page-0018.jpg",
     tag: "Especialidad",
+    category: "Ahumados"
+  },
+  {
+    id: "ahu-2",
+    name: "Ahumados Premium",
+    description: "Cortes seleccionados con un toque extra de leña fina.",
+    image: "/productos/ahumados/page-0019.jpg",
     category: "Ahumados"
   },
 
@@ -125,7 +132,14 @@ export const products: Product[] = [
     id: "chul-1",
     name: "Chuleta Ahumada Premium",
     description: "Carne tierna y jugosa con el aroma inconfundible del ahumado artesanal.",
-    image: "/productos/chuletas/page-0018.jpg",
+    image: "/productos/chuletas/page-0016.jpg",
+    category: "Chuletas"
+  },
+  {
+    id: "chul-2",
+    name: "Chuleta Ahumada Clásica",
+    description: "Un clásico indispensable para tus comidas diarias.",
+    image: "/productos/chuletas/page-0017.jpg",
     category: "Chuletas"
   },
 
@@ -134,7 +148,7 @@ export const products: Product[] = [
     id: "esp-1",
     name: "Espalda Ahumada",
     description: "Sabor profundo y textura firme, una delicia para los amantes de lo auténtico.",
-    image: "/productos/espaldas-ahumadas/page-0019.jpg",
+    image: "/productos/espaldas-ahumadas/page-0006.jpg",
     category: "Espaldas Ahumadas"
   }
 ];

@@ -15,24 +15,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      whileHover={{ y: -10 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative rounded-[2rem] transition-all duration-500 flex flex-col h-full cursor-pointer"
+      className="group relative rounded-[4rem] md:rounded-[6rem] flex flex-col h-full cursor-pointer overflow-hidden"
     >
       {/* Image Container */}
-      <div className="relative aspect-[3/4.5] overflow-hidden rounded-[2rem]">
+      <div className="relative aspect-[3/4.5] overflow-hidden p-6 md:p-10">
         <motion.img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 rounded-[2rem]"
+          className="w-full h-full object-contain transition-transform duration-700 rounded-[4rem] scale-[0.92] group-hover:scale-[0.95]"
         />
-        
-        {/* Subtle Overlay for Premium Feel */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       </div>
-
-      {/* Decorative Golden Detail on hover */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
     </motion.div>
   );
 };
