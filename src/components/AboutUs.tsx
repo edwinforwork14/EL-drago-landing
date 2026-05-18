@@ -63,8 +63,12 @@ const AboutUs = () => {
             className="relative order-2"
           >
             <div className="bg-white p-3 pb-10 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500 max-w-sm md:max-w-md mx-auto lg:ml-auto border-[6px] border-white">
-              <div className="aspect-[4/3] bg-gray-200 overflow-hidden flex items-center justify-center text-gray-400">
-                <span className="material-symbols-outlined text-6xl">factory</span>
+              <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-gray-100">
+                <img 
+                  src="/imagenes/1/IMG_0217.PNG" 
+                  alt="El Drago Legado" 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
               </div>
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-36 h-9 bg-yellow-400/80 -rotate-1 flex items-center justify-center font-black text-[10px] uppercase tracking-widest shadow-sm text-yellow-900 z-20">
                 El Drago Factory

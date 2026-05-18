@@ -24,7 +24,7 @@ const Hero = () => {
         </a>
 
         {/* Desktop nav — centered */}
-        <nav className="hidden lg:flex flex-1 justify-center gap-10 text-white uppercase font-bold text-[0.9rem] tracking-widest">
+        <nav className="hidden lg:flex flex-1 justify-center gap-10 text-white uppercase font-bold text-[0.9rem] tracking-widest -translate-y-3">
           {navLinks.map((link) => (
             <a
               key={link.name}

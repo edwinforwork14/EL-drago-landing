@@ -137,13 +137,13 @@ const ProductCarousel = ({
               onClick={() => onProductClick(currentProduct)}
               className="group relative flex flex-col h-full w-full cursor-pointer items-center p-6 md:p-8"
             >
-              {/* PRODUCT IMAGE CONTAINER (Flexible space) */}
-              <div className="flex-1 w-full flex items-center justify-center relative min-h-0">
+              {/* PRODUCT IMAGE CONTAINER (More rectangular & rounded) */}
+              <div className="w-full aspect-[4/5] md:aspect-[3.5/4.5] relative rounded-[3rem] md:rounded-[4rem] overflow-hidden bg-white/5 border border-white/10 group-hover:border-primary/20 transition-colors duration-500 mx-auto shadow-sm">
                 <motion.img
                   src={currentProduct.image}
                   alt={currentProduct.name}
                   initial={{ scale: 1.05 }}
-                  animate={{ scale: 0.98 }}
+                  animate={{ scale: 1 }}
                   transition={{
                     duration: 0.9,
                     ease: [0.22, 1, 0.36, 1],
@@ -151,11 +151,10 @@ const ProductCarousel = ({
                   className="
                     h-full
                     w-full
-                    object-contain
-                    drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)]
+                    object-cover
                     transition-transform
                     duration-700
-                    group-hover:scale-[1.02]
+                    group-hover:scale-[1.05]
                     will-change-transform
                   "
                 />
