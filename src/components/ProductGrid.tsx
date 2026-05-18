@@ -23,7 +23,7 @@ const ProductGrid = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
           
           {/* LEFT BLOCK: Header & Categories */}
-          <div className="w-full lg:w-[45%] lg:sticky lg:top-20">
+          <div className="w-full lg:w-[45%] lg:sticky lg:top-20 lg:-mt-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}

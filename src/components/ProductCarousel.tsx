@@ -101,7 +101,7 @@ const ProductCarousel = ({
   const currentProduct = products[safeIndex];
 
   return (
-    <div className="relative h-[550px] md:h-[620px] w-full max-w-md mx-auto">
+    <div className="relative h-[680px] md:h-[760px] w-full max-w-[350px] md:max-w-[380px] mx-auto">
       {/* MAIN SLIDER (Container box removed) */}
       <div className="relative h-full w-full">
         
@@ -137,8 +137,8 @@ const ProductCarousel = ({
               onClick={() => onProductClick(currentProduct)}
               className="group relative flex flex-col h-full w-full cursor-pointer items-center p-6 md:p-8"
             >
-              {/* PRODUCT IMAGE CONTAINER (More rectangular & rounded) */}
-              <div className="w-full aspect-[4/5] md:aspect-[3.5/4.5] relative rounded-[3rem] md:rounded-[4rem] overflow-hidden bg-white/5 border border-white/10 group-hover:border-primary/20 transition-colors duration-500 mx-auto shadow-sm">
+              {/* PRODUCT IMAGE CONTAINER (Taller & Slimmer aspect ratio to prevent side cropping) */}
+              <div className="w-full aspect-[2/3] relative rounded-[1.5rem] md:rounded-[2.25rem] overflow-hidden bg-white/5 border border-white/10 group-hover:border-primary/20 transition-colors duration-500 mx-auto shadow-sm">
                 <motion.img
                   src={currentProduct.image}
                   alt={currentProduct.name}
