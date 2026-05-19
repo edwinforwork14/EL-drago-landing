@@ -142,8 +142,8 @@ const Hero = () => {
       </div>
 
       {/* ─── HERO CONTENT ─── */}
-      <div className="relative z-20 flex flex-col justify-end min-h-[85vh] md:min-h-[90vh] px-6 md:px-12 lg:px-24 pb-32 md:pb-6">
-        <div className="max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start">
+      <div className="relative z-20 flex flex-col justify-end min-h-[85vh] md:min-h-[90vh] px-6 md:px-12 lg:px-24 pb-32 md:pb-0">
+        <div className="max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start md:translate-y-4 lg:translate-y-8">
           
           {/* Headline Composition */}
           <div className="relative mb-6 md:mb-8">

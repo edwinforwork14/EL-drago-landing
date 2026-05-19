@@ -15,15 +15,15 @@ const ProductGrid = () => {
   }, [activeCategory]);
 
   return (
-    <section id="productos" className="relative pt-8 md:pt-12 pb-10 md:pb-16 bg-[#FCF2E6] overflow-hidden">
+    <section id="productos" className="relative pt-6 md:pt-10 pb-2 md:pb-4 bg-[#FCF2E6] overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
           
           {/* LEFT BLOCK: Header & Categories */}
-          <div className="w-full lg:w-[45%] lg:sticky lg:top-20 lg:-mt-16">
+          <div className="w-full lg:w-[45%] lg:sticky lg:top-10">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -49,7 +49,7 @@ const ProductGrid = () => {
           </div>
 
           {/* RIGHT BLOCK: Dynamic Carousel */}
-          <div className="w-full lg:w-[55%] min-h-[500px]">
+          <div className="w-full lg:w-[55%] min-h-[500px] pt-4 md:pt-8">
             <ProductCarousel 
               products={filteredProducts} 
               activeCategory={activeCategory}
