@@ -138,27 +138,19 @@ const ProductCarousel = ({
               className="group relative flex flex-col h-full w-full cursor-pointer items-center p-6 md:p-8"
             >
               {/* PRODUCT IMAGE CONTAINER (Taller & Slimmer aspect ratio to prevent side cropping) */}
-              <div className="w-full aspect-[2/3] relative rounded-[1.5rem] md:rounded-[2.25rem] overflow-hidden bg-white/5 border border-white/10 group-hover:border-primary/20 transition-colors duration-500 mx-auto shadow-sm">
-                <motion.img
+              <motion.div
+                className="inline-flex items-center justify-center relative rounded-[1.5rem] md:rounded-[2.25rem] overflow-hidden bg-white/5 border border-white/10 transition-colors duration-500 mx-auto shadow-sm"
+                initial={{ scale: 1.02 }}
+                animate={{ scale: 1 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <img
                   src={currentProduct.image}
                   alt={currentProduct.name}
-                  initial={{ scale: 1.05 }}
-                  animate={{ scale: 1 }}
-                  transition={{
-                    duration: 0.9,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="
-                    h-full
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-700
-                    group-hover:scale-[1.05]
-                    will-change-transform
-                  "
+                  className="max-w-full max-h-[60vh] w-auto h-auto object-contain block"
                 />
-              </div>
+              </motion.div>
 
               {/* PRODUCT INFO - FIXED HEIGHT FOR CONSISTENCY */}
               <div className="w-full pt-8 pb-4 text-center min-h-[140px] md:min-h-[180px] flex flex-col justify-start">
