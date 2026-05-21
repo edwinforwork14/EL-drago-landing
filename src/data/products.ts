@@ -151,4 +151,69 @@ export const products: Product[] = [
     image: "/productos/espaldas-ahumadas/page-0006.jpg",
     category: "Espaldas Ahumadas"
   }
+  ,
+  // Archivos PNG nuevos detectados — añadidos como nuevos productos
+  {
+    id: "jam-5",
+    name: "Jamón de Espalda Cocido Estándar",
+    description: "Jamón cocido de excelente calidad, preparado con un proceso que conserva su sabor natural y su textura tierna en cada rebanada.",
+    image: "/productos/jamones/JAMON (1).png",
+    category: "Jamones"
+  },
+  {
+    id: "jam-6",
+    name: "Jamón Cocido Superior",
+    description: "Jamón premium elaborado con cortes seleccionados, de sabor delicado y textura suave. Ideal para quienes buscan calidad y frescura.",
+    image: "/productos/jamones/JAMON.png",
+    category: "Jamones"
+  },
+  {
+    id: "fiam-2",
+    name: "Fiambre de Cerdo",
+    description: "Fiambre elaborado con carne de cerdo seleccionada, de textura suave y sabor equilibrado. Perfecto para sándwiches, desayunos y picaderas.",
+    image: "/productos/fiambres/JAMON (5).png",
+    category: "Fiambres"
+  },
+  {
+    id: "esp-2",
+    name: "Espalda de Cerdo Ahumada",
+    description: "Corte de cerdo cuidadosamente ahumado para lograr un sabor intenso, jugoso y tradicional. Ideal para acompañar comidas familiares y recetas especiales.",
+    image: "/productos/espaldas-ahumadas/JAMON (6).png",
+    category: "Espaldas Ahumadas"
+  },
+  {
+    id: "mort-3",
+    name: "Mortadela Extra",
+    description: "Mortadela de sabor tradicional y textura cremosa, preparada con ingredientes cuidadosamente seleccionados para un gusto auténtico.",
+    image: "/productos/mortadelas/JAMON (4).png",
+    category: "Mortadelas"
+  },
+  {
+    id: "mort-4",
+    name: "Mortadela Tipo Superior",
+    description: "Versión superior de mortadela, con una receta especial que ofrece mayor suavidad, sabor y calidad en cada porción.",
+    image: "/productos/mortadelas/JAMON (8).png",
+    category: "Mortadelas"
+  },
+  {
+    id: "pech-4",
+    name: "Pechuga de Pavo Cocido Superior",
+    description: "Pechuga de pavo cocida de alta calidad, baja en grasa y con un sabor suave y delicioso. Perfecta para comidas ligeras y saludables.",
+    image: "/productos/pechugas-cosidas/JAMON (2).png",
+    category: "Pechugas Cocidas"
+  },
+  {
+    id: "pech-5",
+    name: "Pechuga de Pollo Cocido",
+    description: "Pechuga de pollo cocida y lista para disfrutar, con textura tierna y sabor natural. Ideal para sándwiches, ensaladas y recetas rápidas.",
+    image: "/productos/pechugas-cosidas/JAMON (3).png",
+    category: "Pechugas Cocidas"
+  },
+  {
+    id: "pech-6",
+    name: "Pechuga de Pavo Ahumada",
+    description: "Pechuga de pavo con un delicado toque ahumado que resalta su sabor y aroma. Una opción deliciosa y versátil para cualquier ocasión.",
+    image: "/productos/pechugas-cosidas/JAMON(9).png",
+    category: "Pechugas Cocidas"
+  }
 ];
