@@ -6,7 +6,6 @@ import AboutUs from "@/components/AboutUs";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
 import SocialMedia from "@/components/SocialMedia";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Footer from "@/components/Footer";
 
 import LoadingScreen from "@/components/LoadingScreen";
@@ -25,7 +24,6 @@ export default function Home() {
         <Contact />
         <SocialMedia />
       </main>
-      <WhatsAppFloat />
       <Footer />
     </div>
   );

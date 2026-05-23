@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -34,11 +35,11 @@ const Footer = () => {
           <div className="flex flex-col items-start">
             <h3 className="font-bold uppercase tracking-widest text-xs mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-1 font-medium text-sm w-full">
-              <li><a href="#productos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Productos</a></li>
-              <li><a href="#recetas" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Recetas</a></li>
-              <li><a href="#nosotros" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Nosotros</a></li>
-              <li><a href="#donde-comprar" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Dónde comprar</a></li>
-              <li><a href="#contacto" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Contacto</a></li>
+              <li><Link href="/productos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Productos</Link></li>
+              <li><Link href="/recetas" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Recetas</Link></li>
+              <li><Link href="/#nosotros" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Nosotros</Link></li>
+              <li><Link href="/#donde-comprar" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Dónde comprar</Link></li>
+              <li><Link href="/#contacto" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-2"><span className="text-[6px]">●</span> Contacto</Link></li>
             </ul>
           </div>
 

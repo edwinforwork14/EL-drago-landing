@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <motion.img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 scale-[1.02] group-hover:scale-[1.08]"
+          className="w-full h-full object-cover transition-transform duration-700 scale-[1.02] group-hover:scale-[1.08] group-hover:rotate-3"
         />
         {/* Transparent overlay over the image for rounding adaptivity */}
         <div className="absolute inset-0 pointer-events-none rounded-[3rem] md:rounded-[4rem] ring-1 ring-inset ring-white/10" />
