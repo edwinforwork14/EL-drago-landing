@@ -104,28 +104,7 @@ export default function ProductosPage() {
               Tradición familiar que se sirve en cada mesa.
             </motion.p>
 
-            {/* Trust badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.8 }}
-              className="flex flex-wrap items-center gap-6 md:gap-10 mt-10 md:mt-12"
-            >
-              {[
-                { icon: "verified", label: "Calidad Premium" },
-                { icon: "history", label: "Tradición Artesanal" },
-                { icon: "eco", label: "Ingredientes Selectos" },
-              ].map((badge) => (
-                <div key={badge.label} className="flex items-center gap-2.5 group">
-                  <span className="material-symbols-outlined text-accent text-xl md:text-2xl transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">
-                    {badge.icon}
-                  </span>
-                  <span className="text-white/60 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] group-hover:text-white transition-colors">
-                    {badge.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
+            {/* Trust badges removed as requested */}
           </div>
         </motion.div>
 
@@ -134,8 +113,8 @@ export default function ProductosPage() {
       </section>
 
       {/* ─── INTRO TEXT ─── */}
-      <section className="relative z-10 -mt-1">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
+      <section className="relative z-10 -mt-0">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,17 +122,17 @@ export default function ProductosPage() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-primary font-bold text-sm md:text-base uppercase tracking-[0.3em] mb-4 block">
               Explora nuestras categorías
             </span>
-            <h2 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] text-4xl md:text-6xl uppercase leading-[0.9] tracking-tight mb-6">
+            <h2 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] text-5xl md:text-7xl uppercase leading-[0.9] tracking-tight mb-6">
               El sabor que
               <br />
-              <span className="text-primary font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5.5rem] -rotate-1 inline-block ml-1">
+              <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[6.5rem] -rotate-1 inline-block ml-1">
                 atrapa
               </span>
             </h2>
-            <p className="text-primary-dark/60 text-base md:text-lg leading-relaxed font-medium max-w-xl mx-auto">
+            <p className="text-primary-dark/60 text-lg md:text-xl leading-relaxed font-medium max-w-xl mx-auto">
               Cada categoría ha sido curada para ofrecerte la mejor experiencia gastronómica.
               Selecciona y descubre nuestra variedad.
             </p>

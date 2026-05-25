@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { recipes, Recipe } from "@/data/recipes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import RecipeCarousel from "@/components/RecipeCarousel";
 
 function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
   return (
@@ -34,9 +35,6 @@ function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
             </span>
             <span className="text-white/80 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
               <span className="material-symbols-outlined text-sm text-accent">schedule</span>
-              {recipe.time}
-            </span>
-            <span className="text-white/80 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
               <span className="material-symbols-outlined text-sm text-accent">signal_cellular_alt</span>
               {recipe.difficulty}
             </span>
@@ -70,15 +68,8 @@ export default function RecetasPage() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="relative rounded-[3rem] overflow-hidden mb-16 shadow-2xl group border border-primary/5 min-h-[40vh] md:min-h-[50vh] flex flex-col justify-end p-8 md:p-12 lg:p-16"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="/plantilla/imagenes/page-0010.jpg" 
-              alt="Recetas Gourmet" 
-              className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-[#0a0a0a]/60 to-[#0a0a0a]/30" />
-          </div>
+              {/* Background Carousel */}
+              <RecipeCarousel recipes={recipes} />
 
           <div className="relative z-10 w-full">
             {/* Breadcrumbs and back button */}

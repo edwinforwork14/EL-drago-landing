@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const AboutUs = () => {
   return (
-    <section id="nosotros" className="relative w-full overflow-hidden bg-[#9a0021] py-0">
+    <section id="nosotros" className="relative w-full overflow-hidden bg-[#C41A1E] py-0">
 
       {/* Top "Carving" Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
@@ -79,7 +79,7 @@ const AboutUs = () => {
             <div className="absolute -bottom-8 -right-4 md:-bottom-10 md:-right-8 w-28 h-28 md:w-36 md:h-36 bg-white rounded-full flex items-center justify-center p-2 shadow-xl animate-spin-slow z-20">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <path id="circlePath2" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                <text fontSize="9" fontWeight="bold" fill="#9a0021" letterSpacing="2">
+                <text fontSize="9" fontWeight="bold" fill="#C41A1E" letterSpacing="2">
                   <textPath xlinkHref="#circlePath2">Hechos con pasión • Tradición •</textPath>
                 </text>
               </svg>

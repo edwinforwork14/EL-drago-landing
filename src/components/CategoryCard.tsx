@@ -43,17 +43,17 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ group, index, image }) => {
       <div className="absolute inset-2 md:inset-3 rounded-[1.5rem] md:rounded-[2rem] border border-white/5 pointer-events-none z-20 group-hover:border-accent/20 transition-colors duration-700" />
       <Link href={`/productos/${group.slug}`} className="block h-full w-full">
         {/* ─── Background Image ─── */}
-        <div className="absolute inset-0 bg-primary-dark/90">
+        <div className="absolute inset-0 bg-primary-dark/90 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden">
           <img
             src={imgSrc}
             alt={group.label}
-            className="w-full h-full object-cover transition-all duration-[1.2s] ease-out group-hover:scale-110"
+            className="w-full h-full object-cover transition-all duration-[1.2s] ease-out group-hover:scale-110 rounded-[2rem] md:rounded-[2.5rem]"
           />
         </div>
 
         {/* ─── Gradient Overlays ─── */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent transition-opacity duration-700 group-hover:via-[#0a0a0a]/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent transition-opacity duration-700 group-hover:via-[#0a0a0a]/60 rounded-[2rem] md:rounded-[2.5rem]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2rem] md:rounded-[2.5rem]" />
 
         {/* ─── Decorative light leak ─── */}
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -116,7 +116,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ group, index, image }) => {
         </div>
 
         {/* ─── Shine overlay on hover ─── */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out pointer-events-none rounded-[2rem] md:rounded-[2.5rem]" />
       </Link>
     </motion.div>
   );
