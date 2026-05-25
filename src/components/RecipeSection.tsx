@@ -156,7 +156,7 @@ const RecipeSection = () => {
               transition={{ delay: 0.1 }}
               className="text-[2.75rem] md:text-[5.5rem] font-luckiest-guy text-primary-dark tracking-tight leading-none mb-0 uppercase flex flex-wrap items-center justify-center gap-x-5 md:gap-x-8"
             >
-              <span>EL</span> <span>ARTE</span> <span>DE</span> <span className="text-primary font-mr-dafoe normal-case text-[3.85rem] md:text-[7.7rem] -rotate-2 inline-block ml-2">Saborear</span>
+              <span>EL</span> <span>ARTE</span> <span>DE</span> <span className="text-[#FEC70C] font-mr-dafoe normal-case text-[3.85rem] md:text-[7.7rem] -rotate-2 inline-block ml-2">Saborear</span>
             </motion.h2>
           </div>
 

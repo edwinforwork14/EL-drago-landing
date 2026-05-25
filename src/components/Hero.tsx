@@ -34,12 +34,12 @@ const Hero = () => {
         <div className="max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start md:translate-y-0">
           
           {/* Headline Composition */}
-          <div className="relative mb-6 md:mb-8">
+          <div className="relative mb-6 md:mb-8 lg:mt-16">
             <motion.h1
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-[family-name:var(--font-luckiest-guy)] text-[4.5rem] sm:text-[6.5rem] md:text-[7rem] lg:text-[8.5rem] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-6"
+              className="font-[family-name:var(--font-luckiest-guy)] text-[4.14rem] sm:text-[5.98rem] md:text-[6.44rem] lg:text-[7.82rem] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-6"
             >
               EL SABOR
             </motion.h1>
@@ -50,8 +50,8 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="flex items-center justify-center md:justify-start gap-4 -mt-4 sm:-mt-8 md:-mt-10 relative z-10 md:ml-12"
             >
-              <span className="font-black text-accent text-xl md:text-2xl uppercase leading-none tracking-tighter bg-primary/40 backdrop-blur-sm px-3 py-1 rounded-sm">que</span>
-              <span className="font-[family-name:var(--font-mr-dafoe)] text-[4.8rem] sm:text-[6.5rem] md:text-[7.5rem] lg:text-[9.5rem] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
+              <span className="font-black text-accent text-[1.15rem] md:text-[1.38rem] uppercase leading-none tracking-tighter bg-primary/40 backdrop-blur-sm px-3 py-1 rounded-sm">que</span>
+              <span className="font-[family-name:var(--font-mr-dafoe)] text-[4.41rem] sm:text-[5.98rem] md:text-[6.9rem] lg:text-[8.74rem] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
                 Atrapa
               </span>
             </motion.div>

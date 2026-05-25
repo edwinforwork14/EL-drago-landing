@@ -32,69 +32,78 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
     <div className="min-h-screen bg-background flex flex-col justify-between overflow-x-hidden">
       <Navbar transparentInitially={false} />
 
-      <main className="pt-32 px-6 md:px-12 max-w-7xl mx-auto pb-24 flex-1 w-full">
-        {/* ─── CATEGORY HERO SECTION ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-[3rem] overflow-hidden mb-16 shadow-2xl group border border-primary/5 min-h-[40vh] md:min-h-[50vh] flex flex-col justify-end p-8 md:p-12 lg:p-16"
-        >
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img 
-              src={heroImage} 
-              alt={group.label} 
-              className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-[#0a0a0a]/60 to-[#0a0a0a]/30" />
+      {/* ─── CATEGORY HERO SECTION ─── full width, flush to top */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full overflow-hidden group min-h-[60vh] md:min-h-[70vh] flex flex-col justify-end"
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroImage} 
+            alt={group.label} 
+            className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-[#0a0a0a]/60 to-[#0a0a0a]/20" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-20 md:pb-28">
+          {/* Breadcrumbs and back button */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-12">
+            <Link
+              href="/productos"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors group/link"
+            >
+              <span className="material-symbols-outlined text-lg transition-transform group-hover/link:-translate-x-1">arrow_back</span>
+              Todos los productos
+            </Link>
+            <div className="flex items-center gap-2 text-white/60 text-[10px] font-bold uppercase tracking-widest">
+              <Link href="/" className="hover:text-white transition-colors">Inicio</Link>
+              <span>/</span>
+              <Link href="/productos" className="hover:text-white transition-colors">Productos</Link>
+              <span>/</span>
+              <span className="text-[#FEC70C]">{group.label}</span>
+            </div>
           </div>
 
-          <div className="relative z-10 w-full">
-            {/* Breadcrumbs and back button */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-12">
-              <Link
-                href="/productos"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors group/link"
-              >
-                <span className="material-symbols-outlined text-lg transition-transform group-hover/link:-translate-x-1">arrow_back</span>
-                Todos los productos
-              </Link>
-              <div className="flex items-center gap-2 text-white/60 text-[10px] font-bold uppercase tracking-widest">
-                <Link href="/" className="hover:text-white transition-colors">Inicio</Link>
-                <span>/</span>
-                <Link href="/productos" className="hover:text-white transition-colors">Productos</Link>
-                <span>/</span>
-                <span className="text-accent">{group.label}</span>
-              </div>
-            </div>
+          {/* Heading */}
+          <div className="max-w-3xl">
+            <h1 className="text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight mb-4 drop-shadow-md">
+              Nuestros <br />
+              <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[6.5rem] lg:text-[8rem] -rotate-1 inline-block drop-shadow-lg">
+                {group.label}
+              </span>
+            </h1>
+            
+            <p className="text-white/80 text-base md:text-xl font-medium leading-relaxed drop-shadow-sm mb-8 max-w-2xl">
+              {group.description}
+            </p>
 
-            {/* Heading with Brand Luckiest Guy & Mr Dafoe */}
-            <div className="max-w-3xl">
-              <h1 className="text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight mb-4 drop-shadow-md">
-                Nuestros <br />
-                <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[6.5rem] lg:text-[8rem] -rotate-1 inline-block drop-shadow-lg">
-                  {group.label}
+            <div className="flex flex-wrap gap-2.5">
+              {group.subcategories.map((sub) => (
+                <span
+                  key={sub}
+                  className="text-[10px] font-bold uppercase tracking-wider text-primary-dark bg-accent border border-accent/20 px-4 py-2 rounded-full shadow-sm"
+                >
+                  {sub}
                 </span>
-              </h1>
-              
-              <p className="text-white/80 text-base md:text-xl font-medium leading-relaxed drop-shadow-sm mb-8 max-w-2xl">
-                {group.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2.5">
-                {group.subcategories.map((sub) => (
-                  <span
-                    key={sub}
-                    className="text-[10px] font-bold uppercase tracking-wider text-primary-dark bg-accent border border-accent/20 px-4 py-2 rounded-full shadow-sm"
-                  >
-                    {sub}
-                  </span>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Bottom "Carving" Wave */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
+            className="relative block w-[120%] h-[60px] md:h-[100px] fill-[#FCF2E6] -left-[10%] translate-y-[1px]">
+            <path d="M0,80 C200,0 400,120 600,60 C800,0 1000,120 1200,80 L1200,120 L0,120 Z" />
+          </svg>
+        </div>
+      </motion.section>
+
+      <main className="px-6 md:px-12 max-w-7xl mx-auto pb-24 flex-1 w-full pt-12">
 
         {/* ─── PRODUCTS GRID ─── */}
         {products.length === 0 ? (

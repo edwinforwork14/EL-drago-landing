@@ -32,7 +32,7 @@ const ProductGrid = () => {
             >
               <h2 className="text-[3.5rem] md:text-[5rem] font-[family-name:var(--font-luckiest-guy)] text-primary-dark tracking-normal leading-[0.9] mb-6 uppercase">
                 NUESTROS <br /> 
-                <span className="text-primary font-[family-name:var(--font-mr-dafoe)] normal-case text-[4rem] md:text-[6rem] -rotate-2 inline-block">Productos</span>
+                <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4rem] md:text-[6rem] -rotate-2 inline-block">Productos</span>
               </h2>
               
               <p className="text-primary-dark/70 font-medium text-lg md:text-xl leading-relaxed mb-10">

@@ -19,7 +19,7 @@ const Contact = () => {
           <div className="text-white space-y-8 max-w-3xl w-full">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-[family-name:var(--font-luckiest-guy)] uppercase leading-tight tracking-tight mt-8">
               ¿TIENES DUDAS O QUIERES <br className="hidden md:block" />
-              <span className="text-secondary-container">DISTRIBUIR NUESTROS PRODUCTOS?</span>
+              <span className="text-[#FEC70C] font-[family-name:var(--font-luckiest-guy)]">DISTRIBUIR NUESTROS PRODUCTOS?</span>
             </h2>
 
             <p className="text-xl font-bold opacity-90">¡Estamos aquí para ayudarte!</p>

@@ -173,51 +173,68 @@ export default function ProductosPage() {
       </section>
 
       {/* ─── BOTTOM CTA ─── */}
-      <section className="relative pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative bg-primary-dark rounded-[3rem] md:rounded-[4rem] p-10 md:p-16 lg:p-20 overflow-hidden"
-          >
-            {/* Decorative */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] -mr-48 -mt-48" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -ml-32 -mb-32" />
+      <section className="relative w-full overflow-hidden bg-primary-dark py-0">
+        {/* Top "Carving" Wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
+            className="relative block w-[120%] h-[80px] md:h-[120px] fill-[#FCF2E6] -left-[10%]">
+            <path d="M0,60 C150,150 350,0 600,80 C850,160 1050,0 1200,60 L1200,0 L0,0 Z" />
+          </svg>
+        </div>
 
-            <div className="relative z-10 text-center max-w-2xl mx-auto">
-              <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
-                ¿Listo para descubrir?
-              </span>
-              <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-4xl md:text-6xl uppercase leading-[0.9] tracking-tight mb-6">
-                Encuentra tu
-                <br />
-                <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5.5rem] -rotate-1 inline-block">
-                  sabor ideal
+        <div className="py-24 md:py-32 px-5 md:px-10 lg:px-16 relative z-0">
+          <div className="max-w-[1400px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative w-full p-2 md:p-10 overflow-hidden"
+            >
+              {/* Decorative */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none" />
+
+              <div className="relative z-10 text-center max-w-2xl mx-auto">
+                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
+                  ¿Listo para descubrir?
                 </span>
-              </h3>
-              <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-md mx-auto mb-8 font-medium">
-                Contáctanos para conocer más sobre nuestros productos o realizar tu pedido.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/#contacto"
-                  className="inline-flex items-center gap-3 bg-primary text-white font-bold uppercase tracking-[0.15em] text-xs px-8 py-4 md:px-10 md:py-5 rounded-full hover:bg-white hover:text-primary transition-all duration-300 shadow-2xl"
-                >
-                  <span className="material-symbols-outlined">mail</span>
-                  Contáctanos
-                </Link>
-                <Link
-                  href="/"
-                  className="inline-flex items-center gap-2 text-white/70 hover:text-white font-bold text-xs uppercase tracking-widest transition-colors"
-                >
-                  Volver al inicio
-                  <span className="material-symbols-outlined text-lg">arrow_forward</span>
-                </Link>
+                <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-4xl md:text-6xl uppercase leading-[0.9] tracking-tight mb-6">
+                  Encuentra tu
+                  <br />
+                  <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5.5rem] -rotate-1 inline-block">
+                    sabor ideal
+                  </span>
+                </h3>
+                <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-md mx-auto mb-8 font-medium">
+                  Contáctanos para conocer más sobre nuestros productos o realizar tu pedido.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Link
+                    href="/#contacto"
+                    className="inline-flex items-center gap-3 bg-accent text-primary-dark font-bold uppercase tracking-[0.15em] text-xs px-8 py-4 md:px-10 md:py-5 rounded-full hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_15px_30px_rgba(254,199,12,0.2)]"
+                  >
+                    <span className="material-symbols-outlined">mail</span>
+                    Contáctanos
+                  </Link>
+                  <Link
+                    href="/"
+                    className="inline-flex items-center gap-2 text-white/70 hover:text-white font-bold text-xs uppercase tracking-widest transition-colors"
+                  >
+                    Volver al inicio
+                    <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom "Carving" Wave */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
+            className="relative block w-[120%] h-[80px] md:h-[120px] fill-[#FCF2E6] -left-[10%]">
+            <path d="M0,80 C200,0 400,120 600,60 C800,0 1000,120 1200,80 L1200,120 L0,120 Z" />
+          </svg>
         </div>
       </section>
       <Footer />

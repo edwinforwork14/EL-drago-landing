@@ -26,12 +26,11 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
     if (!transparentInitially) return;
 
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
+
+    // Check immediately on mount in case the page was already scrolled
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -83,22 +82,22 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative transition-colors duration-300 py-2 hover:text-primary ${
-                  active ? "text-primary font-black" : ""
-                } ${!active && activeBg ? "text-primary-dark/80 hover:text-primary" : ""} ${
-                  !active && !activeBg ? "text-white/90 hover:text-accent" : ""
+                className={`relative transition-colors duration-300 py-2 hover:text-[#FEC70C] ${
+                  active ? "text-[#FEC70C] font-black" : ""
+                } ${!active && activeBg ? "text-primary-dark/80 hover:text-[#FEC70C]" : ""} ${
+                  !active && !activeBg ? "text-white/90 hover:text-[#FEC70C]" : ""
                 }`}
               >
                 {link.name}
                 {active && (
                   <motion.span
                     layoutId="activeIndicator"
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-[#FEC70C]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
                 {!active && (
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FEC70C] transition-all duration-300 hover:w-full group-hover:w-full" />
                 )}
               </Link>
             );
@@ -197,7 +196,7 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
                         className={`font-bold text-2xl tracking-tight py-3 border-b border-white/10 transition-colors block ${
-                          active ? "text-accent" : "text-white hover:text-accent"
+                          active ? "text-[#FEC70C]" : "text-white hover:text-[#FEC70C]"
                         }`}
                       >
                         {link.name}

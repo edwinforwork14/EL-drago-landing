@@ -1,7 +1,7 @@
 
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
-import RecipeSection from "@/components/RecipeSection";
+import RecipeCTA from "@/components/RecipeCTA";
 import AboutUs from "@/components/AboutUs";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
@@ -18,7 +18,7 @@ export default function Home() {
       <main className="flex-1 overflow-x-hidden">
         <Hero />
         <ProductGrid />
-        <RecipeSection />
+        <RecipeCTA />
         <AboutUs />
         <WhyChooseUs />
         <Contact />

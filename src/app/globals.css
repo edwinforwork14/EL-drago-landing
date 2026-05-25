@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/tipografias/Montserrant/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/tipografias/Montserrant/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/tipografias/Montserrant/Montserrat-Black.ttf') format('truetype');
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blacksword';
+  src: url('/tipografias/Blacksword/Blacksword.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* Colors */
   --color-primary: #DF2122;
@@ -53,19 +85,23 @@
   --spacing-base: 8px;
 
   /* Typography */
-  --font-headline: "Bricolage Grotesque", sans-serif;
-  --font-body: "Be Vietnam Pro", sans-serif;
+  --font-headline: "Montserrat", sans-serif;
+  --font-body: "Montserrat", sans-serif;
 
-  --font-headline-md: "Bricolage Grotesque", sans-serif;
-  --font-headline-lg: "Bricolage Grotesque", sans-serif;
-  --font-display-lg: "Bricolage Grotesque", sans-serif;
-  --font-body-lg: "Be Vietnam Pro", sans-serif;
-  --font-body-md: "Be Vietnam Pro", sans-serif;
-  --font-label-bold: "Be Vietnam Pro", sans-serif;
+  --font-headline-md: "Montserrat", sans-serif;
+  --font-headline-lg: "Montserrat", sans-serif;
+  --font-display-lg: "Montserrat", sans-serif;
+  --font-body-lg: "Montserrat", sans-serif;
+  --font-body-md: "Montserrat", sans-serif;
+  --font-label-bold: "Montserrat", sans-serif;
 
-  --font-luckiest-guy: var(--font-luckiest-guy);
-  --font-mr-dafoe: var(--font-mr-dafoe);
-  --font-bebas-neue: var(--font-bebas-neue);
+  --font-luckiest-guy: "Montserrat", sans-serif;
+  --font-mr-dafoe: "Blacksword", cursive;
+  --font-bebas-neue: "Montserrat", sans-serif;
+  --font-serif: "Montserrat", sans-serif;
+  --font-sans-modern: "Montserrat", sans-serif;
+
+  --font-blacksword: "Blacksword", cursive;
 }
 
 /* Custom Utilities from Template */
@@ -183,4 +219,21 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Yellow Text Typography Override - per user instructions */
+.text-accent,
+.text-secondary-container,
+.text-secondary-container\/80 {
+  font-family: 'Blacksword', cursive !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
 }
