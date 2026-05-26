@@ -9,6 +9,7 @@ import {
   getCategoryGroupBySlug,
   getProductsByCategorySlug,
   getProductSlug,
+  getProductImageUrl,
   CategoryGroup,
 } from "@/data/utils";
 import Navbar from "@/components/Navbar";
@@ -100,7 +101,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                     >
                       {/* IMAGE */}
                       <img
-                        src={product.image}
+                        src={getProductImageUrl(product)}
                         alt={product.name}
                         loading="lazy"
                         className={`

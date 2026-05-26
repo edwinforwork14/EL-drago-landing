@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { getProductBySlug, getAllProductsSlugged, getProductSlug, getCategorySlugForProduct } from "@/data/utils";
+import { getProductBySlug, getAllProductsSlugged, getProductSlug, getCategorySlugForProduct, getProductImageUrl } from "@/data/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -107,7 +107,7 @@ function ProductDetailContent() {
 
             <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[3rem] overflow-hidden bg-white/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
               <img
-                src={product.image}
+                src={getProductImageUrl(product)}
                 alt={product.name}
                 className="w-full h-full object-cover transition-transform duration-[1s] group-hover:scale-105"
               />
@@ -190,7 +190,7 @@ function ProductDetailContent() {
                     >
                       <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-white border border-primary/5 mb-6">
                         <img
-                          src={sibling.image}
+                          src={getProductImageUrl(sibling)}
                           alt={sibling.name}
                           className={`w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.12] ${
                             i % 3 === 0

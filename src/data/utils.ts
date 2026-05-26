@@ -86,6 +86,15 @@ export function getCategorySlugForProduct(product: Product): string | undefined 
   return group?.slug;
 }
 
+// ─── Image URL helper ────────────────────────────────────────────────
+
+export function getProductImageUrl(product: Product): string {
+  if (!product.image) return "/images/placeholder.jpg";
+  // All product images live in /productos/
+  const filename = product.image.startsWith("/") ? product.image.slice(1) : product.image;
+  return `/productos/${filename}`;
+}
+
 // ─── Re-export for convenience ──────────────────────────────────────
 
 export { products, CATEGORIES, recipes, getRecipeBySlug };

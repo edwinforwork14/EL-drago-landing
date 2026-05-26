@@ -4,8 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Product } from '@/data/products';
 import Link from 'next/link';
-import { getProductSlug } from '@/data/utils';
-import { getCategorySlugForProduct } from '@/data/utils';
+import { getProductSlug, getCategorySlugForProduct, getProductImageUrl } from '@/data/utils';
 
 interface ProductCardProps {
   product: Product;
@@ -27,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Image Container with rounding fix */}
       <div className="relative aspect-[3/4.5] overflow-hidden rounded-[3rem] md:rounded-[4rem] bg-white/5 border border-white/10 group-hover:border-primary/20 transition-all duration-500">
         <motion.img
-          src={product.image}
+          src={getProductImageUrl(product)}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 scale-[1.02] group-hover:scale-[1.08] group-hover:rotate-3"
         />

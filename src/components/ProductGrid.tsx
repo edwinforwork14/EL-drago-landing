@@ -1,128 +1,106 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { products, CATEGORIES, Product } from '@/data/products';
-import CategoryNav from './CategoryNav';
-import ProductCarousel from './ProductCarousel';
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const ProductGrid = () => {
-  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
-  const filteredProducts = useMemo(() => {
-    return products.filter(p => p.category === activeCategory);
-  }, [activeCategory]);
-
   return (
-    <section id="productos" className="relative pt-6 md:pt-10 pb-2 md:pb-4 bg-[#FCF2E6] overflow-hidden">
+    <section className="relative py-24 md:py-32 lg:py-40 bg-[#FCF2E6] overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
       
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
-          
-          {/* LEFT BLOCK: Header & Categories */}
-          <div className="w-full lg:w-[45%] lg:sticky lg:top-10">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative mb-8 md:mb-12"
-            >
-              <h2 className="text-[3.5rem] md:text-[5rem] font-[family-name:var(--font-luckiest-guy)] text-primary-dark tracking-normal leading-[0.9] mb-6 uppercase">
-                NUESTROS <br /> 
-                <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4rem] md:text-[6rem] -rotate-2 inline-block">Productos</span>
-              </h2>
-              
-              <p className="text-primary-dark/70 font-medium text-lg md:text-xl leading-relaxed mb-10">
-                Excelencia artesanal en cada rebanada. Selecciona una categoría para explorar nuestro catálogo premium.
-              </p>
+      {/* Subtle ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-              {/* Categories Navigation - 2 Columns Grid */}
-              <CategoryNav 
-                activeCategory={activeCategory} 
-                setActiveCategory={setActiveCategory} 
-                layout="grid"
-              />
-            </motion.div>
+      <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+        {/* DESKTOP: two columns (content left, button right) / MOBILE: stacked */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 md:gap-16"
+        >
+          {/* ─── LEFT: Content ─── */}
+          <div className="flex-1 max-w-2xl">
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8 md:mb-10">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              <span className="text-primary/60 font-bold text-[10px] uppercase tracking-[0.2em]">
+                Selección Premium
+              </span>
+            </div>
+
+            {/* Main title */}
+            <h2 className="font-[family-name:var(--font-luckiest-guy)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-primary-dark uppercase tracking-tighter leading-[0.85] mb-6">
+              Descubre Nuestra
+              <br />
+              <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-6xl sm:text-7xl md:text-8xl lg:text-9xl -rotate-2 inline-block mt-2">
+                Selección
+              </span>
+            </h2>
+
+            {/* Decorative divider */}
+            <div className="flex items-center gap-4 mb-8">
+              <span className="w-12 h-[2px] bg-primary/20" />
+              <span className="w-2 h-2 rounded-full bg-primary/30" />
+              <span className="w-12 h-[2px] bg-primary/20" />
+            </div>
+
+            {/* Description */}
+            <p className="text-primary-dark/60 font-medium text-base md:text-lg leading-relaxed max-w-2xl">
+              Productos artesanales elaborados con los más altos estándares de calidad. 
+              Tradición, pasión y excelencia en cada pieza.
+            </p>
           </div>
 
-          {/* RIGHT BLOCK: Dynamic Carousel */}
-          <div className="w-full lg:w-[55%] min-h-[500px] pt-4 md:pt-8">
-            <ProductCarousel 
-              products={filteredProducts} 
-              activeCategory={activeCategory}
-              onProductClick={(product) => setSelectedProduct(product)}
-            />
-          </div>
-        </div>
-
-        {/* Lightbox Overlay */}
-        <AnimatePresence>
-          {selectedProduct && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 backdrop-blur-xl"
-              onClick={() => setSelectedProduct(null)}
+          {/* ─── RIGHT: Button ─── */}
+          <div className="md:self-center shrink-0 flex flex-col items-center">
+            <Link
+              href="/productos"
+              className="group relative inline-flex items-center gap-3 bg-primary text-white font-bold uppercase tracking-[0.15em] text-[0.75rem] md:text-[0.8rem] px-10 md:px-12 py-5 rounded-full shadow-[0_15px_30px_rgba(196,26,30,0.25)] hover:shadow-[0_25px_50px_rgba(196,26,30,0.35)] transition-all duration-500 active:scale-95 overflow-hidden"
             >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-5xl w-full h-full flex flex-col items-center justify-center"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button 
-                  className="absolute top-0 right-0 md:-top-16 md:-right-16 text-white hover:text-primary transition-all p-4 bg-white/10 rounded-full backdrop-blur-md"
-                  onClick={() => setSelectedProduct(null)}
-                >
-                  <span className="material-symbols-outlined text-4xl">close</span>
-                </button>
-                
-                <div className="relative w-full h-[70vh] flex items-center justify-center">
-                  <img 
-                    src={selectedProduct.image} 
-                    alt={selectedProduct.name} 
-                    className="max-w-full max-h-full object-contain rounded-[3rem] drop-shadow-[0_35px_60px_rgba(0,0,0,0.5)]"
-                  />
-                </div>
+              <span className="relative z-10">Explorar Catálogo</span>
+              <span className="material-symbols-outlined relative z-10 text-lg transition-transform duration-500 group-hover:translate-x-1.5">
+                arrow_forward
+              </span>
+              {/* Shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+            </Link>
 
-                <div className="mt-12 text-center max-w-3xl">
-                  <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-5xl md:text-7xl tracking-wide uppercase mb-4">{selectedProduct.name}</h3>
-                  <div className="w-24 h-1 bg-primary mx-auto mb-6" />
-                  <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed">{selectedProduct.description}</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Trust Badges */}
-        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-primary/10 pt-16">
-          {[
-            { icon: 'verified', title: 'Calidad Certificada', desc: 'Procesos rigurosos para garantizar la excelencia en cada producto.' },
-            { icon: 'restaurant', title: 'Sabor Auténtico', desc: 'Recetas tradicionales que preservan el legado familiar.' },
-            { icon: 'eco', title: '100% Natural', desc: 'Ingredientes seleccionados sin conservantes innecesarios.' }
-          ].map((badge, i) => (
-            <motion.div 
-              key={i}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center group"
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="flex justify-center mt-0 md:mt-0 w-full"
             >
-              <div className="w-20 h-20 bg-primary/5 rounded-[2rem] flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-sm">
-                <span className="material-symbols-outlined text-4xl text-primary group-hover:text-white transition-colors">{badge.icon}</span>
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/10 rounded-full blur-[60px] scale-150 pointer-events-none" />
+                <img
+                  src="/Dragitos/DRAGUITO%20CATEGORIAS.png"
+                  alt="Mascota El Drago"
+                  className="w-auto max-w-[340px] md:max-w-[380px] h-auto object-contain"
+                />
               </div>
-              <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase tracking-widest text-xl mb-3">{badge.title}</h4>
-              <p className="text-primary-dark/60 text-sm leading-relaxed px-6 font-medium">{badge.desc}</p>
             </motion.div>
-          ))}
-        </div>
+          </div>
+        </motion.div>
+
+        {/* ─── DRAGUITO IMAGE PLACEHOLDER ─── */}
+        {/*
+          ================================================================
+          INSTRUCCIONES PARA LA IMAGEN DEL "DRAGUITO":
+          ================================================================
+          1. Coloca la imagen en: /public/imagenes/draguito.png (o la ruta que prefieras)
+          2. Reemplaza `src="/imagenes/draguito.png"` con la ruta correcta
+          3. Ajusta las dimensiones (max-w-[180px], etc.) según el tamaño deseado
+          4. La imagen se muestra centrada debajo de todo el contenido
+          ================================================================
+        */}
+        
       </div>
     </section>
   );
