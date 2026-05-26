@@ -1,16 +1,22 @@
-'use client';
+"use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Product } from '@/data/products';
+import Link from 'next/link';
+import { getProductSlug } from '@/data/utils';
+import { getCategorySlugForProduct } from '@/data/utils';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const slug = getProductSlug(product);
+  const category = getCategorySlugForProduct(product) || 'productos';
   return (
-    <motion.div
+    <Link href={`/productos/${category}/${slug}`} className="group block">
+      <motion.div
       layout
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -28,7 +34,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Transparent overlay over the image for rounding adaptivity */}
         <div className="absolute inset-0 pointer-events-none rounded-[3rem] md:rounded-[4rem] ring-1 ring-inset ring-white/10" />
       </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 

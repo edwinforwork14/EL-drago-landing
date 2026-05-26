@@ -4,9 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CATEGORIES } from '@/data/products';
 
+import { Category } from '@/data/products';
+
 interface CategoryNavProps {
-  activeCategory: string;
-  setActiveCategory: (category: string) => void;
+  activeCategory: Category;
+  setActiveCategory: (category: Category) => void;
   layout?: 'horizontal' | 'vertical' | 'grid';
 }
 

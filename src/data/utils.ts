@@ -36,7 +36,7 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     slug: "embutidos",
     label: "Embutidos",
     description: "Nuestra selección de embutidos tradicionales con recetas artesanales.",
-    subcategories: ["Jamones", "Mortadelas", "Fiambres"],
+    subcategories: ["Embutidos", "Jamones", "Mortadelas", "Fiambres"],
   },
   {
     slug: "ahumados",
@@ -48,7 +48,7 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     slug: "frescos",
     label: "Frescos",
     description: "Pechugas cocidas y productos frescos para tu mesa.",
-    subcategories: ["Pechugas Cocidas"],
+    subcategories: ["Frescos", "Pechugas Cocidas"],
   },
 ];
 
@@ -79,6 +79,11 @@ export function getAllProductsSlugged(): Array<Product & { slug: string }> {
 
 export function getProductBySlug(slug: string): (Product & { slug: string }) | undefined {
   return getAllProductsSlugged().find((p) => p.slug === slug);
+}
+
+export function getCategorySlugForProduct(product: Product): string | undefined {
+  const group = CATEGORY_GROUPS.find((g) => g.subcategories.includes(product.category));
+  return group?.slug;
 }
 
 // ─── Re-export for convenience ──────────────────────────────────────

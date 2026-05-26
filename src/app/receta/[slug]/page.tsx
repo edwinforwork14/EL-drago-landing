@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { recipes, getRecipeBySlug, Recipe } from "@/data/recipes";
+import { getAllProductsSlugged, getCategorySlugForProduct } from '@/data/utils';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -153,16 +154,22 @@ function RecipeDetailContent() {
                 {featuredProduct && (
                   <div className="mt-8 pt-8 border-t border-primary/10">
                     <span className="text-primary font-bold text-[8px] uppercase tracking-[0.25em] mb-3 block">Ingrediente Estrella</span>
-                    <Link href={`/producto/${featuredProduct.slug}`} className="group/prod flex items-center gap-4 bg-white/40 p-3.5 rounded-2xl border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-md">
-                      <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 border border-primary/5 flex items-center justify-center p-1">
-                        <img src={featuredProduct.image} alt={featuredProduct.name} className="w-full h-full object-contain transition-transform duration-500 group-hover/prod:scale-108" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase text-sm leading-tight group-hover/prod:text-primary transition-colors truncate">{featuredProduct.name}</h4>
-                        <p className="text-primary-dark/60 text-[10px] font-medium leading-tight line-clamp-2 mt-0.5">{featuredProduct.desc}</p>
-                      </div>
-                      <span className="material-symbols-outlined text-primary text-base transition-transform group-hover/prod:translate-x-1 shrink-0">arrow_forward</span>
-                    </Link>
+                    {(() => {
+                      const match = getAllProductsSlugged().find(p => p.slug === featuredProduct.slug);
+                      const href = match ? `/productos/${getCategorySlugForProduct(match) || 'productos'}/${match.slug}` : `/producto/${featuredProduct.slug}`;
+                      return (
+                        <Link href={href} className="group/prod flex items-center gap-4 bg-white/40 p-3.5 rounded-2xl border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-md">
+                          <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 border border-primary/5 flex items-center justify-center p-1">
+                            <img src={featuredProduct.image} alt={featuredProduct.name} className="w-full h-full object-contain transition-transform duration-500 group-hover/prod:scale-108" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase text-sm leading-tight group-hover/prod:text-primary transition-colors truncate">{featuredProduct.name}</h4>
+                            <p className="text-primary-dark/60 text-[10px] font-medium leading-tight line-clamp-2 mt-0.5">{featuredProduct.desc}</p>
+                          </div>
+                          <span className="material-symbols-outlined text-primary text-base transition-transform group-hover/prod:translate-x-1 shrink-0">arrow_forward</span>
+                        </Link>
+                      );
+                    })()}
                   </div>
                 )}
 
