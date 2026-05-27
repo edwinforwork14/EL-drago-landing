@@ -35,13 +35,21 @@ const RecipeCTA = () => {
               </p>
             </div>
 
-            <Link
-              href="/recetas"
-              className="bg-accent text-primary-dark px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm md:text-base hover:bg-white hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 relative z-10 shadow-[0_15px_30px_rgba(254,199,12,0.2)] w-full md:w-auto shrink-0"
-            >
-              Conoce nuestras recetas
-              <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
-            </Link>
+            <div className="flex items-center gap-4 w-full md:w-auto shrink-0 relative z-10">
+              <img
+                src="/Dragitos/DRAGUITO%20PRINCIPAL.png"
+                alt="Mascota El Drago"
+                className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+              />
+
+              <Link
+                href="/recetas"
+                className="bg-accent text-primary-dark px-8 md:px-10 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-sm md:text-base hover:bg-white hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_15px_30px_rgba(254,199,12,0.2)] w-full md:w-auto"
+              >
+                Conoce nuestras recetas
+                <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -26,30 +26,30 @@ const BrandPillars = () => {
   ];
 
   return (
-    <section className="bg-[#111111] text-[#E5E2DC] py-32 px-6 md:px-12 overflow-hidden relative">
+    <section className="bg-[#111111] text-[#E5E2DC] py-20 md:py-24 px-6 md:px-12 overflow-hidden relative">
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-24 max-w-3xl mx-auto">
-          <span className="text-secondary-container font-[family-name:var(--font-sans-modern)] font-bold tracking-[0.3em] uppercase text-sm mb-6 block">
+        <div className="text-center mb-14 max-w-3xl mx-auto">
+          <span className="text-secondary-container font-[family-name:var(--font-sans-modern)] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
             Nuestra Esencia
           </span>
-          <h2 className="text-5xl md:text-7xl font-[family-name:var(--font-serif)] mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-[family-name:var(--font-serif)] mb-5 leading-tight">
             Los pilares que definen El Drago
           </h2>
-          <p className="text-lg md:text-xl font-[family-name:var(--font-sans-modern)] opacity-70 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base md:text-lg font-[family-name:var(--font-sans-modern)] opacity-70 leading-relaxed max-w-2xl mx-auto">
             Cada producto refleja nuestra tradición, honestidad y compromiso con la excelencia.
           </p>
         </div>
 
         {/* Grid of Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {pillars.map((pillar, index) => (
             <div key={index} className="group relative flex flex-col h-full cursor-default">
               {/* Image Container with Hover Effects */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-8 shadow-2xl">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-5 shadow-2xl">
                 <img 
                   src={pillar.image} 
                   alt={pillar.title}
@@ -58,25 +58,25 @@ const BrandPillars = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 
                 {/* Floating Icon over Image */}
-                <div className="absolute bottom-6 right-6 w-12 h-12 bg-[#E5E2DC]/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:bg-secondary-container group-hover:text-[#111111]">
-                  <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
+                <div className="absolute bottom-4 right-4 w-10 h-10 bg-[#E5E2DC]/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:bg-secondary-container group-hover:text-[#111111]">
+                  <span className="material-symbols-outlined text-xl">{pillar.icon}</span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="flex flex-col flex-1 px-2">
-                <span className="text-secondary-container/80 font-[family-name:var(--font-sans-modern)] font-bold tracking-widest uppercase text-[10px] mb-4">
+              <div className="flex flex-col flex-1 px-1">
+                <span className="text-secondary-container/80 font-[family-name:var(--font-sans-modern)] font-bold tracking-widest uppercase text-[9px] mb-2">
                   {pillar.eyebrow}
                 </span>
-                <h3 className="text-3xl font-[family-name:var(--font-serif)] mb-4 group-hover:text-secondary-container transition-colors duration-300">
+                <h3 className="text-2xl font-[family-name:var(--font-serif)] mb-2 group-hover:text-secondary-container transition-colors duration-300">
                   {pillar.title}
                 </h3>
-                <p className="text-base font-[family-name:var(--font-sans-modern)] opacity-60 leading-relaxed">
+                <p className="text-sm font-[family-name:var(--font-sans-modern)] opacity-60 leading-relaxed">
                   {pillar.description}
                 </p>
                 
                 {/* Bottom decorative line */}
-                <div className="w-12 h-px bg-secondary-container/30 mt-8 group-hover:w-full transition-all duration-700"></div>
+                <div className="w-10 h-px bg-secondary-container/30 mt-5 group-hover:w-full transition-all duration-700"></div>
               </div>
             </div>
           ))}

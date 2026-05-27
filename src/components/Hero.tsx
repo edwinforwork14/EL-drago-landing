@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 
 const Hero = () => {
   return (
-    <section className="relative bg-primary overflow-hidden min-h-[50vh] md:min-h-[60vh]">
+    <section className="relative overflow-hidden min-h-[50vh] md:min-h-[60vh]">
       <Navbar transparentInitially={true} />
 
       {/* ─── HERO IMAGE — Mobile: right-focus, Desktop: full ─── */}

@@ -44,10 +44,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       className="
         group
         relative
-        h-[420px]
-        sm:h-[460px]
-        md:h-[500px]
-        lg:h-[540px]
+        h-[320px]
+        sm:h-[350px]
+        md:h-[380px]
+        lg:h-[400px]
         w-full
         overflow-hidden
         rounded-[2rem]
@@ -62,8 +62,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         duration-700
       "
     >
-      {/* Inner Glow Ring */}
-      <div className="absolute inset-2 md:inset-3 rounded-[1.5rem] md:rounded-[2rem] border border-white/5 pointer-events-none z-20 group-hover:border-accent/20 transition-colors duration-700" />
+      {/* Inner Glow Ring */}        <div className="absolute inset-1.5 md:inset-2 rounded-[1.2rem] md:rounded-[1.5rem] border border-white/5 pointer-events-none z-20 group-hover:border-accent/20 transition-colors duration-700" />
 
       <Link
         href={`/productos/${group.slug}`}
@@ -98,17 +97,17 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
         {/* ─── Content ─── */}
-        <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8 lg:p-10">
+        <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 lg:p-6">
           
           {/* TOP AREA */}
           <div className="flex justify-end">
             <div
               className="
-                w-14
-                h-14
-                md:w-16
-                md:h-16
-                rounded-2xl
+                w-10
+                h-10
+                md:w-12
+                md:h-12
+                rounded-xl
                 bg-white/5
                 backdrop-blur-md
                 border
@@ -125,7 +124,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
                 shadow-lg
               "
             >
-              <span className="material-symbols-outlined text-white text-3xl">
+              <span className="material-symbols-outlined text-white text-xl">
                 {categoryIcons[group.slug] || "category"}
               </span>
             </div>
@@ -135,7 +134,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
           <div className="relative z-10 w-full">
             
             {/* Eyebrow */}
-            <span className="block text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] mb-3">
+            <span className="block text-accent text-[9px] md:text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
               Categoría
             </span>
 
@@ -171,15 +170,15 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
                 leading-relaxed
                 font-medium
                 max-w-md
-                mb-5
-                line-clamp-3
+                mb-3
+                line-clamp-2
               "
             >
               {group.description}
             </p>
 
             {/* Subcategories */}
-            <div className="flex flex-wrap gap-2 mb-5">
+            <div className="flex flex-wrap gap-1.5 mb-3">
               {group.subcategories.slice(0, 3).map((sub) => (
                 <span
                   key={sub}
