@@ -74,7 +74,7 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
               alt="hero image"
               onError={handleImgError}
               style={{ y: heroY }}
-              className="relative z-20 w-[286px] h-[286px] md:w-[462px] md:h-[462px] object-contain rounded-[1.5rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
+              className="relative z-20 w-[286px] h-[286px] md:w-[462px] md:h-[462px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
             />
           )}
         </div>

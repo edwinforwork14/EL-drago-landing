@@ -120,7 +120,7 @@ function RecipeDetailContent() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full md:w-1/2 max-h-[80vh] rounded-[3rem] overflow-hidden shadow-2xl group border border-primary/5"
+          className="relative w-full md:w-1/2 max-h-[80vh] rounded-[2.16rem] overflow-hidden shadow-2xl group border border-primary/5"
         >
             <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-103" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-black/35 to-transparent z-10" />
@@ -136,7 +136,7 @@ function RecipeDetailContent() {
 
           <div className="w-full md:w-1/2 space-y-12">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.7 }}>
-              <div className="bg-[#FCF2E6]/60 backdrop-blur-md rounded-[2.5rem] p-8 border border-primary/5 shadow-xl sticky top-28">
+              <div className="bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-8 border border-primary/5 shadow-xl sticky top-28">
                 <span className="text-primary font-bold text-[9px] uppercase tracking-[0.25em] mb-2 block">Paso a Paso</span>
                 <h2 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] text-3xl uppercase tracking-tight mb-6">Ingredientes</h2>
                 <ul className="space-y-4">
@@ -158,7 +158,7 @@ function RecipeDetailContent() {
                       const match = getAllProductsSlugged().find(p => p.slug === featuredProduct.slug);
                       const href = match ? `/productos/${getCategorySlugForProduct(match) || 'productos'}/${match.slug}` : `/producto/${featuredProduct.slug}`;
                       return (
-                        <Link href={href} className="group/prod flex items-center gap-4 bg-white/40 p-3.5 rounded-2xl border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-md">
+                        <Link href={href} className="group/prod flex items-center gap-4 bg-white/40 p-3.5 rounded-[0.72rem] border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-md">
                           <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 border border-primary/5 flex items-center justify-center p-1">
                             <img src={featuredProduct.image} alt={featuredProduct.name} className="w-full h-full object-contain transition-transform duration-500 group-hover/prod:scale-108" />
                           </div>
@@ -173,7 +173,7 @@ function RecipeDetailContent() {
                   </div>
                 )}
 
-<div className="bg-[#FCF2E6]/60 backdrop-blur-md rounded-[2rem] p-6 border border-primary/5 shadow-lg">
+<div className="bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.44rem] p-6 border border-primary/5 shadow-lg">
                   <span className="text-primary font-bold text-[9px] uppercase tracking-[0.25em] mb-2 block">
                     En la Cocina
                   </span>
@@ -211,8 +211,8 @@ function RecipeDetailContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {recipes.filter((r) => r.id !== recipe.id).slice(0, 3).map((r, i) => (
               <motion.div key={r.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 + 0.05 * i }}>
-                <Link href={`/receta/${r.slug}`} className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[2.5rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
-                  <div className="aspect-[16/10] rounded-[2rem] overflow-hidden border border-primary/5 mb-6 relative">
+                <Link href={`/receta/${r.slug}`} className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+                  <div className="aspect-[16/10] rounded-[1.44rem] overflow-hidden border border-primary/5 mb-6 relative">
                     <img src={r.image} alt={r.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108" />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center p-6 backdrop-blur-[2px]">
                       <span className="inline-flex items-center gap-2 bg-white text-primary-dark text-[9px] font-black uppercase tracking-wider px-4 py-2.5 rounded-full shadow-md translate-y-3 group-hover:translate-y-0 transition-transform duration-500">Ver Receta <span className="material-symbols-outlined text-xs">arrow_forward</span></span>

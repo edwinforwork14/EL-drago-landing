@@ -17,7 +17,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group relative overflow-hidden rounded-[24px] cursor-pointer bg-black ${
+      className={`group relative overflow-hidden rounded-[1.08rem] cursor-pointer bg-black ${
         isVertical ? "h-[380px] md:h-full" : "h-[320px] md:h-[220px]"
       } w-full`}
     >
@@ -254,7 +254,7 @@ const RecipeSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="md:col-span-3 flex flex-col md:flex-row items-center justify-between bg-primary-dark rounded-[24px] p-6 md:p-8 text-white group relative overflow-hidden mt-5 min-h-[320px] md:min-h-[auto]"
+            className="md:col-span-3 flex flex-col md:flex-row items-center justify-between bg-primary-dark rounded-[1.08rem] p-6 md:p-8 text-white group relative overflow-hidden mt-5 min-h-[320px] md:min-h-[auto]"
           >
             {/* Background Accent Decor */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -mr-32 -mt-32" />

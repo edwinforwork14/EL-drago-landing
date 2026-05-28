@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-row lg:flex-col items-start lg:items-center gap-4 lg:gap-0 bg-white/60 lg:bg-transparent rounded-2xl lg:rounded-none p-4 lg:p-0"
+              className="flex flex-row lg:flex-col items-start lg:items-center gap-4 lg:gap-0 bg-white/60 lg:bg-transparent rounded-[0.72rem] lg:rounded-none p-4 lg:p-0"
             >
               {/* Icon */}
               <div className="shrink-0 w-12 h-12 lg:w-16 lg:h-16 lg:mb-3 flex items-center justify-center text-primary">

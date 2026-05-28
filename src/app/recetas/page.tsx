@@ -17,7 +17,7 @@ function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
     >
       <Link
         href={`/receta/${recipe.slug}`}
-        className="group block relative overflow-hidden rounded-[2.5rem] bg-white border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl aspect-[16/11]"
+        className="group block relative overflow-hidden rounded-[1.8rem] bg-white border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl aspect-[16/11]"
       >
         <div className="absolute inset-0 overflow-hidden">
           <img
@@ -66,7 +66,7 @@ export default function RecetasPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-[3rem] overflow-hidden mb-16 shadow-2xl group border border-primary/5 min-h-[40vh] md:min-h-[50vh] flex flex-col justify-end p-8 md:p-12 lg:p-16"
+          className="relative rounded-[2.16rem] overflow-hidden mb-16 shadow-2xl group border border-primary/5 min-h-[40vh] md:min-h-[50vh] flex flex-col justify-end p-8 md:p-12 lg:p-16"
         >
               {/* Background Carousel */}
               <RecipeCarousel recipes={recipes} />

@@ -74,26 +74,26 @@ export default function ProductosPage() {
           </svg>
         </div>
 
-        <div className="py-24 md:py-32 px-5 md:px-10 lg:px-16 relative z-0">
+        <div className="py-20 md:py-24 px-5 md:px-10 lg:px-16 relative z-0">
           <div className="max-w-[1400px] mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative w-full p-2 md:p-10 overflow-hidden"
+              className="relative w-full p-2 md:p-8 overflow-hidden"
             >
               {/* Decorative */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-52 h-52 bg-accent/5 rounded-full blur-[80px] -ml-24 -mb-24 pointer-events-none" />
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
                 <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
                   ¿Listo para descubrir?
                 </span>
-                <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-4xl md:text-6xl uppercase leading-[0.9] tracking-tight mb-6">
+                <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-3xl md:text-5xl uppercase leading-[0.9] tracking-tight mb-6">
                   Encuentra tu
                   <br />
-                  <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5.5rem] -rotate-1 inline-block">
+                  <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[2.7rem] md:text-[4.4rem] -rotate-1 inline-block">
                     sabor ideal
                   </span>
                 </h3>
@@ -103,7 +103,7 @@ export default function ProductosPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Link
                     href="/#contacto"
-                    className="inline-flex items-center gap-3 bg-accent text-primary-dark font-bold uppercase tracking-[0.15em] text-xs px-8 py-4 md:px-10 md:py-5 rounded-full hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_15px_30px_rgba(254,199,12,0.2)]"
+                    className="inline-flex items-center gap-3 bg-accent text-primary-dark font-bold uppercase tracking-[0.15em] text-xs px-5 py-2.5 md:px-6 md:py-3 rounded-[0.72rem] hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_12px_24px_rgba(254,199,12,0.18)]"
                   >
                     <span className="material-symbols-outlined">mail</span>
                     Contáctanos

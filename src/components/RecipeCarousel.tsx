@@ -56,7 +56,7 @@ export default function RecipeCarousel({ recipes }: RecipeCarouselProps) {
   const item = recipes[safeIndex];
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden rounded-[3rem]">
+    <div className="absolute inset-0 z-0 overflow-hidden rounded-[2.16rem]">
       <div className="relative h-full w-full">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div

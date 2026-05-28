@@ -49,7 +49,7 @@ const BrandPillars = () => {
           {pillars.map((pillar, index) => (
             <div key={index} className="group relative flex flex-col h-full cursor-default">
               {/* Image Container with Hover Effects */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-5 shadow-2xl">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[0.72rem] mb-5 shadow-2xl">
                 <img 
                   src={pillar.image} 
                   alt={pillar.title}

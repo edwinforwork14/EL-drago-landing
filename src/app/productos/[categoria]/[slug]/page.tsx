@@ -154,7 +154,7 @@ function ProductDetailContent() {
             <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-[40px] animate-pulse" />
 
             {/* Card */}
-            <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[3rem] overflow-hidden bg-white/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
+            <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[2.16rem] overflow-hidden bg-white/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
               <Image
                 src={productImage}
                 alt={product.name}
@@ -198,7 +198,7 @@ function ProductDetailContent() {
             </p>
 
             {/* Pairing */}
-            <div className="bg-[#FCF2E6]/50 backdrop-blur-md rounded-[2rem] p-6 border border-primary/5 mb-10 flex gap-5 items-start">
+            <div className="bg-[#FCF2E6]/50 backdrop-blur-md rounded-[1.44rem] p-6 border border-primary/5 mb-10 flex gap-5 items-start">
               <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 border border-primary/10">
                 <span className="material-symbols-outlined text-primary text-2xl">
                   {pairing.icon}
@@ -257,9 +257,9 @@ function ProductDetailContent() {
                       href={`/productos/${
                         getCategorySlugForProduct(sibling) || "productos"
                       }/${siblingSlug}`}
-                      className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[2.5rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
+                      className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
                     >
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-white border border-primary/5 mb-6">
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.44rem] bg-white border border-primary/5 mb-6">
                         <Image
                           src={getProductImageUrl(sibling)}
                           alt={sibling.name}

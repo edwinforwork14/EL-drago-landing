@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "El Drago | Delicias que atrapan",
   description: "Variedad excepcional de productos embutidos hechos con pasión y tradición.",
   icons: {
-    icon: "/images/logodrago.png",
-    apple: "/images/logodrago.png",
+    icon: "/hero-logo/logodrago.png",
+    apple: "/hero-logo/logodrago.png",
   },
 };
 

@@ -50,7 +50,7 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="flex items-center justify-center md:justify-start gap-4 -mt-4 sm:-mt-8 md:-mt-10 relative z-10 md:ml-12"
             >
-              <span className="font-black text-accent text-[1.15rem] md:text-[1.38rem] uppercase leading-none tracking-tighter bg-primary/40 backdrop-blur-sm px-3 py-1 rounded-sm">que</span>
+              <span className="font-black text-accent text-[2.15rem] md:text-[2.38rem] uppercase leading-none tracking-tighter px-3 pt-8">que</span>
               <span className="font-[family-name:var(--font-mr-dafoe)] text-[4.41rem] sm:text-[5.98rem] md:text-[6.9rem] lg:text-[8.74rem] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
                 Atrapa
               </span>

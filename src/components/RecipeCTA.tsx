@@ -39,7 +39,7 @@ const RecipeCTA = () => {
               <img
                 src="/Dragitos/DRAGUITO%20PRINCIPAL.png"
                 alt="Mascota El Drago"
-                className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+                className="w-80 h-40 md:w-48 md:h-68 lg:w-56 lg:h-70"
               />
 
               <Link

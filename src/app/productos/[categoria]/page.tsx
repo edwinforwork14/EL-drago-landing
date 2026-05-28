@@ -47,7 +47,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
 
         {/* ─── PRODUCTS GRID ─── */}
         {products.length === 0 ? (
-          <div className="text-center py-20 bg-[#FCF2E6]/60 rounded-[3rem] border border-primary/5">
+          <div className="text-center py-20 bg-[#FCF2E6]/60 rounded-[2.16rem] border border-primary/5">
             <p className="text-primary-dark/40 text-lg font-medium">
               Próximamente más productos en esta categoría.
             </p>
@@ -75,7 +75,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                       block
                       bg-[#FCF2E6]/60
                       backdrop-blur-md
-                      rounded-[2.5rem]
+                      rounded-[1.8rem]
                       p-5
                       border
                       border-primary/5
@@ -92,7 +92,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                         relative
                         aspect-[4/5]
                         overflow-hidden
-                        rounded-[2rem]
+                        rounded-[1.44rem]
                         bg-white
                         border
                         border-primary/5
@@ -260,7 +260,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative overflow-hidden rounded-[2.5rem] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-xl cursor-pointer aspect-[16/10]"
+                className="group relative overflow-hidden rounded-[1.8rem] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-xl cursor-pointer aspect-[16/10]"
               >
                 <Link href={`/productos/${cat.slug}`} className="block w-full h-full relative">
                   <img
