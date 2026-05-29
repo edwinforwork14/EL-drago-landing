@@ -59,7 +59,7 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
       </motion.div>
 
       {/* Content: text left, image right on all screens */}
-      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-12 sm:py-16 md:py-24 flex flex-row items-center gap-4 sm:gap-6 md:gap-10">
+      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24 flex flex-row items-center gap-4 sm:gap-6 md:gap-10">
         
         {/* TEXT — left side, takes remaining space */}
         <motion.div 
@@ -69,20 +69,20 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
           className="flex-1 min-w-0"
         >
           <div className="max-w-3xl lg:max-w-2xl">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-3 sm:mb-5 md:mb-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[10px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-4 sm:mb-5 md:mb-8">
               <span className="hover:text-white transition-colors">{eyebrow ?? ""}</span>
             </motion.div>
 
-            <h1 className="text-[1.6rem] max-[360px]:text-[1.3rem] max-[400px]:text-[1.4rem] sm:text-[3.5rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+            <h1 className="text-[2.2rem] max-[360px]:text-[1.8rem] max-[400px]:text-[2rem] sm:text-[3.5rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
               {preTitle}
               <br />
-              <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[1.8rem] max-[360px]:text-[1.5rem] max-[400px]:text-[1.6rem] sm:text-[4.2rem] md:text-[8.5rem] lg:text-[10rem] -rotate-2 inline-block ml-1 drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)]">
+              <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[2.6rem] max-[360px]:text-[2rem] max-[400px]:text-[2.4rem] sm:text-[4.2rem] md:text-[8.5rem] lg:text-[10rem] -rotate-2 inline-block ml-1 drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)]">
                 {accentTitle}
               </span>
             </h1>
 
             {subtitle && (
-              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-xs max-[360px]:text-[10px] sm:text-sm md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-2 sm:mt-4 md:mt-8 hidden sm:block">
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-xs max-[360px]:text-[10px] sm:text-sm md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-3 sm:mt-4 md:mt-8">
                 {subtitle}
               </motion.p>
             )}
@@ -97,13 +97,13 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
           className="flex-shrink-0 flex items-center justify-center"
         >
           <div className="relative flex items-center justify-center">
-            <div className="absolute w-[70px] h-[70px] max-[360px]:w-[55px] max-[360px]:h-[55px] sm:w-[120px] sm:h-[120px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[20px] sm:blur-[40px] md:blur-[120px] animate-pulse" />
+            <div className="absolute w-[85px] h-[85px] max-[360px]:w-[65px] max-[360px]:h-[65px] sm:w-[120px] sm:h-[120px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[25px] sm:blur-[40px] md:blur-[120px] animate-pulse" />
             {currentSrc && (
               <motion.img
                 src={currentSrc}
                 alt="hero image"
                 onError={handleImgError}
-                className="relative z-20 w-[65px] h-[65px] max-[360px]:w-[50px] max-[360px]:h-[50px] sm:w-[110px] sm:h-[110px] md:w-[440px] md:h-[440px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
+                className="relative z-20 w-[80px] h-[80px] max-[360px]:w-[60px] max-[360px]:h-[60px] sm:w-[110px] sm:h-[110px] md:w-[440px] md:h-[440px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
               />
             )}
           </div>
