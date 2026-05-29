@@ -50,7 +50,7 @@ function RecipeDetailContent() {
         return {
           name: "Mortadela Tipo Superior",
           desc: "Nuestra mortadela premium de textura cremosa y sabor tradicional condimentado con finas especias. Elevada calidad artesanal en cada rebanada.",
-          image: "/productos/mortadelas/JAMON (8).png",
+          image: "/productos/mortadelas/page-0007.png",
           slug: "mortadela-tipo-superior",
         };
       case "2":

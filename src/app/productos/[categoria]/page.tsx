@@ -22,8 +22,8 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
 
   const getHeroImage = (slug: string) => {
     switch (slug) {
-      case "embutidos": return "/Dragitos/DRAGUITO%20EMBUTIDOS.png";
-      case "ahumados": return "/Dragitos/DRAGUITO%20AHUMADOS.png";
+      case "embutidos": return "/Dragitos/DRAGUITO-EMBUTIDOS.png";
+      case "ahumados": return "/Dragitos/DRAGUITO-AHUMADOS.png";
       case "frescos": return "/Dragitos/DRAGUITO%20PRINCIPAL.png";
       default: return "/plantilla/imagenes/page-0010.jpg";
     }

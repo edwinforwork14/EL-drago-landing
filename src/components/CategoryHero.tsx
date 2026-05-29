@@ -50,7 +50,7 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
   };
 
   return (
-    <section ref={heroRef} className="group relative min-h-[65vh] md:min-h-[72vh] flex items-center overflow-hidden pt-24 md:pt-28">
+    <section ref={heroRef} className="group relative min-h-[68vh] md:min-h-[72vh] flex items-center overflow-hidden pt-20 md:pt-28">
       <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-dark" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(254,199,12,0.08),transparent_60%)]" />
@@ -66,38 +66,38 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
 
       <motion.div style={{ y: heroY }} className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 lg:w-[50%] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-l from-primary-dark/60 via-primary-dark/20 to-transparent z-10" />
-        <div className="relative w-full h-[60%] flex items-center justify-center">
-          <div className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] bg-accent/15 rounded-full blur-[80px] md:blur-[120px] animate-pulse" />
+        <div className="relative w-full h-[55%] md:h-[60%] flex items-center justify-center">
+          <div className="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] bg-accent/15 rounded-full blur-[60px] sm:blur-[80px] md:blur-[120px] animate-pulse" />
           {currentSrc && (
             <motion.img
               src={currentSrc}
               alt="hero image"
               onError={handleImgError}
               style={{ y: heroY }}
-              className="relative z-20 w-[286px] h-[286px] md:w-[462px] md:h-[462px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
+              className="relative z-20 w-[190px] h-[190px] sm:w-[286px] sm:h-[286px] md:w-[462px] md:h-[462px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
             />
           )}
         </div>
       </motion.div>
 
-      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
+      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24">
         <div className="max-w-3xl lg:max-w-2xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-5 sm:mb-8">
             <span className="hover:text-white transition-colors">{eyebrow ?? ""}</span>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.8 }}>
-            <h1 className="text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.8] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+            <h1 className="text-[2.6rem] max-[400px]:text-[2.3rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.8] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
               {preTitle}
               <br />
-              <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[5rem] sm:text-[6.5rem] md:text-[8.5rem] lg:text-[10rem] -rotate-2 inline-block ml-1 drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)]">
+              <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.2rem] max-[400px]:text-[2.8rem] sm:text-[6.5rem] md:text-[8.5rem] lg:text-[10rem] -rotate-2 inline-block ml-1 drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)]">
                 {accentTitle}
               </span>
             </h1>
           </motion.div>
 
           {subtitle && (
-            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-base md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-6 md:mt-8">
+            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-4 sm:mt-6 md:mt-8">
               {subtitle}
             </motion.p>
           )}
