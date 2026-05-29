@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const ProductGrid = () => {
@@ -79,9 +80,11 @@ const ProductGrid = () => {
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-accent/10 rounded-full blur-[60px] scale-150 pointer-events-none" />
-                <img
+                <Image
                   src="/Dragitos/DRAGUITO%20CATEGORIAS.png"
                   alt="Mascota El Drago"
+                  width={270}
+                  height={270}
                   className="w-auto max-w-[230px] md:max-w-[270px] h-auto object-contain"
                 />
               </div>

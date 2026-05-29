@@ -2,8 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
+
+const MotionImage = motion(Image);
 
 const Hero = () => {
   return (
@@ -12,13 +15,16 @@ const Hero = () => {
 
       {/* ─── HERO IMAGE — Mobile: right-focus, Desktop: full ─── */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.img
+        <MotionImage
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           src="/hero-logo/hero-el-drago.png"
           alt="El Drago Hero"
-          className="w-full h-full object-cover object-right md:object-center"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right md:object-center"
         />
         {/* Cinematic Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent z-10" />

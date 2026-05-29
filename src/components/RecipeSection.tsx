@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { recipes, Recipe } from "@/data/recipes";
+
+const MotionImage = motion(Image);
 
 const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?: boolean; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -25,10 +28,12 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
         <span className="sr-only">Ver receta: {recipe.title}</span>
       </Link>
       <div className="absolute inset-0 z-0 bg-primary/5 flex items-center justify-center">
-        <motion.img
+        <MotionImage
           src={recipe.image}
           alt={recipe.title}
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
           animate={{ scale: isHovered ? 1.05 : 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         />

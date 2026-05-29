@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getProductBySlug, getAllProductsSlugged, getProductSlug, getCategorySlugForProduct, getProductImageUrl } from "@/data/utils";
@@ -106,10 +107,13 @@ function ProductDetailContent() {
             <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-[40px] animate-pulse" />
 
             <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[2.16rem] overflow-hidden bg-white/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
-              <img
+              <Image
                 src={getProductImageUrl(product)}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-[1s] group-hover:scale-105"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-[1s] group-hover:scale-105"
               />
               {product.tag && (
                 <span className="absolute top-6 left-6 bg-accent text-primary-dark text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
@@ -189,10 +193,12 @@ function ProductDetailContent() {
                       className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
                     >
                       <div className="relative aspect-[4/5] overflow-hidden rounded-[1.44rem] bg-white border border-primary/5 mb-6">
-                        <img
+                        <Image
                           src={getProductImageUrl(sibling)}
                           alt={sibling.name}
-                          className={`w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.12] ${
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className={`object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.12] ${
                             i % 3 === 0
                               ? 'group-hover:rotate-[-3deg]'
                               : i % 2 === 0

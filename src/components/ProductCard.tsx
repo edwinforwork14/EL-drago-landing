@@ -1,10 +1,13 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Product } from '@/data/products';
 import Link from 'next/link';
 import { getProductSlug, getCategorySlugForProduct, getProductImageUrl } from '@/data/utils';
+
+const MotionImage = motion(Image);
 
 interface ProductCardProps {
   product: Product;
@@ -25,10 +28,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       {/* Image Container with rounding fix */}
       <div className="relative aspect-[3/4.5] overflow-hidden rounded-[1.44rem] md:rounded-[1.44rem] bg-white/5 border border-white/10 group-hover:border-primary/20 transition-all duration-500">
-        <motion.img
+        <MotionImage
           src={getProductImageUrl(product)}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 scale-[1.02] group-hover:scale-[1.08] group-hover:rotate-3"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 scale-[1.02] group-hover:scale-[1.08] group-hover:rotate-3"
         />
         {/* Transparent overlay over the image for rounding adaptivity */}
         <div className="absolute inset-0 pointer-events-none rounded-[1.44rem] md:rounded-[1.44rem] ring-1 ring-inset ring-white/10" />

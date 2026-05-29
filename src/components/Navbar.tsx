@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -63,9 +64,12 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
           href="/"
           className="w-20 md:w-24 lg:w-28 shrink-0 transition-transform duration-300 hover:-translate-y-0.5 inline-block"
         >
-          <img
+          <Image
             src="/hero-logo/logodrago.png"
             alt="El Drago Logo"
+            width={112}
+            height={40}
+            priority
             className="w-full h-auto"
           />
         </Link>
@@ -175,10 +179,12 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
               </button>
 
               {/* Logo inside sidebar */}
-              <img
+              <Image
                 src="/hero-logo/logodrago.png"
                 alt="El Drago"
-                className="w-28 mb-10 opacity-90"
+                width={112}
+                height={40}
+                className="w-28 mb-10 opacity-90 h-auto"
               />
 
               {/* Links */}

@@ -1,39 +1,97 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import NextImage from 'next/image';
+
+// Lista de imágenes críticas a precargar antes de ocultar el loading screen
+const CRITICAL_IMAGES = [
+  '/hero-logo/logodrago.png',
+  '/hero-logo/hero-el-drago.png',
+  '/Dragitos/DRAGUITO-EMBUTIDOS.png',
+  '/Dragitos/DRAGUITO-AHUMADOS.png',
+  '/Dragitos/DRAGUITO%20PRINCIPAL.png',
+  '/Dragitos/DRAGUITO%20CATEGORIAS.png',
+  '/productos/page-0003.png',
+  '/productos/page-0004.png',
+  '/productos/page-0005.png',
+  '/productos/page-0007.png',
+  '/productos/page-0008.png',
+  '/productos/page-0009.png',
+  '/productos/page-0010.png',
+  '/productos/page-0011.png',
+  '/productos/page-0012.png',
+  '/productos/page-0013.png',
+  '/productos/JAMON%20(1).png',
+  '/productos/JAMON.png',
+  '/productos/JAMON%20(5).png',
+  '/productos/JAMON%20(6).png',
+  '/productos/JAMON%20(4).png',
+  '/productos/JAMON%20(2).png',
+  '/productos/JAMON%20(3).png',
+  '/productos/JAMON(9).png',
+];
 
 const LoadingScreen = () => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const mountedRef = useRef(true);
 
   useEffect(() => {
-    // Simulate loading progress
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => setLoading(false), 500);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 30);
+    return () => { mountedRef.current = false; };
+  }, []);
 
-    // Also stop loading when window is fully loaded
-    const handleLoad = () => {
-      setProgress(100);
+  useEffect(() => {
+    let completed = 0;
+    let isCancelled = false;
+    const total = CRITICAL_IMAGES.length;
+
+    // Actualizar progreso basado en cuántas imágenes han cargado
+    const updateProgress = () => {
+      if (isCancelled) return;
+      completed++;
+      const pct = Math.min(Math.round((completed / total) * 100), 100);
+      if (mountedRef.current) setProgress(pct);
+      if (completed >= total) {
+        setTimeout(() => {
+          if (mountedRef.current) setLoading(false);
+        }, 400);
+      }
     };
 
+    // Precargar cada imagen usando new Image()
+    CRITICAL_IMAGES.forEach((url) => {
+      const img = new Image();
+      img.onload = updateProgress;
+      img.onerror = updateProgress; // contar errores también para no bloquear
+      img.src = url;
+    });
+
+    // Timeout de seguridad: si después de 6s no ha terminado, salir igual
+    const timeout = setTimeout(() => {
+      if (!isCancelled && mountedRef.current) {
+        setProgress(100);
+        setTimeout(() => {
+          if (mountedRef.current) setLoading(false);
+        }, 400);
+      }
+    }, 6000);
+
+    // También escuchar el evento load global de la ventana
+    const handleWindowLoad = () => {
+      if (mountedRef.current) setProgress(100);
+    };
     if (document.readyState === 'complete') {
-      handleLoad();
+      handleWindowLoad();
     } else {
-      window.addEventListener('load', handleLoad);
-      return () => {
-        window.removeEventListener('load', handleLoad);
-        clearInterval(timer);
-      };
+      window.addEventListener('load', handleWindowLoad);
     }
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timeout);
+      window.removeEventListener('load', handleWindowLoad);
+    };
   }, []);
 
   return (
@@ -63,10 +121,13 @@ const LoadingScreen = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-32 md:w-48 lg:w-56"
             >
-              <img 
-                src="/hero-logo/logodrago.png" 
-                alt="El Drago" 
+              <NextImage
+                src="/hero-logo/logodrago.png"
+                alt="El Drago"
+                width={224}
+                height={80}
                 className="w-full h-auto object-contain"
+                priority
               />
             </motion.div>
             
@@ -96,7 +157,7 @@ const LoadingScreen = () => {
                 className="absolute top-0 left-0 h-full bg-accent"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.1 }}
+                transition={{ duration: 0.15 }}
               />
             </div>
             

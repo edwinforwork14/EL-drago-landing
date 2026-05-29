@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -36,10 +37,12 @@ const RecipeCTA = () => {
             </div>
 
             <div className="flex items-center gap-4 w-full md:w-auto shrink-0 relative z-10">
-              <img
+              <Image
                 src="/Dragitos/DRAGUITO%20PRINCIPAL.png"
                 alt="Mascota El Drago"
-                className="w-80 h-40 md:w-48 md:h-68 lg:w-56 lg:h-70"
+                width={224}
+                height={160}
+                className="w-80 h-40 md:w-48 md:h-68 lg:w-56 lg:h-70 object-contain"
               />
 
               <Link

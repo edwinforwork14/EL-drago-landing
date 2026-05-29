@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const BrandPillars = () => {
   const pillars = [
@@ -50,10 +51,12 @@ const BrandPillars = () => {
             <div key={index} className="group relative flex flex-col h-full cursor-default">
               {/* Image Container with Hover Effects */}
               <div className="relative aspect-[4/5] overflow-hidden rounded-[0.72rem] mb-5 shadow-2xl">
-                <img 
+                <Image 
                   src={pillar.image} 
                   alt={pillar.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 

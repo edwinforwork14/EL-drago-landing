@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { Recipe } from '@/data/recipes';
 
@@ -67,10 +68,13 @@ export default function RecipeCarousel({ recipes }: RecipeCarouselProps) {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <img
+            <Image
               src={item.image}
               alt={item.title}
-              className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-[#0a0a0a]/60 to-[#0a0a0a]/30" />
           </motion.div>

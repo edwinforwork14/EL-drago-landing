@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { recipes, Recipe } from "@/data/recipes";
 import Navbar from "@/components/Navbar";
@@ -20,10 +21,12 @@ function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
         className="group block relative overflow-hidden rounded-[1.8rem] bg-white border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl aspect-[16/11]"
       >
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             src={recipe.image}
             alt={recipe.title}
-            className="w-full h-full object-cover transition-transform duration-[1s] ease-out group-hover:scale-108"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-[1s] ease-out group-hover:scale-108"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
         </div>

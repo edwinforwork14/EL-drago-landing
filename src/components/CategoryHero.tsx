@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useRef, useState, useMemo } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+const MotionImage = motion(Image);
 
 interface CategoryHeroProps {
   eyebrow?: string;
@@ -96,14 +99,17 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
           transition={{ delay: 0.3, duration: 0.8 }}
           className="w-full md:w-1/2 flex items-center justify-center"
         >
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center w-[180px] h-[180px] max-[360px]:w-[140px] max-[360px]:h-[140px] sm:w-[240px] sm:h-[240px] md:w-[440px] md:h-[440px]">
             <div className="absolute w-[200px] h-[200px] max-[360px]:w-[160px] max-[360px]:h-[160px] sm:w-[260px] sm:h-[260px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[40px] sm:blur-[60px] md:blur-[120px] animate-pulse" />
             {currentSrc && (
-              <motion.img
+              <MotionImage
                 src={currentSrc}
                 alt="hero image"
                 onError={handleImgError}
-                className="relative z-20 w-[180px] h-[180px] max-[360px]:w-[140px] max-[360px]:h-[140px] sm:w-[240px] sm:h-[240px] md:w-[440px] md:h-[440px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
+                fill
+                priority
+                sizes="(max-width: 360px) 140px, (max-width: 640px) 180px, (max-width: 768px) 240px, 440px"
+                className="z-20 object-contain transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
               />
             )}
           </div>

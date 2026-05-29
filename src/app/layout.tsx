@@ -26,6 +26,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" 
           rel="stylesheet" 
         />
+        {/* ─── Preload de imágenes críticas ─── */}
+        <link rel="preload" href="/hero-logo/logodrago.png" as="image" />
+        <link rel="preload" href="/hero-logo/hero-el-drago.png" as="image" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
       </head>
       <body suppressHydrationWarning className="bg-background font-body-md text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
         {children}

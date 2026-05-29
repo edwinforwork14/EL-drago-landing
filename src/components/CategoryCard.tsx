@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { CategoryGroup } from "@/data/utils";
 
@@ -70,13 +71,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       >
         {/* ─── Background Image ─── */}
         <div className="absolute inset-0 bg-primary-dark/90 rounded-[1.44rem] md:rounded-[1.8rem] overflow-hidden">
-          <img
+          <Image
             src={imgSrc}
             alt={group.label}
-            loading="lazy"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="
-              w-full
-              h-full
               object-cover
               transition-all
               duration-[1.2s]

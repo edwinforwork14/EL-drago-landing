@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { recipes, getRecipeBySlug, Recipe } from "@/data/recipes";
@@ -122,7 +123,7 @@ function RecipeDetailContent() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative w-full md:w-1/2 max-h-[80vh] rounded-[2.16rem] overflow-hidden shadow-2xl group border border-primary/5"
         >
-            <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-103" />
+            <Image src={recipe.image} alt={recipe.title} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[1.2s] group-hover:scale-103" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-black/35 to-transparent z-10" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 z-20">
               <div className="flex flex-wrap items-center gap-4 mb-4">
@@ -159,8 +160,8 @@ function RecipeDetailContent() {
                       const href = match ? `/productos/${getCategorySlugForProduct(match) || 'productos'}/${match.slug}` : `/producto/${featuredProduct.slug}`;
                       return (
                         <Link href={href} className="group/prod flex items-center gap-4 bg-white/40 p-3.5 rounded-[0.72rem] border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-md">
-                          <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 border border-primary/5 flex items-center justify-center p-1">
-                            <img src={featuredProduct.image} alt={featuredProduct.name} className="w-full h-full object-contain transition-transform duration-500 group-hover/prod:scale-108" />
+                          <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 border border-primary/5 flex items-center justify-center p-1 relative">
+                            <Image src={featuredProduct.image} alt={featuredProduct.name} fill sizes="64px" className="object-contain transition-transform duration-500 group-hover/prod:scale-108" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase text-sm leading-tight group-hover/prod:text-primary transition-colors truncate">{featuredProduct.name}</h4>
@@ -213,7 +214,7 @@ function RecipeDetailContent() {
               <motion.div key={r.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 + 0.05 * i }}>
                 <Link href={`/receta/${r.slug}`} className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
                   <div className="aspect-[16/10] rounded-[1.44rem] overflow-hidden border border-primary/5 mb-6 relative">
-                    <img src={r.image} alt={r.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108" />
+                    <Image src={r.image} alt={r.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-108" />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center p-6 backdrop-blur-[2px]">
                       <span className="inline-flex items-center gap-2 bg-white text-primary-dark text-[9px] font-black uppercase tracking-wider px-4 py-2.5 rounded-full shadow-md translate-y-3 group-hover:translate-y-0 transition-transform duration-500">Ver Receta <span className="material-symbols-outlined text-xs">arrow_forward</span></span>
                     </div>

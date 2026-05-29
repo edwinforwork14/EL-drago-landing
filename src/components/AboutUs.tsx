@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const AboutUs = () => {
@@ -64,10 +65,12 @@ const AboutUs = () => {
           >
             <div className="bg-white p-2 pb-8 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
               <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-gray-100">
-                <img 
+                <Image 
                   src="/imagenes/1/IMG_0217.PNG" 
                   alt="El Drago Legado" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-yellow-400/80 -rotate-1 flex items-center justify-center font-black text-[9px] uppercase tracking-widest shadow-sm text-yellow-900 z-20">

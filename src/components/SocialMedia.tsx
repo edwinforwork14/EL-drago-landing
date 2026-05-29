@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const SocialMedia = () => {
   return (
@@ -28,10 +29,18 @@ const SocialMedia = () => {
           </div>
         </div>
         <div className="w-full md:w-2/3 grid grid-cols-2 gap-4">
-          <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[-2deg]" src="/imagenes/1/IMG_0205.JPG.jpeg" alt="Social 1" />
-          <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[3deg]" src="/imagenes/1/IMG_0208.JPG.jpeg" alt="Social 2" />
-          <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[-1.5deg]" src="/imagenes/1/IMG_0211.JPG.jpeg" alt="Social 4" />
-          <img className="w-full h-48 object-cover rounded-xl shadow-lg rotate-[1deg]" src="/imagenes/1/IMG_0209.JPG.jpeg" alt="Social 3" />
+          <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg rotate-[-2deg]">
+            <Image fill src="/imagenes/1/IMG_0205.JPG.jpeg" alt="Social 1" className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+          </div>
+          <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg rotate-[3deg]">
+            <Image fill src="/imagenes/1/IMG_0208.JPG.jpeg" alt="Social 2" className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+          </div>
+          <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg rotate-[-1.5deg]">
+            <Image fill src="/imagenes/1/IMG_0211.JPG.jpeg" alt="Social 4" className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+          </div>
+          <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg rotate-[1deg]">
+            <Image fill src="/imagenes/1/IMG_0209.JPG.jpeg" alt="Social 3" className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+          </div>
         </div>
       </div>
     </section>

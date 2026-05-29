@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -100,13 +101,12 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                       "
                     >
                       {/* IMAGE */}
-                      <img
+                      <Image
                         src={getProductImageUrl(product)}
                         alt={product.name}
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className={`
-                          w-full
-                          h-full
                           object-cover
                           transform
                           transition-transform
@@ -263,10 +263,12 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                 className="group relative overflow-hidden rounded-[1.8rem] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-xl cursor-pointer aspect-[16/10]"
               >
                 <Link href={`/productos/${cat.slug}`} className="block w-full h-full relative">
-                  <img
+                  <Image
                     src={cat.slug === "embutidos" ? "/productos/jamones/page-0003.jpg" : cat.slug === "ahumados" ? "/imagenes/ahumados.jpg" : "/productos/pechugas-cosidas/page-0008.jpg"}
                     alt={cat.label}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1s] group-hover:scale-108"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-[1s] group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/30 to-transparent" />
                   

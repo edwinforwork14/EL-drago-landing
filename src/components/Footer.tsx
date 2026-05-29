@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -20,9 +21,11 @@ const Footer = () => {
           
           {/* Column 1: Logo & Slogan — full width on mobile */}
           <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3">
-            <img 
+            <Image 
               src="/hero-logo/logodrago.png" 
               alt="El Drago" 
+              width={144}
+              height={50}
               className="w-32 md:w-36 h-auto"
             />
             <p className="font-medium text-xs md:text-sm leading-relaxed max-w-[180px]">
