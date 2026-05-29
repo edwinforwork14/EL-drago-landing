@@ -58,18 +58,18 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
         <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
       </motion.div>
 
-      {/* Content: text left, image right on all screens */}
-      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24 flex flex-row items-center gap-4 sm:gap-6 md:gap-10">
+      {/* Content: text on mobile → side-by-side on desktop */}
+      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24 flex flex-col md:flex-row items-center gap-6 sm:gap-6 md:gap-10">
         
-        {/* TEXT — left side, takes remaining space */}
+        {/* TEXT — full width on mobile, left half on desktop */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.8 }}
-          className="flex-1 min-w-0"
+          className="w-full md:w-1/2 text-center md:text-left"
         >
-          <div className="max-w-3xl lg:max-w-2xl">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[10px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-4 sm:mb-5 md:mb-8">
+          <div className="max-w-3xl lg:max-w-2xl mx-auto md:mx-0">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center justify-center md:justify-start gap-3 text-white/50 text-[10px] sm:text-[10px] font-bold uppercase tracking-[0.2em] mb-4 sm:mb-5 md:mb-8">
               <span className="hover:text-white transition-colors">{eyebrow ?? ""}</span>
             </motion.div>
 
@@ -82,28 +82,28 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
             </h1>
 
             {subtitle && (
-              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-xs max-[360px]:text-[10px] sm:text-sm md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-3 sm:mt-4 md:mt-8">
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-xs max-[360px]:text-[10px] sm:text-sm md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-3 sm:mt-4 md:mt-8 mx-auto md:mx-0">
                 {subtitle}
               </motion.p>
             )}
           </div>
         </motion.div>
 
-        {/* IMAGE — right side, fixed size */}
+        {/* IMAGE — full width below text on mobile, right half on desktop */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="flex-shrink-0 flex items-center justify-center"
+          className="w-full md:w-1/2 flex items-center justify-center"
         >
           <div className="relative flex items-center justify-center">
-            <div className="absolute w-[85px] h-[85px] max-[360px]:w-[65px] max-[360px]:h-[65px] sm:w-[120px] sm:h-[120px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[25px] sm:blur-[40px] md:blur-[120px] animate-pulse" />
+            <div className="absolute w-[200px] h-[200px] max-[360px]:w-[160px] max-[360px]:h-[160px] sm:w-[260px] sm:h-[260px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[40px] sm:blur-[60px] md:blur-[120px] animate-pulse" />
             {currentSrc && (
               <motion.img
                 src={currentSrc}
                 alt="hero image"
                 onError={handleImgError}
-                className="relative z-20 w-[80px] h-[80px] max-[360px]:w-[60px] max-[360px]:h-[60px] sm:w-[110px] sm:h-[110px] md:w-[440px] md:h-[440px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
+                className="relative z-20 w-[180px] h-[180px] max-[360px]:w-[140px] max-[360px]:h-[140px] sm:w-[240px] sm:h-[240px] md:w-[440px] md:h-[440px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
               />
             )}
           </div>
