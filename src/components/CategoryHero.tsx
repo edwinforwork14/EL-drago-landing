@@ -30,16 +30,11 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
     } catch (e) {
       // ignore
     }
-    // replace encoded spaces with hyphen
     list.push(imageSrc.replace(/%20/g, "-").replace(/ /g, "-"));
-    // replace hyphens with spaces
     list.push(imageSrc.replace(/-/g, "%20"));
-    // folder name variants
     list.push(imageSrc.replace(/Dragitos/gi, "Draguitos"));
     list.push(imageSrc.replace(/Draguitos/gi, "Dragitos"));
-    // lowercased
     list.push(imageSrc.toLowerCase());
-    // unique
     return Array.from(new Set(list));
   }, [imageSrc]);
 
@@ -50,43 +45,34 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
   };
 
   return (
-    <section ref={heroRef} className="group relative min-h-[68vh] md:min-h-[72vh] flex items-center overflow-hidden pt-20 md:pt-28">
+    <section ref={heroRef} className="group relative min-h-[68vh] md:min-h-[72vh] overflow-hidden pt-20 md:pt-28">
+      {/* Background */}
       <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-dark" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(254,199,12,0.08),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(223,33,34,0.15),transparent_50%)]" />
-
         <div className="absolute top-10 right-10 w-[500px] h-[500px] border border-white/5 rounded-full blur-sm" />
         <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] border border-white/5 rounded-full" />
-
         <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-accent/30 rounded-full animate-pulse" />
         <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
       </motion.div>
 
-      <motion.div style={{ y: heroY }} className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 lg:w-[50%] overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-l from-primary-dark/60 via-primary-dark/20 to-transparent z-10" />
-        <div className="relative w-full h-[55%] md:h-[60%] flex items-center justify-center">
-          <div className="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[450px] md:h-[450px] bg-accent/15 rounded-full blur-[60px] sm:blur-[80px] md:blur-[120px] animate-pulse" />
-          {currentSrc && (
-            <motion.img
-              src={currentSrc}
-              alt="hero image"
-              onError={handleImgError}
-              style={{ y: heroY }}
-              className="relative z-20 w-[190px] h-[190px] sm:w-[286px] sm:h-[286px] md:w-[462px] md:h-[462px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
-            />
-          )}
-        </div>
-      </motion.div>
+      {/* Content: text first on mobile → side-by-side on desktop */}
+      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24 flex flex-col md:flex-row items-center gap-6 md:gap-0">
+        
+        {/* TEXT */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.8 }}
+          className="w-full md:w-1/2"
+        >
+          <div className="max-w-3xl lg:max-w-2xl">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-5 sm:mb-8">
+              <span className="hover:text-white transition-colors">{eyebrow ?? ""}</span>
+            </motion.div>
 
-      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24">
-        <div className="max-w-3xl lg:max-w-2xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-3 text-white/50 text-[10px] font-bold uppercase tracking-[0.2em] mb-5 sm:mb-8">
-            <span className="hover:text-white transition-colors">{eyebrow ?? ""}</span>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.8 }}>
             <h1 className="text-[2.6rem] max-[400px]:text-[2.3rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.8] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
               {preTitle}
               <br />
@@ -94,14 +80,35 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
                 {accentTitle}
               </span>
             </h1>
-          </motion.div>
 
-          {subtitle && (
-            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-4 sm:mt-6 md:mt-8">
-              {subtitle}
-            </motion.p>
-          )}
-        </div>
+            {subtitle && (
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl max-w-xl leading-relaxed font-medium mt-4 sm:mt-6 md:mt-8">
+                {subtitle}
+              </motion.p>
+            )}
+          </div>
+        </motion.div>
+
+        {/* IMAGE — below text on mobile, right side on desktop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="w-full md:w-1/2 flex items-center justify-center"
+        >
+          <div className="relative flex items-center justify-center">
+            <div className="absolute w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[40px] sm:blur-[60px] md:blur-[120px] animate-pulse" />
+            {currentSrc && (
+              <motion.img
+                src={currentSrc}
+                alt="hero image"
+                onError={handleImgError}
+                className="relative z-20 w-[110px] h-[110px] sm:w-[150px] sm:h-[150px] md:w-[440px] md:h-[440px] object-contain rounded-[1.08rem] transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
+              />
+            )}
+          </div>
+        </motion.div>
+
       </motion.div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
