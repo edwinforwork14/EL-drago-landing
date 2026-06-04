@@ -62,7 +62,7 @@ const AboutUs = () => {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative order-2"
           >
-            <div className="bg-white p-2 pb-8 shadow-2xl rotate-0 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
+            <div className="bg-[#FCF2E6] p-2 pb-8 shadow-2xl rotate-0 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
               <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-gray-100">
                 <Image 
                   src="/imagenes/1/IMG_0217.PNG" 
@@ -78,7 +78,7 @@ const AboutUs = () => {
             </div>
 
             {/* Circular badge */}
-            <div className="absolute -bottom-6 -right-3 md:-bottom-8 md:-right-6 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center p-2 shadow-xl animate-spin-slow z-20">
+            <div className="absolute -bottom-6 -right-3 md:-bottom-8 md:-right-6 w-24 h-24 md:w-32 md:h-32 bg-[#FCF2E6] rounded-full flex items-center justify-center p-2 shadow-xl animate-spin-slow z-20">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <path id="circlePath2" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
                 <text fontSize="9" fontWeight="bold" fill="#C41A1E" letterSpacing="2">

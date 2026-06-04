@@ -18,7 +18,7 @@ function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
     >
       <Link
         href={`/receta/${recipe.slug}`}
-        className="group block relative overflow-hidden rounded-[1.8rem] bg-white border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl aspect-[16/11]"
+        className="group block relative overflow-hidden rounded-[1.8rem] bg-[#FCF2E6] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl aspect-[16/11]"
       >
         <div className="absolute inset-0 overflow-hidden">
           <Image

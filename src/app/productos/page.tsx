@@ -13,7 +13,7 @@ export default function ProductosPage() {
   
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-[#FCF2E6] overflow-x-hidden">
       <Navbar transparentInitially={true} />
 
       {/* ─── HERO SECTION ─── */}
@@ -84,7 +84,7 @@ export default function ProductosPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Link
                     href="/#contacto"
-                    className="inline-flex items-center gap-3 bg-accent text-primary-dark font-bold uppercase tracking-[0.15em] text-xs px-5 py-2.5 md:px-6 md:py-3 rounded-[0.72rem] hover:bg-white hover:text-primary transition-all duration-300 shadow-[0_12px_24px_rgba(254,199,12,0.18)]"
+                    className="inline-flex items-center gap-3 bg-accent text-primary-dark font-bold uppercase tracking-[0.15em] text-xs px-5 py-2.5 md:px-6 md:py-3 rounded-[0.72rem] hover:bg-[#FCF2E6] hover:text-primary transition-all duration-300 shadow-[0_12px_24px_rgba(254,199,12,0.18)]"
                   >
                     <span className="material-symbols-outlined">mail</span>
                     Contáctanos

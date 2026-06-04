@@ -142,7 +142,7 @@ const ProductGrid = () => {
           <div className="w-full md:w-[340px] lg:w-[380px] order-2 md:order-2 shrink-0">
             <div className="relative">
               {/* Carousel card (stacked) */}
-              <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-[0_15px_40px_rgba(0,0,0,0.12)] bg-white">
+              <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-[0_15px_40px_rgba(0,0,0,0.12)] bg-[#FCF2E6]">
                 {slides.map((slide, index) => {
                   const position = getStackPosition(index);
 

@@ -106,7 +106,7 @@ function ProductDetailContent() {
             <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-primary/5 rounded-full blur-[80px]" />
             <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-[40px] animate-pulse" />
 
-            <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[2.16rem] overflow-hidden bg-white/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
+            <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[2.16rem] overflow-hidden bg-[#FCF2E6]/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
               <Image
                 src={getProductImageUrl(product)}
                 alt={product.name}
@@ -192,7 +192,7 @@ function ProductDetailContent() {
                           href={`/productos/${getCategorySlugForProduct(sibling) || 'productos'}/${siblingSlug}`}
                       className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
                     >
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.44rem] bg-white border border-primary/5 mb-6">
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.44rem] bg-[#FCF2E6] border border-primary/5 mb-6">
                         <Image
                           src={getProductImageUrl(sibling)}
                           alt={sibling.name}
@@ -208,7 +208,7 @@ function ProductDetailContent() {
                         />
 
                         <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center p-6 backdrop-blur-[2px]">
-                          <span className="inline-flex items-center gap-2 bg-white text-primary-dark text-[9px] font-black uppercase tracking-wider px-4 py-2.5 rounded-full shadow-md translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
+                          <span className="inline-flex items-center gap-2 bg-[#FCF2E6] text-primary-dark text-[9px] font-black uppercase tracking-wider px-4 py-2.5 rounded-full shadow-md translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
                             Descubrir
                             <span className="material-symbols-outlined text-xs">arrow_forward</span>
                           </span>

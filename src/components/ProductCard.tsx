@@ -27,7 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       className="group relative rounded-[1.44rem] md:rounded-[2.52rem] flex flex-col h-full cursor-pointer overflow-hidden"
     >
       {/* Image Container with rounding fix */}
-      <div className="relative aspect-[3/4.5] overflow-hidden rounded-[1.44rem] md:rounded-[1.44rem] bg-white/5 border border-white/10 group-hover:border-primary/20 transition-all duration-500">
+      <div className="relative aspect-[3/4.5] overflow-hidden rounded-[1.44rem] md:rounded-[1.44rem] bg-[#FCF2E6]/5 border border-white/10 group-hover:border-primary/20 transition-all duration-500">
         <MotionImage
           src={getProductImageUrl(product)}
           alt={product.name}

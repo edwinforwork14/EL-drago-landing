@@ -30,7 +30,7 @@ function ProductDetailContent() {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background flex flex-col justify-between">
+      <div className="min-h-screen bg-[#FCF2E6] flex flex-col justify-between">
         <Navbar transparentInitially={false} />
 
         <div className="text-center py-40 max-w-md mx-auto px-6 flex-1 flex flex-col justify-center">

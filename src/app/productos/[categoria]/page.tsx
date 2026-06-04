@@ -32,7 +32,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
   const heroImage = getHeroImage(group.slug);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[#FCF2E6] flex flex-col justify-between overflow-x-hidden">
       <Navbar transparentInitially={false} />
 
       {/* ─── CATEGORY HERO ─── */}

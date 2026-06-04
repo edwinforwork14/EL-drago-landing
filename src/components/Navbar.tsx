@@ -110,9 +110,9 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
           onClick={() => setMenuOpen(true)}
           aria-label="Abrir menú"
         >
-          <span className="block w-6 h-0.5 rounded-full transition-colors duration-300 bg-white" />
-          <span className="block w-6 h-0.5 rounded-full transition-colors duration-300 bg-white" />
-          <span className="block w-4 h-0.5 rounded-full self-end transition-colors duration-300 bg-white" />
+          <span className="block w-6 h-0.5 rounded-full transition-colors duration-300 bg-[#FCF2E6]" />
+          <span className="block w-6 h-0.5 rounded-full transition-colors duration-300 bg-[#FCF2E6]" />
+          <span className="block w-4 h-0.5 rounded-full self-end transition-colors duration-300 bg-[#FCF2E6]" />
         </button>
       </header>
 

@@ -62,7 +62,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
                 <span className="text-accent text-[9px] tracking-widest uppercase font-bold mb-2 block">Ingredientes</span>
                 <div className="flex flex-wrap gap-1.5">
                   {recipe.ingredients.map((ing, i) => (
-                    <span key={i} className="text-[9px] text-white/70 bg-white/10 px-2 py-0.5 rounded-md border border-white/10">
+                    <span key={i} className="text-[9px] text-white/70 bg-[#FCF2E6]/10 px-2 py-0.5 rounded-md border border-white/10">
                       {ing}
                     </span>
                   ))}
@@ -108,7 +108,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
                     <span className="text-accent text-[9px] tracking-widest uppercase font-bold mb-1 block">Ingredientes</span>
                     <div className="flex flex-wrap gap-1.5">
                       {recipe.ingredients.map((ing, i) => (
-                        <span key={i} className="text-[9px] text-white/70 bg-white/5 px-1.5 py-0.5 rounded-md border border-white/10">
+                        <span key={i} className="text-[9px] text-white/70 bg-[#FCF2E6]/5 px-1.5 py-0.5 rounded-md border border-white/10">
                           {ing}
                         </span>
                       ))}
@@ -277,7 +277,7 @@ const RecipeSection = () => {
               href="mailto:recetas@eldrago.com?subject=Mi%20Receta%20Gourmet%20-%20El%20Drago&body=Hola%20equipo%20El%20Drago,%0A%0AQuiero%20compartir%20mi%20receta%20utilizando%20sus%20productos.%0A%0ANombre%20de%20la%20receta:%20%0AIngredientes:%20%0APreparación:%20%0A%0A¡Espero%20que%20les%20guste!"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-accent text-primary-dark px-8 py-3.5 rounded-full font-bold uppercase tracking-widest text-[0.75rem] md:text-[0.8rem] hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 relative z-10 shadow-2xl w-full md:w-auto"
+              className="bg-accent text-primary-dark px-8 py-3.5 rounded-full font-bold uppercase tracking-widest text-[0.75rem] md:text-[0.8rem] hover:bg-[#FCF2E6] transition-all duration-300 flex items-center justify-center gap-2 relative z-10 shadow-2xl w-full md:w-auto"
             >
               <span className="material-symbols-outlined">mail</span>
               Enviar por Email

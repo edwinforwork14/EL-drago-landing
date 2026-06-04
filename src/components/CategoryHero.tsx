@@ -71,10 +71,10 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
               <span className="hover:text-white transition-colors">{eyebrow ?? ""}</span>
             </motion.div>
 
-            <h1 className="text-[2.2rem] max-[360px]:text-[1.8rem] max-[400px]:text-[2rem] sm:text-[3.5rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+            <h1 className="text-[3.3rem] max-[360px]:text-[2.7rem] max-[400px]:text-[3rem] sm:text-[5.25rem] md:text-[7rem] lg:text-[8.5rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
               {preTitle}
               <br />
-              <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[2.6rem] max-[360px]:text-[2rem] max-[400px]:text-[2.4rem] sm:text-[4.2rem] md:text-[8.5rem] lg:text-[10rem] -rotate-2 inline-block ml-1 drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)]">
+              <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.9rem] max-[360px]:text-[3rem] max-[400px]:text-[3.6rem] sm:text-[4.2rem] md:text-[8.5rem] lg:text-[10rem] -rotate-2 inline-block ml-1 drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)]">
                 {accentTitle}
               </span>
             </h1>
@@ -94,8 +94,8 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
           transition={{ delay: 0.3, duration: 0.8 }}
           className="w-full md:w-1/2 flex items-center justify-center"
         >
-          <div className="relative flex items-center justify-center w-[180px] h-[180px] max-[360px]:w-[140px] max-[360px]:h-[140px] sm:w-[240px] sm:h-[240px] md:w-[440px] md:h-[440px]">
-            <div className="absolute w-[200px] h-[200px] max-[360px]:w-[160px] max-[360px]:h-[160px] sm:w-[260px] sm:h-[260px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[40px] sm:blur-[60px] md:blur-[120px] animate-pulse" />
+          <div className="relative flex items-center justify-center w-[270px] h-[270px] max-[360px]:w-[210px] max-[360px]:h-[210px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px]">
+            <div className="absolute w-[300px] h-[300px] max-[360px]:w-[240px] max-[360px]:h-[240px] sm:w-[360px] sm:h-[360px] md:w-[420px] md:h-[420px] bg-accent/15 rounded-full blur-[40px] sm:blur-[60px] md:blur-[120px] animate-pulse" />
             {currentSrc && (
               <MotionImage
                 src={currentSrc}
@@ -103,7 +103,7 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
                 onError={handleImgError}
                 fill
                 priority
-                sizes="(max-width: 360px) 140px, (max-width: 640px) 180px, (max-width: 768px) 240px, 440px"
+                sizes="(max-width: 360px) 210px, (max-width: 640px) 270px, (max-width: 768px) 360px, 440px"
                 className="z-20 object-contain transition-transform duration-700 transform origin-center group-hover:scale-105 group-hover:rotate-1"
               />
             )}

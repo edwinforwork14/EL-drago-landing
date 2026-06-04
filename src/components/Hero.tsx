@@ -82,7 +82,7 @@ const Hero = () => {
             
             <Link
               href="/#nosotros"
-              className="flex items-center justify-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-bold uppercase tracking-[0.15em] text-[0.75rem] max-[360px]:text-[0.7rem] sm:text-[0.7rem] md:text-[0.75rem] px-7 sm:px-8 md:px-10 py-4 sm:py-4 md:py-5 rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-500 active:scale-95"
+              className="flex items-center justify-center gap-2 sm:gap-3 bg-[#FCF2E6]/5 backdrop-blur-xl border border-white/20 text-white font-bold uppercase tracking-[0.15em] text-[0.75rem] max-[360px]:text-[0.7rem] sm:text-[0.7rem] md:text-[0.75rem] px-7 sm:px-8 md:px-10 py-4 sm:py-4 md:py-5 rounded-full hover:bg-[#FCF2E6]/10 hover:border-white/40 transition-all duration-500 active:scale-95"
             >
               Nuestra Historia
             </Link>

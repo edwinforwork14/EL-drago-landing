@@ -31,7 +31,7 @@ const Contact = () => {
                 { icon: 'location_on', text: 'valencia, carabobo' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-3 group w-full md:w-auto">
-                  <div className="w-9 h-9 shrink-0 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-secondary-container group-hover:text-primary group-hover:scale-110">
+                  <div className="w-9 h-9 shrink-0 rounded-full bg-[#FCF2E6]/10 flex items-center justify-center transition-all group-hover:bg-secondary-container group-hover:text-primary group-hover:scale-110">
                     <span className="material-symbols-outlined text-lg">{item.icon}</span>
                   </div>
                   <span className="text-sm font-bold tracking-wide text-left">{item.text}</span>

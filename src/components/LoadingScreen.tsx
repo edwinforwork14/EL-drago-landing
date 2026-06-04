@@ -152,7 +152,7 @@ const LoadingScreen = () => {
             </p>
             
             {/* Progress Bar Container */}
-            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
+            <div className="w-64 h-1 bg-[#FCF2E6]/10 rounded-full overflow-hidden relative">
               <motion.div 
                 className="absolute top-0 left-0 h-full bg-accent"
                 initial={{ width: 0 }}
