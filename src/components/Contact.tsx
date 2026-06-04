@@ -17,9 +17,8 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16 relative z-0">
         <div className="flex flex-col items-center text-center">
           <div className="text-white space-y-5 max-w-3xl w-full">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-[family-name:var(--font-luckiest-guy)] uppercase leading-tight tracking-tight">
-              ¿TIENES DUDAS O QUIERES <br className="hidden md:block" />
-              <span className="text-[#FEC70C] font-[family-name:var(--font-luckiest-guy)]">DISTRIBUIR NUESTROS PRODUCTOS?</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-headline-lg text-headline-lg uppercase leading-tight tracking-tight">
+              <span className="text-[#FEC70C] font-headline-lg text-headline-lg">¿QUIERES DISTRIBUIR NUESTROS PRODUCTOS?</span>
             </h2>
 
             <p className="text-base font-bold opacity-90">¡Estamos aquí para ayudarte!</p>
@@ -28,8 +27,8 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row justify-center items-start md:items-center gap-3 md:gap-6 w-full">
               {[
                 { icon: 'call', text: '+1 (809) 123-4567' },
-                { icon: 'mail', text: 'info@eldrago.ca' },
-                { icon: 'location_on', text: 'Montreal, Canadá' },
+                { icon: 'mail', text: 'mercadeo@embutidoseldrago.com' },
+                { icon: 'location_on', text: 'valencia, carabobo' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-3 group w-full md:w-auto">
                   <div className="w-9 h-9 shrink-0 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-secondary-container group-hover:text-primary group-hover:scale-110">

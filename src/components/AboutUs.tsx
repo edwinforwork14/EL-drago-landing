@@ -10,9 +10,9 @@ const AboutUs = () => {
 
       {/* Top "Carving" Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
-          className="relative block w-[120%] h-[60px] md:h-[130px] fill-[#FCF2E6] -left-[10%]">
-          <path d="M0,60 C150,150 350,0 600,80 C850,160 1050,0 1200,60 L1200,0 L0,0 Z" />
+        <svg viewBox="0 0 1200 160" preserveAspectRatio="none"
+          className="relative block w-[120%] h-[80px] md:h-[150px] fill-[#FCF2E6] -left-[10%]">
+          <path d="M0,70 C100,20 240,120 360,90 C480,60 600,120 720,90 C840,60 960,120 1080,90 C1140,76 1180,72 1200,70 L1200,0 L0,0 Z" />
         </svg>
       </div>
 
@@ -28,7 +28,7 @@ const AboutUs = () => {
             className="text-white space-y-4 order-1"
           >
             <div className="inline-block relative">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-luckiest-guy)] uppercase tracking-tight leading-none">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline-lg text-headline-lg uppercase tracking-tight leading-none">
                 Sobre<br />Nosotros
               </h2>
               <svg className="absolute -bottom-2 left-0 w-24 md:w-32" viewBox="0 0 100 20" fill="none">
@@ -37,15 +37,14 @@ const AboutUs = () => {
             </div>
 
             <p className="text-white/85 text-sm md:text-base leading-relaxed max-w-md pt-3">
-              En Embutidos El Drago, llevamos más de 20 años elaborando productos con los más altos estándares de calidad. Seleccionamos cuidadosamente cada ingrediente para ofrecerte embutidos deliciosos, nutritivos y en los que puedes confiar.
+              En Embutidos El Drago, llevamos más de 20 años elaborando productos con los más altos estándares de calidad. Seleccionamos cuidadosamente cada ingrediente para ofrecerte lo mejor para tu familia .
             </p>
 
             {/* Stats row */}
             <div className="flex gap-4 pt-1">
               {[
-                { value: '+20', label: 'Años de experiencia' },
                 { value: '+30', label: 'Productos' },
-                { value: '100%', label: 'Artesanal' },
+                { value: '+20', label: 'Años de experiencia' },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <span className="text-secondary-container font-black text-xl md:text-2xl leading-none">{stat.value}</span>
@@ -63,7 +62,7 @@ const AboutUs = () => {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative order-2"
           >
-            <div className="bg-white p-2 pb-8 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
+            <div className="bg-white p-2 pb-8 shadow-2xl rotate-0 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
               <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-gray-100">
                 <Image 
                   src="/imagenes/1/IMG_0217.PNG" 
@@ -73,7 +72,7 @@ const AboutUs = () => {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-yellow-400/80 -rotate-1 flex items-center justify-center font-black text-[9px] uppercase tracking-widest shadow-sm text-yellow-900 z-20">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-yellow-400/80 -rotate-0 flex items-center justify-center font-black text-[9px] uppercase tracking-widest shadow-sm text-yellow-900 z-20">
                 El Drago Factory
               </div>
             </div>
@@ -97,9 +96,9 @@ const AboutUs = () => {
 
       {/* Bottom "Carving" Wave */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
-          className="relative block w-[120%] h-[60px] md:h-[130px] fill-[#FCF2E6] -left-[10%]">
-          <path d="M0,80 C200,0 400,120 600,60 C800,0 1000,120 1200,80 L1200,120 L0,120 Z" />
+        <svg viewBox="0 0 1200 160" preserveAspectRatio="none"
+          className="relative block w-[120%] h-[80px] md:h-[150px] fill-[#FCF2E6] -left-[10%]">
+          <path d="M0,110 C120,80 240,140 360,110 C480,80 600,140 720,110 C840,80 960,140 1080,110 C1140,100 1180,96 1200,110 L1200,160 L0,160 Z" />
         </svg>
       </div>
     </section>

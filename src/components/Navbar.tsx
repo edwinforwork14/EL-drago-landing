@@ -54,9 +54,7 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-2 md:py-3 px-6 md:px-10 lg:px-16 transition-all duration-500 ${
-          activeBg
-            ? "bg-[#FCF2E6]/95 backdrop-blur-xl border-b border-primary/5 shadow-md"
-            : "bg-transparent"
+          activeBg ? "bg-primary backdrop-blur-xl border-b border-primary/10 shadow-md" : "bg-transparent"
         }`}
       >
         {/* Logo */}
@@ -76,9 +74,7 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
 
         {/* Desktop nav — centered */}
         <nav
-          className={`hidden lg:flex flex-1 justify-center gap-8 font-bold text-xs uppercase tracking-widest transition-colors duration-500 ${
-            activeBg ? "text-primary-dark/80" : "text-white"
-          }`}
+          className={`hidden lg:flex flex-1 justify-center gap-8 font-bold text-xs uppercase tracking-widest transition-colors duration-500 text-white`}
         >
           {navLinks.map((link) => {
             const active = isActive(link.href);
@@ -87,9 +83,7 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
                 key={link.name}
                 href={link.href}
                 className={`relative transition-colors duration-300 py-2 hover:text-[#FEC70C] ${
-                  active ? "text-[#FEC70C] font-black" : ""
-                } ${!active && activeBg ? "text-primary-dark/80 hover:text-[#FEC70C]" : ""} ${
-                  !active && !activeBg ? "text-white/90 hover:text-[#FEC70C]" : ""
+                  active ? "text-[#FEC70C] font-black" : "text-white/90 hover:text-[#FEC70C]"
                 }`}
               >
                 {link.name}
@@ -116,21 +110,9 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
           onClick={() => setMenuOpen(true)}
           aria-label="Abrir menú"
         >
-          <span
-            className={`block w-6 h-0.5 rounded-full transition-colors duration-300 ${
-              activeBg ? "bg-primary-dark" : "bg-white"
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 rounded-full transition-colors duration-300 ${
-              activeBg ? "bg-primary-dark" : "bg-white"
-            }`}
-          />
-          <span
-            className={`block w-4 h-0.5 rounded-full self-end transition-colors duration-300 ${
-              activeBg ? "bg-primary-dark" : "bg-white"
-            }`}
-          />
+          <span className="block w-6 h-0.5 rounded-full transition-colors duration-300 bg-white" />
+          <span className="block w-6 h-0.5 rounded-full transition-colors duration-300 bg-white" />
+          <span className="block w-4 h-0.5 rounded-full self-end transition-colors duration-300 bg-white" />
         </button>
       </header>
 

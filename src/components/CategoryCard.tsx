@@ -12,11 +12,7 @@ interface CategoryCardProps {
   image?: string;
 }
 
-const categoryIcons: Record<string, string> = {
-  embutidos: "restaurant_menu",
-  ahumados: "whatshot",
-  frescos: "ac_unit",
-};
+// CategoryCard: display image + category name
 
 const placeholderImages: Record<string, string> = {
   embutidos: "/imagenes/jamon.jpg",
@@ -45,14 +41,14 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       className="
         group
         relative
-        h-[320px]
-        sm:h-[350px]
-        md:h-[380px]
-        lg:h-[400px]
+        h-[360px]
+        sm:h-[400px]
+        md:h-[440px]
+        lg:h-[480px]
         w-full
         overflow-hidden
-        rounded-[1.44rem]
-        md:rounded-[1.8rem]
+        rounded-lg
+        md:rounded-xl
         cursor-pointer
         border-2
         border-transparent
@@ -63,203 +59,42 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         duration-700
       "
     >
-      {/* Inner Glow Ring */}        <div className="absolute inset-1.5 md:inset-2 rounded-[0.86rem] md:rounded-[1.08rem] border border-white/5 pointer-events-none z-20 group-hover:border-accent/20 transition-colors duration-700" />
+      {/* Inner Glow Ring */}
+      <div className="absolute inset-1.5 md:inset-2 rounded-md md:rounded-lg border border-white/5 pointer-events-none z-20 group-hover:border-accent/20 transition-colors duration-700" />
 
-      <Link
-        href={`/productos/${group.slug}`}
-        className="block h-full w-full overflow-hidden"
-      >
-        {/* ─── Background Image ─── */}
-        <div className="absolute inset-0 bg-primary-dark/90 rounded-[1.44rem] md:rounded-[1.8rem] overflow-hidden">
-          <Image
-            src={imgSrc}
-            alt={group.label}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      <Link href={`/productos/${group.slug}`} className="block h-full w-full">
+        {/* Background image (fills the card and is clipped to the same border radius) */}
+        <div className="absolute inset-0 bg-primary-dark/90 rounded-lg md:rounded-xl overflow-hidden">
+          {imgSrc && (
+            <Image
+              src={imgSrc}
+              alt={group.label}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover object-center transition-all duration-[1.2s] ease-out group-hover:scale-110"
+            />
+          )}
+        </div>
+
+        {/* Gradient overlay for legibility (darker at bottom) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/85 via-[#0a0a0a]/40 to-transparent rounded-lg md:rounded-xl pointer-events-none" />
+        <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-10">
+          <h2
             className="
-              object-cover
-              transition-all
-              duration-[1.2s]
-              ease-out
-              group-hover:scale-110
-              rounded-[1.44rem]
-              md:rounded-[1.8rem]
+              text-white
+              font-bold
+              uppercase
+              leading-[0.95]
+              tracking-tight
+              drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]
+              text-[clamp(1rem,2.2vw,1.5rem)]
+              md:text-[clamp(1.25rem,2.0vw,1.9rem)]
             "
-          />
+            title={group.label}
+          >
+            {group.label}
+          </h2>
         </div>
-
-        {/* ─── Gradient Overlays ─── */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent transition-opacity duration-700 group-hover:via-[#0a0a0a]/60 rounded-[1.44rem] md:rounded-[1.8rem]" />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.44rem] md:rounded-[1.8rem]" />
-
-        {/* ─── Decorative light leak ─── */}
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-
-        {/* ─── Content ─── */}
-        <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 lg:p-6">
-          
-          {/* TOP AREA */}
-          <div className="flex justify-end">
-            <div
-              className="
-                w-10
-                h-10
-                md:w-12
-                md:h-12
-                rounded-xl
-                bg-white/5
-                backdrop-blur-md
-                border
-                border-white/10
-                flex
-                items-center
-                justify-center
-                group-hover:bg-primary
-                group-hover:border-primary
-                transition-all
-                duration-500
-                group-hover:scale-110
-                group-hover:rotate-3
-                shadow-lg
-              "
-            >
-              <span className="material-symbols-outlined text-white text-xl">
-                {categoryIcons[group.slug] || "category"}
-              </span>
-            </div>
-          </div>
-
-          {/* BOTTOM CONTENT */}
-          <div className="relative z-10 w-full">
-            
-            {/* Eyebrow */}
-            <span className="block text-accent text-[9px] md:text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-              Categoría
-            </span>
-
-            {/* Title */}
-            <h2
-              className="
-                text-white
-                font-[family-name:var(--font-luckiest-guy)]
-                uppercase
-                leading-[0.95]
-                tracking-tight
-                mb-4
-                drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]
-                group-hover:text-accent
-                transition-colors
-                duration-500
-                whitespace-nowrap
-                max-w-full
-                text-[clamp(1.25rem,2.6vw,2.5rem)]
-                md:text-[clamp(1.5rem,2.4vw,3rem)]
-              "
-              title={group.label}
-            >
-              {group.label}
-            </h2>
-
-            {/* Description */}
-            <p
-              className="
-                text-white/75
-                text-sm
-                md:text-[15px]
-                leading-relaxed
-                font-medium
-                max-w-md
-                mb-3
-                line-clamp-2
-              "
-            >
-              {group.description}
-            </p>
-
-            {/* Subcategories */}
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {group.subcategories.slice(0, 3).map((sub) => (
-                <span
-                  key={sub}
-                  className="
-                    text-[9px]
-                    md:text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-wider
-                    text-white/80
-                    bg-white/10
-                    backdrop-blur-sm
-                    border
-                    border-white/10
-                    px-3
-                    py-1.5
-                    rounded-full
-                  "
-                >
-                  {sub}
-                </span>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <div>
-              <span
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  text-white
-                  border
-                  border-white/20
-                  text-[11px]
-                  md:text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.15em]
-                  px-5
-                  py-3
-                  rounded-full
-                  opacity-0
-                  translate-y-3
-                  group-hover:opacity-100
-                  group-hover:translate-y-0
-                  transition-all
-                  duration-500
-                  hover:bg-white
-                  hover:text-primary-dark
-                "
-              >
-                Ver productos
-
-                <span className="material-symbols-outlined text-lg">
-                  arrow_forward
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ─── Shine overlay on hover ─── */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-r
-            from-transparent
-            via-white/5
-            to-transparent
-            -translate-x-full
-            group-hover:translate-x-full
-            transition-transform
-            duration-[1.5s]
-            ease-in-out
-            pointer-events-none
-            rounded-[1.44rem]
-            md:rounded-[1.8rem]
-          "
-        />
       </Link>
     </motion.div>
   );

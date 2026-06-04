@@ -158,7 +158,7 @@ const RecipeSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-[2.2rem] md:text-[3.8rem] font-luckiest-guy text-primary-dark tracking-tight leading-none mb-0 uppercase flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6"
+              className="text-[2.2rem] md:text-[3.8rem] font-headline-lg text-headline-lg text-primary-dark tracking-tight leading-none mb-0 uppercase flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6"
             >
               <span>EL</span> <span>ARTE</span> <span>DE</span> <span className="text-[#FEC70C] font-mr-dafoe normal-case text-[2.8rem] md:text-[5rem] -rotate-2 inline-block ml-1">Saborear</span>
             </motion.h2>
@@ -265,7 +265,7 @@ const RecipeSection = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -mr-32 -mt-32" />
             
             <div className="max-w-2xl relative z-10 text-center md:text-left mb-10 md:mb-0">
-              <h4 className="font-[family-name:var(--font-luckiest-guy)] text-3xl md:text-4xl uppercase tracking-tighter mb-3 leading-[0.9]">
+              <h4 className="font-headline-lg text-headline-lg text-3xl md:text-4xl uppercase tracking-tighter mb-3 leading-[0.9]">
                 ENVÍANOS TU <br className="md:hidden" /> <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.2rem] md:text-[3.8rem] -rotate-2 inline-block">Receta</span>
               </h4>
               <p className="text-white/60 text-sm md:text-base font-light leading-relaxed max-w-md md:max-w-none mx-auto md:mx-0">

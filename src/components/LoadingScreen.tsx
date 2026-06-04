@@ -131,12 +131,12 @@ const LoadingScreen = () => {
               />
             </motion.div>
             
-            {/* Pulsing Ring */}
+            {/* Pulsing Ring (border removed) */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0.5 }}
               animate={{ scale: 1.5, opacity: 0 }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-              className="absolute inset-0 border-2 border-accent rounded-full -m-4"
+              className="absolute inset-0 border-2 border-transparent rounded-full -m-4"
             />
           </div>
 

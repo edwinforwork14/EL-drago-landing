@@ -28,7 +28,7 @@ const RecipeCTA = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
             
             <div className="max-w-3xl relative z-10 text-center md:text-left mb-10 md:mb-0">
-              <h2 className="font-[family-name:var(--font-luckiest-guy)] text-4xl md:text-6xl lg:text-[5.5rem] uppercase tracking-tighter mb-4 leading-[0.9]">
+              <h2 className="font-headline-lg text-headline-lg text-4xl md:text-6xl lg:text-[5.5rem] uppercase tracking-tighter mb-4 leading-[0.9]">
                 EL ARTE DE <br className="md:hidden" /> <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] -rotate-2 inline-block md:ml-2">Saborear</span>
               </h2>
               <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto md:mx-0">

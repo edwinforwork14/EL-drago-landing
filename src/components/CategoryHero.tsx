@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef, useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const MotionImage = motion(Image);
 
@@ -15,12 +15,6 @@ interface CategoryHeroProps {
 }
 
 export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle, imageSrc }: CategoryHeroProps) {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 110]);
 
   const [srcIndex, setSrcIndex] = useState(0);
 
@@ -48,10 +42,11 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
   };
 
   return (
-    <section ref={heroRef} className="group relative min-h-[68vh] md:min-h-[72vh] overflow-hidden pt-20 md:pt-28">
+    <section className="group relative min-h-[68vh] md:min-h-[72vh] overflow-hidden pt-20 md:pt-28">
       {/* Background */}
-      <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-dark" />
+      <div className="absolute inset-0">
+        {/* Solid background (removed gradient) */}
+        <div className="absolute inset-0 bg-primary-dark" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(254,199,12,0.08),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(223,33,34,0.15),transparent_50%)]" />
         <div className="absolute top-10 right-10 w-[500px] h-[500px] border border-white/5 rounded-full blur-sm" />
@@ -59,10 +54,10 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
         <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-accent/30 rounded-full animate-pulse" />
         <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
-      </motion.div>
+      </div>
 
       {/* Content: text on mobile → side-by-side on desktop */}
-      <motion.div style={{ y: heroY }} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24 flex flex-col md:flex-row items-center gap-6 sm:gap-6 md:gap-10">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-16 md:py-24 flex flex-col md:flex-row items-center gap-6 sm:gap-6 md:gap-10">
         
         {/* TEXT — full width on mobile, left half on desktop */}
         <motion.div 
@@ -115,9 +110,9 @@ export default function CategoryHero({ eyebrow, preTitle, accentTitle, subtitle,
           </div>
         </motion.div>
 
-      </motion.div>
+      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+      {/* bottom fade removed per design request */}
     </section>
   );
 }

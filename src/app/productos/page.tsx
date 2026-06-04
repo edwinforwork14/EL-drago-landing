@@ -25,36 +25,18 @@ export default function ProductosPage() {
         imageSrc={'/Dragitos/DRAGUITO%20PRINCIPAL.png'}
       />
 
-      {/* ─── INTRO TEXT ─── */}
-      <section className="relative z-10 -mt-0">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <span className="text-primary font-bold text-sm md:text-base uppercase tracking-[0.3em] mb-4 block">
-              Explora nuestras categorías
-            </span>
-            <h2 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] text-5xl md:text-7xl uppercase leading-[0.9] tracking-tight mb-6">
-              El sabor que
-              <br />
-              <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[6.5rem] -rotate-1 inline-block ml-1">
-                atrapa
-              </span>
+        {/* Small header between hero and category cards */}
+        <section className="mt-12 md:mt-16 lg:mt-24 relative">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+            <h2 className="text-center text-primary-dark uppercase tracking-wider mb-6 text-4xl md:text-6xl lg:text-8xl leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800 }}>
+              CATEGORÍAS
             </h2>
-            <p className="text-primary-dark/60 text-lg md:text-xl leading-relaxed font-medium max-w-xl mx-auto">
-              Cada categoría ha sido curada para ofrecerte la mejor experiencia gastronómica.
-              Selecciona y descubre nuestra variedad.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
 
       {/* ─── CATEGORY CARDS GRID ─── */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-24 md:pb-32 pt-15 md:pt-20 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {CATEGORY_GROUPS.map((group, i) => (

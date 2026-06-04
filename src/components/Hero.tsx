@@ -45,34 +45,22 @@ const Hero = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-[family-name:var(--font-luckiest-guy)] text-[3.5rem] max-[400px]:text-[3rem] max-[360px]:text-[2.6rem] sm:text-[5.98rem] md:text-[6.44rem] lg:text-[7.82rem] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-3 sm:-rotate-6"
+              className="font-headline-lg text-headline-lg text-[3.5rem] max-[400px]:text-[3rem] max-[360px]:text-[2.6rem] sm:text-[5.98rem] md:text-[6.44rem] lg:text-[7.82rem] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-3 sm:-rotate-6 scale-90"
             >
-              EL SABOR
+              <span className="whitespace-nowrap">El favorito</span>
             </motion.h1>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 2 }}
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center justify-center md:justify-start gap-3 sm:gap-4 -mt-3 sm:-mt-8 md:-mt-10 relative z-10 md:ml-12"
+              className="flex items-center justify-center md:justify-start gap-3 sm:gap-4 mt-4 sm:mt-6 md:mt-8 relative z-10 md:ml-12"
             >
-              <span className="font-black text-accent text-[2rem] max-[400px]:text-[1.8rem] max-[360px]:text-[1.5rem] sm:text-[2.15rem] md:text-[2.38rem] uppercase leading-none tracking-tighter px-2 sm:px-3 pt-6 sm:pt-8">que</span>
+              <span className="font-black text-accent text-[2rem] max-[400px]:text-[1.8rem] max-[360px]:text-[1.5rem] sm:text-[2.15rem] md:text-[2.38rem] uppercase leading-none tracking-tighter px-2 sm:px-3 pt-6 sm:pt-8">de</span>
               <span className="font-[family-name:var(--font-mr-dafoe)] text-[4rem] max-[400px]:text-[3.5rem] max-[360px]:text-[3rem] sm:text-[5.98rem] md:text-[6.9rem] lg:text-[8.74rem] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
-                Atrapa
+                Todos
               </span>
             </motion.div>
-          </div>
-
-          {/* Description Block */}
-          <div className="w-full max-w-[300px] sm:max-w-md lg:max-w-lg mb-6 sm:mb-8 md:mb-10">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-white/90 font-medium text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed drop-shadow-sm"
-            >
-              Maestría artesanal en cada pieza. Descubre la excelencia de embutidos creados para los paladares más exigentes.
-            </motion.p>
           </div>
 
           {/* CTAs with Enhanced Polish (15% Smaller) */}
@@ -109,7 +97,7 @@ const Hero = () => {
           >
             {[
               { icon: 'verified', label: 'Certificación de Calidad' },
-              { icon: 'temp_preferences_custom', label: 'Curación Artesanal' },
+              { icon: 'temp_preferences_custom', label: '100% Nacional' },
               { icon: 'restaurant', label: 'Sabor Auténtico' },
             ].map((badge) => (
               <div
@@ -117,7 +105,7 @@ const Hero = () => {
                 className="flex items-center gap-2 sm:gap-3 shrink-0 group"
               >
                 <span className="material-symbols-outlined text-accent text-xl sm:text-xl md:text-2xl transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">{badge.icon}</span>
-                <span className="text-white/60 font-bold text-[8px] max-[360px]:text-[7px] sm:text-[9px] md:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-300 group-hover:text-white whitespace-nowrap">{badge.label}</span>
+                <span className="text-white/60 font-bold text-[8.64px] max-[360px]:text-[7.56px] sm:text-[9.72px] md:text-[10.8px] uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-colors duration-300 group-hover:text-white whitespace-nowrap">{badge.label}</span>
               </div>
             ))}
           </motion.div>

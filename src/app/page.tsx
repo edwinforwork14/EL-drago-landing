@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
 import RecipeCTA from "@/components/RecipeCTA";
 import AboutUs from "@/components/AboutUs";
-import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
 import SocialMedia from "@/components/SocialMedia";
 import Footer from "@/components/Footer";
@@ -20,9 +19,8 @@ export default function Home() {
         <RecipeCTA />
         <ProductGrid />
         <AboutUs />
-        <WhyChooseUs />
-        <Contact />
         <SocialMedia />
+        <Contact />
       </main>
       <Footer />
     </div>
