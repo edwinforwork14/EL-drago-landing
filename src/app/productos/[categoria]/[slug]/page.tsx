@@ -26,10 +26,7 @@ function ProductDetailContent() {
 
   const product = slug ? getProductBySlug(slug) : null;
 
-  // ✅ Debug temporal (puedes borrarlo luego)
-  console.log("Slug:", slug);
-  console.log("Product:", product);
-  console.log("Image:", product?.image);
+  // debug removed
 
   if (!product) {
     return (
@@ -67,53 +64,10 @@ function ProductDetailContent() {
     )
     .slice(0, 3);
 
-  // Pairing dinámico
-  const getPairingSuggestion = (category: string) => {
-    const catLower = category.toLowerCase();
-
-    if (catLower.includes("jamon")) {
-      return {
-        title: "Maridaje Gourmet",
-        desc:
-          "Ideal para servir con melón fresco, higos maduros, nueces crujientes y un vino tinto joven de buen cuerpo. Su sabor curado artesanal se realza sobre una rebanada de pan tostado frotada con tomate fresco y un generoso chorrito de aceite de oliva virgen extra.",
-        icon: "wine_bar",
-      };
-    } else if (
-      catLower.includes("pavo") ||
-      catLower.includes("pechuga") ||
-      catLower.includes("frescos")
-    ) {
-      return {
-        title: "Sugerencia del Chef",
-        desc:
-          "Combina a la perfección con quesos frescos y suaves, finas hierbas, láminas de manzana verde y aderezos de miel y mostaza.",
-        icon: "restaurant",
-      };
-    } else if (
-      catLower.includes("ahumad") ||
-      catLower.includes("chuleta") ||
-      catLower.includes("tocineta")
-    ) {
-      return {
-        title: "Cocina Creativa",
-        desc:
-          "Su profundo carácter ahumado natural es ideal para coronar pastas cremosas, huevos benedictinos y guisos artesanales.",
-        icon: "local_fire_department",
-      };
-    }
-
-    return {
-      title: "Sabor Recomendado",
-      desc:
-        "Perfecto para tablas gourmet acompañado de aceitunas, frutos secos tostados y quesos semicurados.",
-      icon: "dinner_dining",
-    };
-  };
-
-  const pairing = getPairingSuggestion(product.category);
+  // pairing removed to simplify to Heinz-like layout
 
   return (
-    <div className="min-h-screen bg-background flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[#F4EBDD] flex flex-col justify-between overflow-x-hidden">
       <Navbar transparentInitially={false} />
 
       <main className="pt-32 px-6 md:px-12 max-w-7xl mx-auto pb-24 flex-1 w-full">
@@ -138,9 +92,9 @@ function ProductDetailContent() {
 
         {/* MAIN */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* IMAGE */}
+          {/* IMAGE: minimal floating product with subtle shadow (Heinz-like) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 0.8,
@@ -148,27 +102,32 @@ function ProductDetailContent() {
             }}
             className="lg:col-span-6 relative flex justify-center items-center"
           >
-            {/* Glow */}
-            <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-primary/5 rounded-full blur-[80px]" />
+            <div className="relative w-full max-w-[680px] flex justify-center items-center">
+              <div className="relative w-[77%] md:w-[66%] lg:w-[55%]">
+                <motion.div
+                  initial={{ y: 0, rotate: 0, scale: 1.1 }}
+                  animate={{ y: [0, -12, 0], rotate: [0, 1, -1, 0], scale: [1.1, 1.105, 1.1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative aspect-[4/5] w-full"
+                >
+                  <Image
+                    src={productImage}
+                    alt={product.name}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain"
+                  />
+                </motion.div>
 
-            <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-[40px] animate-pulse" />
-
-            {/* Card */}
-            <div className="relative aspect-[4/5] w-full max-w-[480px] rounded-[2.16rem] overflow-hidden bg-white/40 backdrop-blur-md border border-primary/5 shadow-2xl group">
-              <Image
-                src={productImage}
-                alt={product.name}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-[1s] group-hover:scale-105"
-              />
-
-              {product.tag && (
-                <span className="absolute top-6 left-6 bg-accent text-primary-dark text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg z-10">
-                  {product.tag}
-                </span>
-              )}
+                {/* breathing shadow under product (scales X and fades) */}
+                <motion.div
+                  initial={{ scaleX: 1, opacity: 0.12 }}
+                  animate={{ scaleX: [1, 0.85, 1], opacity: [0.12, 0.07, 0.12] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-40 h-4 bg-black/10 rounded-full blur-sm"
+                />
+              </div>
             </div>
           </motion.div>
 
@@ -183,11 +142,9 @@ function ProductDetailContent() {
             }}
             className="lg:col-span-6 flex flex-col justify-center"
           >
-            <span className="text-primary font-bold text-xs uppercase tracking-[0.25em] mb-4 block">
-              {product.category}
-            </span>
+            <div className="text-accent font-bold uppercase tracking-widest mb-4">El Drago</div>
 
-            <h1 className="text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] font-[family-name:var(--font-luckiest-guy)] text-primary-dark uppercase leading-[0.85] tracking-tight mb-6">
+            <h1 className="text-[3rem] md:text-[5rem] lg:text-[6rem] font-black text-[#C41A1E] uppercase leading-[0.9] tracking-tight mb-6">
               {product.name}
             </h1>
 
@@ -197,28 +154,11 @@ function ProductDetailContent() {
               {product.description}
             </p>
 
-            {/* Pairing */}
-            <div className="bg-[#FCF2E6]/50 backdrop-blur-md rounded-[1.44rem] p-6 border border-primary/5 mb-10 flex gap-5 items-start">
-              <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 border border-primary/10">
-                <span className="material-symbols-outlined text-primary text-2xl">
-                  {pairing.icon}
-                </span>
-              </div>
-
-              <div>
-                <h4 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] uppercase text-lg mb-2 tracking-wide">
-                  {pairing.title}
-                </h4>
-
-                <p className="text-primary-dark/65 text-sm leading-relaxed font-medium">
-                  {pairing.desc}
-                </p>
-              </div>
-            </div>
+            {/* Sizes and CTA removed per design direction */}
           </motion.div>
         </div>
 
-        {/* RECOMMENDATIONS */}
+        {/* RELATED PRODUCTS: simplified catalog grid (image, name, category) */}
         {siblings.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -227,78 +167,37 @@ function ProductDetailContent() {
               delay: 0.4,
               duration: 0.7,
             }}
-            className="mt-32 border-t border-primary/10 pt-20"
+            className="mt-32 pt-20"
           >
-            <span className="text-primary font-bold text-xs uppercase tracking-[0.25em] mb-4 block text-center">
-              Recomendación Gourmet
-            </span>
-
-            <h2 className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] text-3xl md:text-5xl uppercase tracking-tight text-center mb-12">
-              También te{" "}
-              <span className="text-primary font-[family-name:var(--font-mr-dafoe)] normal-case text-[3.5rem] md:text-[5rem] -rotate-1 inline-block">
-                puede interesar
-              </span>
+            <h2 className="text-primary-dark text-3xl md:text-4xl font-bold uppercase tracking-tight text-center mb-10">
+              También te puede interesar
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {siblings.map((sibling, i) => {
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {siblings.map((sibling) => {
                 const siblingSlug = getProductSlug(sibling);
 
                 return (
-                  <motion.div
+                  <Link
                     key={sibling.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: 0.5 + 0.05 * i,
-                    }}
+                    href={`/productos/${getCategorySlugForProduct(sibling) || "productos"}/${siblingSlug}`}
+                    className="group block text-center"
                   >
-                    <Link
-                      href={`/productos/${
-                        getCategorySlugForProduct(sibling) || "productos"
-                      }/${siblingSlug}`}
-                      className="group block bg-[#FCF2E6]/60 backdrop-blur-md rounded-[1.8rem] p-5 border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
-                    >
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.44rem] bg-white border border-primary/5 mb-6">
-                        <Image
-                          src={getProductImageUrl(sibling)}
-                          alt={sibling.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                          className={`object-cover transform transition-transform duration-700 ease-out group-hover:scale-[1.12] ${
-                            i % 3 === 0
-                              ? "group-hover:rotate-[-3deg]"
-                              : i % 2 === 0
-                              ? "group-hover:rotate-[2.5deg]"
-                              : "group-hover:rotate-[3deg]"
-                          }`}
-                        />
+                    <div className="relative w-full aspect-[4/5] overflow-hidden mb-4">
+                      <Image
+                        src={getProductImageUrl(sibling)}
+                        alt={sibling.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-contain mx-auto"
+                      />
+                    </div>
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center p-6 backdrop-blur-[2px]">
-                          <span className="inline-flex items-center gap-2 bg-white text-primary-dark text-[9px] font-black uppercase tracking-wider px-4 py-2.5 rounded-full shadow-md translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
-                            Descubrir
-
-                            <span className="material-symbols-outlined text-xs">
-                              arrow_forward
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="px-2">
-                        <h3
-                          className="text-primary-dark font-[family-name:var(--font-luckiest-guy)] text-xl sm:text-2xl uppercase tracking-tight group-hover:text-primary transition-colors leading-tight mb-2 whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
-                          title={sibling.name}
-                        >
-                          {sibling.name}
-                        </h3>
-
-                        <span className="text-primary-dark/45 text-[10px] font-bold uppercase tracking-wider block">
-                          {sibling.category}
-                        </span>
-                      </div>
-                    </Link>
-                  </motion.div>
+                    <div>
+                      <h3 className="text-primary-dark font-bold text-lg mb-1">{sibling.name}</h3>
+                      <span className="text-primary-dark/50 text-xs uppercase">{sibling.category}</span>
+                    </div>
+                  </Link>
                 );
               })}
             </div>

@@ -32,7 +32,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
   const heroImage = getHeroImage(group.slug);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-white flex flex-col justify-between overflow-x-hidden">
       <Navbar transparentInitially={false} />
 
       {/* ─── CATEGORY HERO ─── */}
@@ -44,7 +44,7 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
         imageSrc={heroImage}
       />
 
-      <main className="px-6 md:px-12 max-w-7xl mx-auto pb-24 flex-1 w-full pt-12">
+      <main className="px-6 md:px-12 max-w-[1600px] mx-auto pb-24 flex-1 w-full pt-12">
 
         {/* ─── PRODUCTS GRID ─── */}
         {products.length === 0 ? (
@@ -54,13 +54,14 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
             {products.map((product, i) => {
               const slug = getProductSlug(product);
 
               return (
                 <motion.div
                   key={product.id}
+                  className="transform scale-90"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -69,172 +70,35 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
-                  <Link
-                    href={`/productos/${group.slug}/${slug}`}
-                    className="
-                      group
-                      block
-                      bg-[#FCF2E6]/60
-                      backdrop-blur-md
-                      rounded-[1.8rem]
-                      p-5
-                      border
-                      border-primary/5
-                      hover:border-primary/20
-                      transition-all
-                      duration-500
-                      hover:shadow-[0_20px_40px_rgba(196,26,30,0.04)]
-                      hover:-translate-y-1
-                    "
-                  >
-                    {/* IMAGE CONTAINER */}
-                    <div
-                      className="
-                        relative
-                        aspect-[4/5]
-                        overflow-hidden
-                        rounded-[1.44rem]
-                        bg-white
-                        border
-                        border-primary/5
-                        mb-6
-                      "
-                    >
-                      {/* IMAGE */}
+                  <Link href={`/productos/${group.slug}/${slug}`} className="group block h-full">
+                    {/* IMAGE */}
+                    <div className="relative w-full overflow-hidden rounded-[1rem] mb-4 aspect-[1/1.3] md:aspect-[1/1.3] transition-colors duration-500 group-hover:bg-[#C41A1E]">
+                      {/* PRODUCT IMAGE */}
                       <Image
                         src={getProductImageUrl(product)}
                         alt={product.name}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className={`
-                          object-cover
-                          transform
-                          transition-transform
-                          duration-[900ms]
-                          ease-out
-                          group-hover:scale-[1.12]
-                          origin-center
-                          ${i % 3 === 0
-                            ? "group-hover:rotate-[-3deg]"
-                            : i % 2 === 0
-                            ? "group-hover:rotate-[2.5deg]"
-                            : "group-hover:rotate-[3deg]"
+                        className={`object-contain scale-[0.75] transition-all duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)]
+                          ${
+                            i % 3 === 0
+                              ? "group-hover:rotate-[-6deg]"
+                              : i % 2 === 0
+                              ? "group-hover:rotate-[5deg]"
+                              : "group-hover:rotate-[7deg]"
                           }
-                        `}
+
+                          group-hover:scale-[0.85]`
+                        }
                       />
-
-                      {/* RED OVERLAY REDUCED 50% */}
-                      <div
-                        className="
-                          absolute
-                          inset-0
-                          bg-gradient-to-t
-                          from-primary-dark/40
-                          via-primary-dark/10
-                          to-transparent
-                          pointer-events-none
-                        "
-                      />
-
-                      {/* TAG */}
-                      {product.tag && (
-                        <span
-                          className="
-                            absolute
-                            top-4
-                            left-4
-                            bg-accent
-                            text-primary-dark
-                            text-[9px]
-                            font-bold
-                            uppercase
-                            tracking-widest
-                            px-3.5
-                            py-1.5
-                            rounded-full
-                            shadow-md
-                            z-20
-                          "
-                        >
-                          {product.tag}
-                        </span>
-                      )}
-
-                      {/* CTA WITHOUT BLUR */}
-                      <div
-                        className="
-                          absolute
-                          inset-0
-                          opacity-0
-                          group-hover:opacity-100
-                          transition-all
-                          duration-500
-                          flex
-                          items-end
-                          justify-center
-                          p-6
-                        "
-                      >
-                        <span
-                          className="
-                            inline-flex
-                            items-center
-                            gap-2
-                            bg-white
-                            text-primary-dark
-                            text-[10px]
-                            font-black
-                            uppercase
-                            tracking-wider
-                            px-5
-                            py-3
-                            rounded-full
-                            shadow-lg
-                            translate-y-4
-                            group-hover:translate-y-0
-                            transition-transform
-                            duration-500
-                          "
-                        >
-                          Ver Detalles
-
-                          <span className="material-symbols-outlined text-sm">
-                            arrow_forward
-                          </span>
-                        </span>
-                      </div>
                     </div>
 
-                    {/* CONTENT */}
-                    <div className="px-2 pb-2">
-                      <h3
-                        className="
-                          text-primary-dark
-                          font-[family-name:var(--font-luckiest-guy)]
-                          text-xl
-                          sm:text-2xl
-                          uppercase
-                          tracking-tight
-                          group-hover:text-primary
-                          transition-colors
-                          leading-tight
-                          mb-2
-                        "
-                      >
-                        {product.name}
-                      </h3>
+                    {/* BRAND */}
+                    <div className="px-1">
 
-                      <p
-                        className="
-                          text-primary-dark/65
-                          text-sm
-                          font-medium
-                          leading-relaxed
-                          line-clamp-2
-                        "
-                      >
-                        {product.description}
-                      </p>
+                      {/* PRODUCT NAME */}
+                      <h3 className="text-primary-dark font-bold text-2xl mt-3 leading-tight">{product.name}</h3>
+
                     </div>
                   </Link>
                 </motion.div>
