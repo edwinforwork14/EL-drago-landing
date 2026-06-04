@@ -21,7 +21,6 @@ export default function ProductosPage() {
         eyebrow={"Productos"}
         preTitle={"Nuestros"}
         accentTitle={"Productos"}
-        subtitle={"Selección premium de embutidos artesanales, ahumados con leñas finas y productos frescos. Tradición familiar que se sirve en cada mesa."}
         imageSrc={'/Dragitos/DRAGUITO%20PRINCIPAL.png'}
       />
 

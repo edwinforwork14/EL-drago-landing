@@ -40,7 +40,6 @@ function CategoryContent({ group }: { group: CategoryGroup }) {
         eyebrow={"Categoría"}
         preTitle={"Nuestros"}
         accentTitle={group.label}
-        subtitle={group.description}
         imageSrc={heroImage}
       />
 
