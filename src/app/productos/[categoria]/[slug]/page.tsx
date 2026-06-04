@@ -196,9 +196,6 @@ function ProductDetailContent() {
                       </div>
                     </div>
 
-                    {/* SHADOW */}
-                    <div className="w-full h-2 bg-black/5 mb-4" />
-
                     {/* INFO */}
                     <div>
                       <h3 className="text-primary-dark font-bold text-lg mb-1 transition-colors duration-700 group-hover:text-white">
