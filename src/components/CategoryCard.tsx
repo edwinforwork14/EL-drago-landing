@@ -63,20 +63,14 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 
       <Link href={`/productos/${group.slug}`} className="block h-full w-full">
         {/* Background image (fills the card and is clipped to the same border radius) */}
-        <div className="absolute inset-0 bg-primary-dark/90 rounded-lg md:rounded-xl overflow-hidden transition-colors duration-500 group-hover:bg-[#C41A1E]">
+        <div className="absolute inset-0 bg-primary-dark/90 rounded-lg md:rounded-xl overflow-hidden transition-colors duration-500">
           {imgSrc && (
             <Image
               src={imgSrc}
               alt={group.label}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className={`object-contain scale-[0.75] transition-all duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] ${
-                index % 3 === 0
-                  ? "group-hover:rotate-[-6deg]"
-                  : index % 2 === 0
-                  ? "group-hover:rotate-[5deg]"
-                  : "group-hover:rotate-[7deg]"
-              } group-hover:scale-[0.85] origin-center`}
+              className="object-cover transition-transform duration-700 group-hover:scale-105 group-hover:rotate-3"
             />
           )}
         </div>

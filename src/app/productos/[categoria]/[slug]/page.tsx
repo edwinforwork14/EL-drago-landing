@@ -174,28 +174,40 @@ function ProductDetailContent() {
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {siblings.map((sibling) => {
+              {siblings.map((sibling, i) => {
                 const siblingSlug = getProductSlug(sibling);
 
                 return (
                   <Link
                     key={sibling.id}
                     href={`/productos/${getCategorySlugForProduct(sibling) || "productos"}/${siblingSlug}`}
-                    className="group block text-center"
+                    className="group block text-center bg-[#FCF2E6] hover:bg-[#C41A1E] transition-colors duration-700 p-6 rounded-lg overflow-hidden"
                   >
+                    {/* IMAGE AREA */}
                     <div className="relative w-full aspect-[4/5] overflow-hidden mb-4">
-                      <Image
-                        src={getProductImageUrl(sibling)}
-                        alt={sibling.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-contain mx-auto"
-                      />
+                      <div className="relative w-full h-full transform transition-transform duration-700 ease-in-out group-hover:scale-[1.15] group-hover:rotate-[10deg]">
+                        <Image
+                          src={getProductImageUrl(sibling)}
+                          alt={sibling.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-contain mx-auto"
+                        />
+                      </div>
                     </div>
 
+                    {/* SHADOW */}
+                    <div className="w-full h-2 bg-black/5 mb-4" />
+
+                    {/* INFO */}
                     <div>
-                      <h3 className="text-primary-dark font-bold text-lg mb-1">{sibling.name}</h3>
-                      <span className="text-primary-dark/50 text-xs uppercase">{sibling.category}</span>
+                      <h3 className="text-primary-dark font-bold text-lg mb-1 transition-colors duration-700 group-hover:text-white">
+                        {sibling.name}
+                      </h3>
+
+                      <span className="text-primary-dark/50 text-xs uppercase transition-colors duration-700 group-hover:text-white">
+                        {sibling.category}
+                      </span>
                     </div>
                   </Link>
                 );
