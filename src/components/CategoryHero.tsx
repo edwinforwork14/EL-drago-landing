@@ -12,9 +12,9 @@ interface CategoryHeroProps {
 
 export default function CategoryHero({ imageSrc }: CategoryHeroProps) {
   return (
-    <section className="relative min-h-[40vh] md:min-h-screen overflow-hidden">
+    <section className="relative min-h-[40vh] md:min-h-screen overflow-hidden bg-primary">
       {/* ─── BANNER IMAGE ─── */}
-      <div className="absolute inset-0 overflow-hidden md:bg-primary">
+      <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence>
           <MotionImage
             key={imageSrc}

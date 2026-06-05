@@ -54,7 +54,7 @@ export default function Navbar({ transparentInitially = false, appearOnScroll = 
   return (
     <>
       <header
-        className={`sticky top-0 left-0 right-0 z-50 flex items-center justify-between py-2 md:py-3 px-6 md:px-10 lg:px-16 transition-all duration-700 translate-y-0 opacity-100 ${
+        className={`relative z-50 flex items-center justify-between py-2 md:py-3 px-6 md:px-10 lg:px-16 transition-all duration-700 ${
           activeBg ? "bg-primary backdrop-blur-xl border-b border-primary/10 shadow-md" : "bg-transparent"
         }`}
       >
