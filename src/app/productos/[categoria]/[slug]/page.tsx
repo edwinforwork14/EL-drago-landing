@@ -81,7 +81,7 @@ function ProductDetailContent() {
     <div className="min-h-screen bg-[#F4EBDD] flex flex-col justify-between">
       <Navbar transparentInitially={false} />
 
-      <main className="pt-32 px-6 md:px-10 lg:px-16 max-w-[1600px] mx-auto pb-24 flex-1 w-full">
+      <main className="pt-24 md:pt-32 px-6 md:px-10 lg:px-16 max-w-[1600px] mx-auto pb-24 flex-1 w-full">
         {/* Back */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ function ProductDetailContent() {
             className="lg:col-span-6"
           >
             <div className="lg:sticky lg:top-50">
-              <div className="relative w-full min-h-[25rem] flex justify-center items-center">
+              <div className="relative w-full min-h-[18rem] md:min-h-[25rem] flex justify-center items-center">
                 <div className="relative w-[77%] md:w-[66%] lg:w-[55%]">
                   <div className="relative aspect-[4/5] w-full">
                     <Image
@@ -226,8 +226,7 @@ function ProductDetailContent() {
               duration: 0.7,
             }}
             className="mt-32 pt-20"
-          >
-            <h2 className="text-primary-dark text-3xl md:text-4xl font-bold uppercase tracking-tight text-center mb-10">
+          >                <h2 className="text-primary-dark text-2xl md:text-4xl font-bold uppercase tracking-tight text-center mb-10">
               También te puede interesar
             </h2>
 

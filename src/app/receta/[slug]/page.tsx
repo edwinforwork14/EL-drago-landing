@@ -187,21 +187,21 @@ function RecipeDetailContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.7 }}
               >
-                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-[3.5rem] font-black text-primary-dark uppercase leading-[0.95] tracking-tight mb-3 md:mb-4 max-w-none">
+                <h1 className="text-2xl md:text-2xl lg:text-3xl xl:text-[3.5rem] font-black text-primary-dark uppercase leading-[0.95] tracking-tight mb-3 md:mb-4 max-w-none">
                   {recipe.title}
                 </h1>
 
                 {/* Info row: category · time · difficulty */}
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pb-3 md:pb-4 border-b border-primary/10 mb-4">
-                  <span className="text-primary font-bold text-xs md:text-sm uppercase tracking-wider">{recipe.category}</span>
+                  <span className="text-primary font-bold text-sm md:text-sm uppercase tracking-wider">{recipe.category}</span>
                   <span aria-hidden="true" className="w-1 h-1 rounded-full bg-primary-dark/20" />
-                  <span className="text-primary-dark/60 text-xs md:text-sm font-medium">{recipe.time}</span>
+                  <span className="text-primary-dark/60 text-sm md:text-sm font-medium">{recipe.time}</span>
                   <span aria-hidden="true" className="w-1 h-1 rounded-full bg-primary-dark/20" />
-                  <span className="text-primary-dark/60 text-xs md:text-sm font-medium">{recipe.difficulty}</span>
+                  <span className="text-primary-dark/60 text-sm md:text-sm font-medium">{recipe.difficulty}</span>
                 </div>
 
                 {/* Description */}
-                <p className="text-primary-dark/70 text-sm md:text-base leading-normal mb-4 md:mb-6">
+                <p className="text-primary-dark/70 text-base md:text-base leading-normal mb-4 md:mb-6">
                   {recipe.description}
                 </p>
               </motion.div>
@@ -215,7 +215,7 @@ function RecipeDetailContent() {
                   transition={{ delay: 0.3, duration: 0.7 }}
                   className="md:w-1/2 mb-10 md:mb-0"
                 >
-                  <h2 className="text-lg md:text-2xl font-black text-primary-dark uppercase tracking-tight mb-3 md:mb-4">
+                  <h2 className="text-xl md:text-2xl font-black text-primary-dark uppercase tracking-tight mb-3 md:mb-4">
                     Ingredientes
                   </h2>
                   <ul className="flex flex-col gap-1.5 md:gap-2">
@@ -241,7 +241,7 @@ function RecipeDetailContent() {
                             )}
                           </span>
                         <span
-                          className={`text-xs md:text-base leading-normal transition-all duration-300 ${
+                          className={`text-sm md:text-base leading-normal transition-all duration-300 ${
                             checked
                               ? "line-through opacity-40 text-primary-dark"
                               : "text-primary-dark/80 group-hover/item:text-primary"
@@ -262,7 +262,7 @@ function RecipeDetailContent() {
                   transition={{ delay: 0.3, duration: 0.7 }}
                   className="md:w-1/2"
                 >
-                  <h2 className="text-lg md:text-2xl font-black text-primary-dark uppercase tracking-tight mb-3 md:mb-4">
+                  <h2 className="text-xl md:text-2xl font-black text-primary-dark uppercase tracking-tight mb-3 md:mb-4">
                     Preparación
                   </h2>
                   <ol className="flex flex-col gap-1.5 md:gap-2">
@@ -271,7 +271,7 @@ function RecipeDetailContent() {
                         <span className="shrink-0 w-6 h-6 md:w-7 md:h-7 bg-primary text-white rounded-full flex items-center justify-center font-bold text-[10px] md:text-xs shadow-sm">
                           {i + 1}
                         </span>
-                        <p className="text-primary-dark/70 text-xs md:text-sm leading-normal font-medium pt-0.5">
+                        <p className="text-primary-dark/70 text-sm md:text-sm leading-normal font-medium pt-0.5">
                           {step}
                         </p>
                       </li>

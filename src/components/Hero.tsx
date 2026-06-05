@@ -11,6 +11,7 @@ const MotionImage = motion(Image);
 const Hero = () => {
   const navRef = useRef<HTMLDivElement | null>(null);
   const [navHeight, setNavHeight] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const measure = () => {
@@ -23,10 +24,18 @@ const Hero = () => {
     return () => window.removeEventListener('resize', measure);
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   return (
     <section
-      className="relative overflow-hidden min-h-[50vh] md:min-h-[60vh]"
-      style={{ minHeight: `calc(100vh - ${navHeight}px)` }}
+      className="relative overflow-hidden"
+      style={{ minHeight: isDesktop ? `calc(100vh - ${navHeight}px)` : '60vh' }}
     >
       <div ref={navRef}>
         <Navbar transparentInitially={true} />

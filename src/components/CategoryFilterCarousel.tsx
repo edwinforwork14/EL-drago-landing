@@ -20,8 +20,8 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
   return (
     <section className="w-full pt-8 pb-10 md:pt-10 md:pb-12">
       <div className="max-w-[1600px] mx-auto  px-5 md:px-8 lg:px-12">
-        <div className="overflow-x-auto no-scrollbar">
-          <div className="flex gap-10 md:gap-16 justify-center pt-2 md:pt-4">
+        <div className="overflow-x-auto md:overflow-x-visible no-scrollbar">
+          <div className="grid grid-cols-2 gap-6 md:flex md:gap-16 md:justify-center pt-2 md:pt-4 place-items-center">
             {/* "Todos" bubble — shown by default */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -30,9 +30,9 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
             >
               <button
                 onClick={() => onSelect(null)}
-                className="group flex flex-col items-center gap-5 w-[264px] md:w-[312px] cursor-pointer"
+                className="group flex flex-col items-center gap-3 md:gap-5 w-full md:w-[312px] cursor-pointer"
               >
-                <div className="relative w-[216px] h-[216px] md:w-[252px] md:h-[252px]">
+                <div className="relative w-[140px] h-[140px] md:w-[252px] md:h-[252px]">
                   {/* Selected ring */}
                   <div
                     className={`absolute inset-0 rounded-full border-[3px] transition-all duration-500 ${
@@ -50,13 +50,13 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                     }`}
                   >
                     <svg
-                      width="48"
-                      height="48"
+                      width="32"
+                      height="32"
                       fill="none"
                       stroke={activeCategory === null ? "white" : "currentColor"}
                       strokeWidth="1.8"
                       viewBox="0 0 24 24"
-                      className={activeCategory === null ? "" : "text-primary-dark/60"}
+                      className={`${activeCategory === null ? "" : "text-primary-dark/60"} md:w-12 md:h-12`}
                     >
                       <g strokeLinecap="round" strokeLinejoin="round">
                         <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z" />
@@ -97,9 +97,9 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                 >
                   <button
                     onClick={() => onSelect(isActive ? null : group.slug)}
-                    className="group flex flex-col items-center gap-5 w-[264px] md:w-[312px] cursor-pointer"
-                  >
-                    <div className="relative w-[216px] h-[216px] md:w-[252px] md:h-[252px]">
+                className="group flex flex-col items-center gap-3 md:gap-5 w-full md:w-[312px] cursor-pointer"
+              >
+                <div className="relative w-[140px] h-[140px] md:w-[252px] md:h-[252px]">
                       {/* Outer ring — selected vs unselected */}
                       <div
                         className={`absolute inset-0 rounded-full border-[3px] transition-all duration-500 ${

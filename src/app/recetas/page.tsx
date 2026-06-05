@@ -94,9 +94,9 @@ export default function RecetasPage() {
 
               {/* Heading with Brand Luckiest Guy & Mr Dafoe */}
               <div className="max-w-3xl">
-                <h1 className="text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight mb-4 drop-shadow-md">
+                <h1 className="text-[3.2rem] md:text-[5.5rem] lg:text-[7rem] font-[family-name:var(--font-luckiest-guy)] text-white uppercase leading-[0.85] tracking-tight mb-4 drop-shadow-md">
                   El arte de <br />
-                  <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[6.5rem] lg:text-[8rem] -rotate-2 inline-block ml-2 drop-shadow-lg">
+                  <span className="text-accent font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.2rem] md:text-[6.5rem] lg:text-[8rem] -rotate-2 inline-block ml-2 drop-shadow-lg">
                     Saborear
                   </span>
                 </h1>
@@ -112,7 +112,7 @@ export default function RecetasPage() {
         {/* ─── RECIPES GRID — con bg rojo ─── */}
         <section className="bg-[#C41A1E] w-full">
           <div className="max-w-7xl mx-auto px-6 md:px-12 pb-24 pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {recipes.map((recipe, i) => (
                 <RecipeCard key={recipe.id} recipe={recipe} index={i} />
               ))}

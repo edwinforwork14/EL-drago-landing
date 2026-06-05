@@ -140,7 +140,7 @@ export default function ProductosPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12 md:gap-x-10 md:gap-y-16">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-10 md:gap-y-16">
               <AnimatePresence mode="popLayout">
                 {filteredProducts.map((product, i) => {
                   const slug = getProductSlug(product);
@@ -216,15 +216,15 @@ export default function ProductosPage() {
 
       {/* ─── BOTTOM CTA ─── */}
       <section className="relative w-full overflow-hidden bg-primary-dark py-0">
-        {/* Top wave */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
+        {/* Top wave — -top-[2px] overlap + translate-y to kill seam */}
+        <div className="absolute -top-[2px] left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
-            className="relative block w-[120%] h-[80px] md:h-[120px] fill-[#FCF2E6] -left-[10%]">
+            className="block w-full h-[80px] md:h-[120px] fill-[#FCF2E6] translate-y-[1px]">
             <path d="M0,60 C150,150 350,0 600,80 C850,160 1050,0 1200,60 L1200,0 L0,0 Z" />
           </svg>
         </div>
 
-        <div className="py-20 md:py-24 px-5 md:px-10 lg:px-16 relative z-0">
+        <div className="py-16 md:py-24 px-5 md:px-10 lg:px-16 relative z-0">
           <div className="max-w-[1400px] mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -236,10 +236,10 @@ export default function ProductosPage() {
               <div className="absolute bottom-0 left-0 w-52 h-52 bg-accent/5 rounded-full blur-[80px] -ml-24 -mb-24 pointer-events-none" />
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-3xl md:text-5xl uppercase leading-[0.9] tracking-tight mb-6">
+                <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-2xl md:text-5xl uppercase leading-[0.9] tracking-tight mb-6">
                   Encuentra tu
                   <br />
-                  <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[2.7rem] md:text-[4.4rem] -rotate-1 inline-block">
+                  <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-[2rem] md:text-[4.4rem] -rotate-1 inline-block">
                     sabor ideal
                   </span>
                 </h3>
@@ -268,9 +268,9 @@ export default function ProductosPage() {
         </div>
 
         {/* Bottom wave */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
+        <div className="absolute -bottom-px left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
-            className="relative block w-[120%] h-[80px] md:h-[120px] fill-[#FCF2E6] -left-[10%]">
+            className="block w-full h-[80px] md:h-[120px] fill-[#FCF2E6]">
             <path d="M0,80 C200,0 400,120 600,60 C800,0 1000,120 1200,80 L1200,120 L0,120 Z" />
           </svg>
         </div>
