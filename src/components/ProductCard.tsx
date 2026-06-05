@@ -38,6 +38,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Transparent overlay over the image for rounding adaptivity */}
         <div className="absolute inset-0 pointer-events-none rounded-[1.44rem] md:rounded-[1.44rem] ring-1 ring-inset ring-white/10" />
       </div>
+      {/* Shadow under product (Heinz reference) */}
+      <div className="mx-auto w-3/4 h-3 blur-[5px] bg-black rounded-[50%] opacity-20 -mt-4" />
       </motion.div>
     </Link>
   );

@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
   transparentInitially?: boolean;
+  appearOnScroll?: boolean;
 }
 
 const navLinks = [
@@ -18,13 +19,13 @@ const navLinks = [
   { name: "Contacto", href: "/#contacto" },
 ];
 
-export default function Navbar({ transparentInitially = false }: NavbarProps) {
+export default function Navbar({ transparentInitially = false, appearOnScroll = false }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!transparentInitially) return;
+    if (!transparentInitially && !appearOnScroll) return;
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -35,9 +36,10 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [transparentInitially]);
+  }, [transparentInitially, appearOnScroll]);
 
   const activeBg = !transparentInitially || isScrolled;
+  const isVisible = !appearOnScroll || isScrolled;
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -53,8 +55,14 @@ export default function Navbar({ transparentInitially = false }: NavbarProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-2 md:py-3 px-6 md:px-10 lg:px-16 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-2 md:py-3 px-6 md:px-10 lg:px-16 transition-all duration-700 ${
           activeBg ? "bg-primary backdrop-blur-xl border-b border-primary/10 shadow-md" : "bg-transparent"
+        } ${
+          appearOnScroll
+            ? isVisible
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-full opacity-0"
+            : "translate-y-0 opacity-100"
         }`}
       >
         {/* Logo */}

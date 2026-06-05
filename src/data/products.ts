@@ -21,6 +21,8 @@ export const products: Product[] = [
     image: 'page-0003.png',
     tag: 'Premium',
     category: 'Ahumados',
+    peso: '1.2 kg',
+    caducidad: '12 meses',
   },
   {
     id: 'jam-2',
@@ -28,6 +30,8 @@ export const products: Product[] = [
     description: 'Sabor auténtico y textura perfecta para acompañar tus mejores momentos familiares.',
     image: 'page-0004.png',
     category: 'Ahumados',
+    peso: '1 kg',
+    caducidad: '12 meses',
   },
   {
     id: 'jam-3',
@@ -35,6 +39,8 @@ export const products: Product[] = [
     description: 'El equilibrio perfecto entre suavidad y carácter artesanal.',
     image: 'page-0005.png',
     category: 'Ahumados',
+    peso: '900 g',
+    caducidad: '10 meses',
   },
   {
     id: 'jam-4',
@@ -42,6 +48,8 @@ export const products: Product[] = [
     description: 'Textura delicada y sabor puro, elaborado con los más altos estándares.',
     image: 'page-0011.png',
     category: 'Ahumados',
+    peso: '1 kg',
+    caducidad: '12 meses',
   },
   // Frescos (formerly Pechugas Cocidas)
   {
@@ -51,6 +59,8 @@ export const products: Product[] = [
     image: 'page-0008.png',
     tag: 'Saludable',
     category: 'Frescos',
+    peso: '500 g',
+    caducidad: '30 días (refrigerado)',
   },
   {
     id: 'pech-2',
@@ -58,6 +68,8 @@ export const products: Product[] = [
     description: 'Sabor suave y natural, ideal para una alimentación balanceada.',
     image: 'page-0009.png',
     category: 'Frescos',
+    peso: '400 g',
+    caducidad: '30 días (refrigerado)',
   },
   {
     id: 'pech-3',
@@ -65,6 +77,8 @@ export const products: Product[] = [
     description: 'Finas lonjas de pechuga seleccionada con el sello de calidad El Drago.',
     image: 'page-0010.png',
     category: 'Frescos',
+    peso: '500 g',
+    caducidad: '30 días (refrigerado)',
   },
   // Embutidos (formerly Mortadelas, Fiambres)
   {
@@ -73,6 +87,8 @@ export const products: Product[] = [
     description: 'Clásica receta italiana con el toque único de El Drago.',
     image: 'page-0007.png',
     category: 'Embutidos',
+    peso: '250 g',
+    caducidad: '9 meses',
   },
   {
     id: 'mort-2',
@@ -80,6 +96,8 @@ export const products: Product[] = [
     description: 'Selección de carnes finas condimentadas a la perfección.',
     image: 'page-0012.png',
     category: 'Embutidos',
+    peso: '250 g',
+    caducidad: '9 meses',
   },
   {
     id: 'fiam-1',
@@ -88,6 +106,8 @@ export const products: Product[] = [
     image: 'page-0013.png',
     tag: 'Tradicional',
     category: 'Embutidos',
+    peso: '300 g',
+    caducidad: '9 meses',
   },
   // Additional PNG products (mapped to appropriate categories)
   {
@@ -96,6 +116,8 @@ export const products: Product[] = [
     description: 'Jamón cocido de excelente calidad, preparado con un proceso que conserva su sabor natural y su textura tierna en cada rebanada.',
     image: 'JAMON (1).png',
     category: 'Ahumados',
+    peso: '1 kg',
+    caducidad: '12 meses',
   },
   {
     id: 'jam-6',
@@ -103,6 +125,8 @@ export const products: Product[] = [
     description: 'Jamón premium elaborado con cortes seleccionados, de sabor delicado y textura suave. Ideal para quienes buscan calidad y frescura.',
     image: 'JAMON.png',
     category: 'Ahumados',
+    peso: '1.1 kg',
+    caducidad: '12 meses',
   },
   {
     id: 'fiam-2',
@@ -110,6 +134,8 @@ export const products: Product[] = [
     description: 'Fiambre elaborado con carne de cerdo seleccionada, de textura suave y sabor equilibrado. Perfecto para sándwiches, desayunos y picaderas.',
     image: 'JAMON (5).png',
     category: 'Embutidos',
+    peso: '300 g',
+    caducidad: '9 meses',
   },
   {
     id: 'esp-2',
@@ -117,6 +143,8 @@ export const products: Product[] = [
     description: 'Corte de cerdo cuidadosamente ahumado para lograr un sabor intenso, jugoso y tradicional. Ideal para acompañar comidas familiares y recetas especiales.',
     image: 'JAMON (6).png',
     category: 'Ahumados',
+    peso: '1.3 kg',
+    caducidad: '12 meses',
   },
   {
     id: 'mort-3',
@@ -124,6 +152,8 @@ export const products: Product[] = [
     description: 'Mortadela de sabor tradicional y textura cremosa, preparada con ingredientes cuidadosamente seleccionados para un gusto auténtico.',
     image: 'JAMON (4).png',
     category: 'Embutidos',
+    peso: '250 g',
+    caducidad: '9 meses',
   },
   {
     id: 'mort-4',
@@ -131,6 +161,8 @@ export const products: Product[] = [
     description: 'Versión superior de mortadela, con una receta especial que ofrece mayor suavidad, sabor y calidad en cada porción.',
     image: 'page-0007.png',
     category: 'Embutidos',
+    peso: '250 g',
+    caducidad: '9 meses',
   },
   {
     id: 'pech-4',
@@ -138,6 +170,8 @@ export const products: Product[] = [
     description: 'Pechuga de pavo cocida de alta calidad, baja en grasa y con un sabor suave y delicioso. Perfecta para comidas ligeras y saludables.',
     image: 'JAMON (2).png',
     category: 'Frescos',
+    peso: '700 g',
+    caducidad: '30 días (refrigerado)',
   },
   {
     id: 'pech-5',
@@ -145,6 +179,8 @@ export const products: Product[] = [
     description: 'Pechuga de pollo cocida y lista para disfrutar, con textura tierna y sabor natural. Ideal para sándwiches, ensaladas y recetas rápidas.',
     image: 'JAMON (3).png',
     category: 'Frescos',
+    peso: '400 g',
+    caducidad: '30 días (refrigerado)',
   },
   {
     id: 'pech-6',
@@ -152,5 +188,7 @@ export const products: Product[] = [
     description: 'Pechuga de pavo con un delicado toque ahumado que resalta su sabor y aroma. Una opción deliciosa y versátil para cualquier ocasión.',
     image: 'JAMON(9).png',
     category: 'Frescos',
+    peso: '500 g',
+    caducidad: '30 días (refrigerado)',
   },
 ];

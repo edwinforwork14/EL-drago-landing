@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -11,6 +11,7 @@ import {
   getProductSlug,
   getCategorySlugForProduct,
   getProductImageUrl,
+  recipes,
 } from "@/data/utils";
 
 import Navbar from "@/components/Navbar";
@@ -18,6 +19,16 @@ import Footer from "@/components/Footer";
 
 function ProductDetailContent() {
   const params = useParams();
+  const carouselRef = useRef<HTMLOListElement>(null);
+
+  const scrollCarousel = (direction: "left" | "right") => {
+    if (!carouselRef.current) return;
+    const scrollAmount = carouselRef.current.clientWidth * 0.8;
+    carouselRef.current.scrollBy({
+      left: direction === "right" ? scrollAmount : -scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   // ✅ Evita hydration mismatch
   const slug = Array.isArray(params?.slug)
@@ -62,15 +73,15 @@ function ProductDetailContent() {
     .filter(
       (p) => p.id !== product.id && p.category === product.category
     )
-    .slice(0, 3);
+    .slice(0, 4);
 
   // pairing removed to simplify to Heinz-like layout
 
   return (
-    <div className="min-h-screen bg-[#F4EBDD] flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[#F4EBDD] flex flex-col justify-between">
       <Navbar transparentInitially={false} />
 
-      <main className="pt-32 px-6 md:px-12 max-w-7xl mx-auto pb-24 flex-1 w-full">
+      <main className="pt-32 px-6 md:px-10 lg:px-16 max-w-[1600px] mx-auto pb-24 flex-1 w-full">
         {/* Back */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,71 +101,118 @@ function ProductDetailContent() {
           </Link>
         </motion.div>
 
-        {/* MAIN */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* IMAGE: minimal floating product with subtle shadow (Heinz-like) */}
+        {/* MAIN — Heinz-inspired product layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* IMAGE: Sticky product — grid item stretches full row height */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="lg:col-span-6 relative flex justify-center items-center"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6"
           >
-            <div className="relative w-full max-w-[680px] flex justify-center items-center">
-              <div className="relative w-[77%] md:w-[66%] lg:w-[55%]">
-                <motion.div
-                  initial={{ y: 0, rotate: 0, scale: 1.1 }}
-                  animate={{ y: [0, -12, 0], rotate: [0, 1, -1, 0], scale: [1.1, 1.105, 1.1] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative aspect-[4/5] w-full"
-                >
-                  <Image
-                    src={productImage}
-                    alt={product.name}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-contain"
-                  />
-                </motion.div>
-
-                {/* breathing shadow under product (scales X and fades) */}
-                <motion.div
-                  initial={{ scaleX: 1, opacity: 0.12 }}
-                  animate={{ scaleX: [1, 0.85, 1], opacity: [0.12, 0.07, 0.12] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-40 h-4 bg-black/10 rounded-full blur-sm"
+            <div className="lg:sticky lg:top-50">
+              <div className="relative w-full min-h-[25rem] flex justify-center items-center">
+                <div className="relative w-[77%] md:w-[66%] lg:w-[55%]">
+                  <div className="relative aspect-[4/5] w-full">
+                    <Image
+                      src={productImage}
+                      alt={product.name}
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-contain"
+                    />
+                  </div>
+                  {/* Shadow under product (Heinz reference) */}
+                <div
+                  className="mx-auto w-56 h-3 blur-[5px] bg-black rounded-[50%] opacity-20 absolute left-0 right-0"
+                  style={{ top: '105%' }}
                 />
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* INFO */}
+          {/* INFO — Heinz-inspired layout */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: 0.2,
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="lg:col-span-6 flex flex-col justify-center"
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-6 flex flex-col justify-start gap-6 lg:gap-8"
           >
-            <div className="text-accent font-bold uppercase tracking-widest mb-4">El Drago</div>
+            {/* Brand name (subhead) */}
+            <h2 className="text-accent text-[1.6875rem] font-bold uppercase tracking-widest">El Drago</h2>
 
-            <h1 className="text-[3rem] md:text-[5rem] lg:text-[6rem] font-black text-[#C41A1E] uppercase leading-[0.9] tracking-tight mb-6">
+            {/* Product name */}
+            <h1 className="font-headline-lg text-display-lg font-black text-[#C41A1E] uppercase leading-[0.9] tracking-tight">
               {product.name}
             </h1>
 
-            <div className="w-20 h-0.5 bg-primary/20 mb-8" />
+            {/* Weight / Size selector (Heinz-style) */}
+            <div className="w-full">
+              <div className="flex items-baseline gap-1 mb-3">
+                <span className="text-primary-dark font-bold text-sm uppercase tracking-wider">Peso disponible:</span>
+                <span className="text-primary-dark/60 text-sm font-medium">{(product as any).peso || "—"}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <div className="px-5 py-2 rounded-full border-2 border-primary text-primary font-bold text-sm bg-white/80 cursor-default">
+                  {(product as any).peso || "—"}
+                </div>
+              </div>
+            </div>
 
-            <p className="text-primary-dark/70 text-base md:text-lg leading-relaxed font-medium mb-8">
-              {product.description}
-            </p>
+            {/* Buy Online button (Heinz-style with location icon) */}
+            <div>
+              <div className="text-primary-dark font-bold text-sm uppercase tracking-wider mb-3">Buy Online</div>
+              <Link
+                href="/#contacto"
+                className="inline-flex items-center justify-center gap-3 bg-[#5a0f12] text-white font-bold px-8 py-4 rounded-full hover:bg-[#7a1518] transition-all duration-300 shadow-md w-full lg:w-auto lg:self-start text-sm lg:text-base"
+              >
+                <span>CONTACTANOS</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <g strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                    <path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0v0Z" />
+                  </g>
+                </svg>
+              </Link>
+            </div>
 
-            {/* Sizes and CTA removed per design direction */}
+            {/* Description */}
+            <div>
+              <h4 className="text-primary-dark font-bold text-sm uppercase tracking-wider mb-3">Description</h4>
+              <p className="text-primary-dark/70 text-base md:text-lg leading-relaxed font-medium">
+                {product.description}
+              </p>
+            </div>
+
+            {/* Accordion sections (Heinz reference) */}
+            <div className="w-full mt-2">
+              <hr className="border-t-2 border-primary/10" />
+              <AccordionItem label="Información del producto">
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-primary-dark/60 text-sm">Peso</span>
+                    <span className="text-primary-dark font-semibold text-sm">{(product as any).peso || "—"}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-primary-dark/60 text-sm">Caducidad</span>
+                    <span className="text-primary-dark font-semibold text-sm">{(product as any).caducidad || "—"}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-primary-dark/60 text-sm">Categoría</span>
+                    <span className="text-primary-dark font-semibold text-sm">{product.category}</span>
+                  </div>
+                </div>
+              </AccordionItem>
+              <hr className="border-t-2 border-primary/10" />
+              <AccordionItem label="Cómo usar">
+                <p className="text-primary-dark/60 text-sm leading-relaxed">
+                  Disfruta nuestros productos directamente en tablas gourmet, sándwiches, ensaladas o como ingrediente estrella en tus recetas favoritas.
+                </p>
+              </AccordionItem>
+              <hr className="border-t-2 border-primary/10" />
+            </div>
           </motion.div>
         </div>
 
@@ -173,7 +231,7 @@ function ProductDetailContent() {
               También te puede interesar
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {siblings.map((sibling, i) => {
                 const siblingSlug = getProductSlug(sibling);
 
@@ -212,9 +270,109 @@ function ProductDetailContent() {
             </div>
           </motion.div>
         )}
+
+        {/* RECIPES CAROUSEL — Inspired by Heinz Cook With Us */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.7 }}
+          className="mt-24"
+        >
+          <div className="pl-0">
+            <div className="pb-6 md:pb-8 flex justify-between items-center">
+              <h2 className="text-2xl md:text-4xl font-bold text-primary-dark uppercase tracking-tight">
+                Nuestras recetas
+              </h2>
+              <div className="flex space-x-3 pr-4 md:pr-0">
+                <button
+                  onClick={() => scrollCarousel("left")}
+                  className="flex items-center justify-center rounded-full h-11 w-11 bg-white/80 border-2 border-gray-300 text-[#1D1D1D] hover:bg-[#FCF9F0] transition-all duration-300 cursor-pointer"
+                  aria-label="Anterior"
+                >
+                  <svg className="-rotate-90" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path d="m6 15 6-6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scrollCarousel("right")}
+                  className="flex items-center justify-center rounded-full h-11 w-11 bg-white/80 border-2 border-gray-300 text-[#1D1D1D] hover:bg-[#FCF9F0] transition-all duration-300 cursor-pointer"
+                  aria-label="Siguiente"
+                >
+                  <svg className="rotate-90" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path d="m6 15 6-6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <ol ref={carouselRef} className="flex gap-4 md:gap-5 overflow-x-auto overscroll-x-contain snap-x snap-mandatory pb-2 no-scrollbar">
+                {recipes.map((recipe) => (
+                  <li key={recipe.id} className="snap-start shrink-0">
+                    <Link
+                      href={`/receta/${recipe.slug}`}
+                      className="group block w-[180px] md:w-[320px] lg:w-[420px]"
+                    >
+                      <div className="relative overflow-hidden aspect-[4/5] bg-[#FCF9F0] rounded-2xl shadow-sm">
+                        <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
+                          <Image
+                            src={recipe.image}
+                            alt={recipe.title}
+                            fill
+                            sizes="(max-width: 768px) 180px, (max-width: 1024px) 320px, 420px"
+                            className="object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="text-center py-4">
+                        <h3 className="font-bold text-primary-dark uppercase truncate text-base md:text-lg">
+                          {recipe.title}
+                        </h3>
+                        <p className="text-xs text-primary-dark/50 uppercase mt-1 font-medium tracking-wider">
+                          {recipe.category}
+                        </p>
+                        <p className="text-xs text-primary-dark/40 mt-1">
+                          {recipe.time}
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </motion.div>
       </main>
 
       <Footer />
+    </div>
+  );
+}
+
+function AccordionItem({ label, children, defaultOpen = false }: { label: string; children: React.ReactNode; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center justify-between w-full py-5 text-left"
+      >
+        <span className="text-primary-dark font-bold text-sm uppercase tracking-wider">{label}</span>
+        <span
+          className={`w-8 h-8 flex items-center justify-center border border-primary/20 rounded-full transition-transform duration-300 ${open ? "rotate-45 bg-primary/5" : ""}`}
+        >
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-[600px] opacity-100 pb-4" : "max-h-0 opacity-0"
+        }`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

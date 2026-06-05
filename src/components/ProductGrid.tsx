@@ -8,11 +8,13 @@ import { products } from '@/data/products';
 import { getProductImageUrl, getProductSlug, getCategorySlugForProduct } from '@/data/utils';
 
 const carouselProducts = products.filter((p) =>
-  ['jam-1', 'mort-1', 'pech-1'].includes(p.id)
+  ['pech-4', 'esp-2', 'pech-1'].includes(p.id)
 ).slice(0, 3);
 
 const slides = [
-  ...carouselProducts.map((p) => ({ type: 'product' as const, product: p })),
+  { type: 'image' as const, src: '/productos/JAMON (3).png', alt: 'Jamón 3' },
+  { type: 'image' as const, src: '/productos/JAMON (6).png', alt: 'Jamón 6' },
+  { type: 'image' as const, src: '/productos/JAMON (4).png', alt: 'Jamón 4' },
   { type: 'special' as const, product: null },
 ];
 
@@ -91,24 +93,24 @@ const ProductGrid = () => {
   };
 
   return (
-    <section className="relative py-8 md:py-12 lg:py-16 bg-[#FCF2E6] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 md:px-8 relative z-10">
+    <section className="relative py-8 md:py-2 lg:py-2 bg-[#FCF2E6] overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-1 md:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12 lg:gap-16"
+          className="flex flex-col md:flex-row md:items-center gap-8 md:gap-16"
         >
           {/* ─── LEFT COLUMN: Content + Button ─── */}
-          <div className="flex-1 max-w-xl order-1 md:order-1">
+          <div className="flex-[1.6] max-w-none order-1 md:order-1 px-10 md:px-20">
             {/* Eyebrow badge removed per request */}
 
             {/* Main title */}
-            <h2 className="font-headline-lg text-headline-lg text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-primary-dark uppercase tracking-tighter leading-[0.85] mb-3">
+            <h2 className="font-headline-lg text-headline-lg text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-primary-dark uppercase tracking-tighter leading-[0.85] mb-3">
               Descubre Nuestra
               <br />
-              <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-4xl sm:text-5xl md:text-5xl lg:text-6xl -rotate-2 inline-block mt-1">
+              <span className="text-[#FEC70C] font-[family-name:var(--font-mr-dafoe)] normal-case text-5xl sm:text-6xl md:text-6xl lg:text-7xl -rotate-2 inline-block mt-1">
                 Selección
               </span>
             </h2>
@@ -121,7 +123,7 @@ const ProductGrid = () => {
             </div>
 
             {/* Description */}
-            <p className="text-primary-dark/60 font-medium text-base md:text-lg leading-relaxed max-w-2xl mb-6 md:mb-8">
+            <p className="text-primary-dark/60 font-medium text-lg md:text-xl leading-relaxed max-w-2xl mb-6 md:mb-8">
               Productos artesanales elaborados con los más altos estándares de calidad.
               Tradición, pasión y excelencia en cada pieza.
             </p>
@@ -129,7 +131,7 @@ const ProductGrid = () => {
             {/* Button moved below text */}
             <Link
               href="/productos"
-              className="group relative inline-flex items-center gap-2 bg-primary text-white font-bold uppercase tracking-[0.15em] text-sm md:text-base px-8 md:px-10 py-4 rounded-full shadow-[0_10px_20px_rgba(196,26,30,0.25)] hover:shadow-[0_15px_30px_rgba(196,26,30,0.35)] transition-all duration-500 active:scale-95 overflow-hidden"
+              className="group relative inline-flex items-center gap-2 bg-primary text-white font-bold uppercase tracking-[0.15em] text-base md:text-lg px-8 md:px-10 py-4 rounded-full shadow-[0_10px_20px_rgba(196,26,30,0.25)] hover:shadow-[0_15px_30px_rgba(196,26,30,0.35)] transition-all duration-500 active:scale-95 overflow-hidden"
             >
               <span className="relative z-10">Explorar Catálogo</span>
               <span className="material-symbols-outlined relative z-10 text-base transition-transform duration-500 group-hover:translate-x-1.5">
@@ -139,10 +141,10 @@ const ProductGrid = () => {
           </div>
 
           {/* ─── RIGHT COLUMN: Carrusel ─── */}
-          <div className="w-full md:w-[340px] lg:w-[380px] order-2 md:order-2 shrink-0">
+          <div className="flex-[0.9] w-full md:w-[340px] lg:w-[380px] order-2 md:order-2 shrink-0">
             <div className="relative">
               {/* Carousel card (stacked) */}
-              <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-[0_15px_40px_rgba(0,0,0,0.12)] bg-[#FCF2E6]">
+              <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-none bg-[#FCF2E6]">
                 {slides.map((slide, index) => {
                   const position = getStackPosition(index);
 
@@ -170,7 +172,6 @@ const ProductGrid = () => {
                               sizes="(max-width: 768px) 100vw, 380px"
                               className="object-cover transition-transform duration-700 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-[#0a0a0a]/10 to-transparent" />
 
                             <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
                               <h3 className="text-white font-bold text-lg md:text-xl leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
@@ -178,6 +179,23 @@ const ProductGrid = () => {
                               </h3>
                             </div>
                           </div>
+                          {/* Shadow under product (Heinz reference) */}
+                          {/* shadow removed */}
+                        </div>
+                      )}
+
+                      {slide.type === 'image' && (
+                        <div className="block w-full h-full group">
+                          <div className="relative w-full h-full overflow-hidden rounded-[1.5rem]">
+                            <Image
+                              src={slide.src}
+                              alt={slide.alt}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 380px"
+                              className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                          </div>
+                          {/* shadow removed */}
                         </div>
                       )}
 

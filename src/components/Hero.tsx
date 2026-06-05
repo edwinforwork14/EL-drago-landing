@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -9,9 +9,28 @@ import Navbar from '@/components/Navbar';
 const MotionImage = motion(Image);
 
 const Hero = () => {
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const [navHeight, setNavHeight] = useState(0);
+
+  useEffect(() => {
+    const measure = () => {
+      const h = navRef.current?.offsetHeight ?? 0;
+      setNavHeight(h);
+    };
+
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
   return (
-    <section className="relative overflow-hidden min-h-[50vh] md:min-h-[60vh]">
-      <Navbar transparentInitially={true} />
+    <section
+      className="relative overflow-hidden min-h-[50vh] md:min-h-[60vh]"
+      style={{ minHeight: `calc(100vh - ${navHeight}px)` }}
+    >
+      <div ref={navRef}>
+        <Navbar transparentInitially={true} />
+      </div>
 
       {/* ─── HERO IMAGE — Mobile: right-focus, Desktop: full ─── */}
       <div className="absolute inset-0 overflow-hidden">
@@ -36,7 +55,7 @@ const Hero = () => {
       </div>
 
       {/* ─── HERO CONTENT ─── */}
-      <div className="relative z-20 flex flex-col justify-end min-h-[50vh] md:min-h-[60vh] px-5 sm:px-6 md:px-12 lg:px-24 pb-12 sm:pb-16 md:pb-20 pt-24 sm:pt-28">
+      <div className="relative z-20 flex flex-col justify-end min-h-[50vh] md:min-h-[60vh] px-5 sm:px-6 md:px-12 lg:px-24 pb-10 sm:pb-12 md:pb-14 pt-20 sm:pt-24 md:pt-28">
         <div className="w-full max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start md:translate-y-0">
           
           {/* Headline Composition */}

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -19,7 +19,7 @@ const AboutUs = () => {
       <div className="py-16 md:py-28 px-5 md:px-10 lg:px-16 relative z-0">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-          {/* Text — always first on mobile */}
+          {/* Text â€” always first on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,14 +37,14 @@ const AboutUs = () => {
             </div>
 
             <p className="text-white/85 text-sm md:text-base leading-relaxed max-w-md pt-3">
-              En Embutidos El Drago, llevamos más de 20 años elaborando productos con los más altos estándares de calidad. Seleccionamos cuidadosamente cada ingrediente para ofrecerte lo mejor para tu familia .
+              En Embutidos El Drago, llevamos mÃ¡s de 20 aÃ±os elaborando productos con los mÃ¡s altos estÃ¡ndares de calidad. Seleccionamos cuidadosamente cada ingrediente para ofrecerte lo mejor para tu familia .
             </p>
 
             {/* Stats row */}
             <div className="flex gap-4 pt-1">
               {[
                 { value: '+30', label: 'Productos' },
-                { value: '+20', label: 'Años de experiencia' },
+                { value: '+20', label: 'AÃ±os de experiencia' },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <span className="text-secondary-container font-black text-xl md:text-2xl leading-none">{stat.value}</span>
@@ -54,7 +54,7 @@ const AboutUs = () => {
             </div>
           </motion.div>
 
-          {/* Image placeholder — second on mobile */}
+          {/* Image placeholder â€” second on mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -82,7 +82,7 @@ const AboutUs = () => {
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <path id="circlePath2" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
                 <text fontSize="9" fontWeight="bold" fill="#C41A1E" letterSpacing="2">
-                  <textPath xlinkHref="#circlePath2">Hechos con pasión • Tradición •</textPath>
+                  <textPath xlinkHref="#circlePath2">Hechos con pasiÃ³n â€¢ TradiciÃ³n â€¢</textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
@@ -98,7 +98,7 @@ const AboutUs = () => {
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
         <svg viewBox="0 0 1200 160" preserveAspectRatio="none"
           className="relative block w-[120%] h-[80px] md:h-[150px] fill-[#FCF2E6] -left-[10%]">
-          <path d="M0,110 C120,80 240,140 360,110 C480,80 600,140 720,110 C840,80 960,140 1080,110 C1140,100 1180,96 1200,110 L1200,160 L0,160 Z" />
+          <path d="M0,110 C120,80 240,140 360,110 C480,80 600,140 720,110 C840,80 960,140 1080,110 C1140,100 1180,96 1220,120 L1220,180 L-20,180 Z" />
         </svg>
       </div>
     </section>
@@ -106,3 +106,4 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+

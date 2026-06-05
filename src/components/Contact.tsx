@@ -26,7 +26,7 @@ const Contact = () => {
             {/* Contact info — stack vertical on mobile, row on md+ */}
             <div className="flex flex-col md:flex-row justify-center items-start md:items-center gap-3 md:gap-6 w-full">
               {[
-                { icon: 'call', text: '+1 (809) 123-4567' },
+               // { icon: 'call', text: '+1 (809) 123-4567' },//
                 { icon: 'mail', text: 'mercadeo@embutidoseldrago.com' },
                 { icon: 'location_on', text: 'valencia, carabobo' },
               ].map((item) => (

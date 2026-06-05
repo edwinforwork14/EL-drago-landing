@@ -6,10 +6,10 @@ const SocialMedia = () => {
     <section className="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto overflow-hidden">
       <div className="flex flex-col md:flex-row items-center gap-12">
         <div className="w-full md:w-1/3 text-center md:text-left">
-          <h2 className="font-headline-lg text-headline-lg text-primary uppercase mb-6 leading-tight">
+          <h2 className="font-headline-lg text-headline-lg text-primary uppercase mb-6 leading-tight text-4xl md:text-5xl lg:text-6xl">
             Únete a nuestra <br /> <span className="text-secondary-fixed-dim">Comunidad</span>
           </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">Síguenos para tips, promociones exclusivas y más delicias diarias.</p>
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 text-xl md:text-2xl">Síguenos para tips, promociones exclusivas y más delicias diarias.</p>
           <div className="flex justify-center md:justify-start gap-4">
             <a className="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center hover:scale-110 transition-transform" href="https://www.instagram.com/eldrago.embutidos/" target="_blank" rel="noopener noreferrer">
               <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
