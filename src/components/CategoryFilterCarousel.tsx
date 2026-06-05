@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { CATEGORY_GROUPS } from "@/data/utils";
 
 const categoryImages: Record<string, string> = {
-  embutidos: "/hero-banners/embutidos-banner.jpeg",
-  ahumados: "/hero-banners/ahumados-banner.jpeg",
-  frescos: "/hero-banners/frescos-banner.jpeg",
+  embutidos: "/dragitos/DRAGUITO-EMBUTIDOS.png",
+  ahumados: "/dragitos/DRAGUITO-AHUMADOS.png",
+  frescos: "/dragitos/DRAGUITO PRINCIPAL.png",
 };
 
 interface CategoryFilterCarouselProps {
@@ -18,10 +18,10 @@ interface CategoryFilterCarouselProps {
 
 export default function CategoryFilterCarousel({ activeCategory, onSelect }: CategoryFilterCarouselProps) {
   return (
-    <section className="w-full py-12 md:py-16">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-8 lg:px-12">
+    <section className="w-full pt-8 pb-10 md:pt-10 md:pb-12">
+      <div className="max-w-[1600px] mx-auto  px-5 md:px-8 lg:px-12">
         <div className="overflow-x-auto no-scrollbar">
-          <div className="flex gap-10 md:gap-16 justify-center">
+          <div className="flex gap-10 md:gap-16 justify-center pt-2 md:pt-4">
             {/* "Todos" bubble — shown by default */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -42,8 +42,22 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                     }`}
                   />
                   {/* Inner circle with all-icon */}
-                  <div className="absolute inset-[4px] rounded-full border border-primary/10 overflow-hidden bg-[#FCF2E6] flex items-center justify-center">
-                    <svg width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="text-primary-dark/60">
+                  <div
+                    className={`absolute inset-[4px] rounded-full border border-primary/10 overflow-hidden flex items-center justify-center ${
+                      activeCategory === null
+                        ? "bg-primary"
+                        : "bg-[#F7D54A]/40"
+                    }`}
+                  >
+                    <svg
+                      width="48"
+                      height="48"
+                      fill="none"
+                      stroke={activeCategory === null ? "white" : "currentColor"}
+                      strokeWidth="1.8"
+                      viewBox="0 0 24 24"
+                      className={activeCategory === null ? "" : "text-primary-dark/60"}
+                    >
                       <g strokeLinecap="round" strokeLinejoin="round">
                         <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z" />
                       </g>
@@ -51,8 +65,8 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                   </div>
                   {/* Checkmark on selected */}
                   {activeCategory === null && (
-                    <div className="absolute -top-2 -right-2 w-9 h-9 bg-primary rounded-full flex items-center justify-center z-20">
-                      <svg width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <div className="absolute -top-1 -right-1 w-7 h-7 bg-primary rounded-full flex items-center justify-center z-20">
+                      <svg width="14" height="14" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path d="m9 12 2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
@@ -95,19 +109,21 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                         }`}
                       />
                       {/* Inner padding ring with image */}
-                      <div className="absolute inset-[4px] rounded-full border border-primary/10 overflow-hidden">
-                        <Image
-                          src={categoryImages[group.slug] || "/hero-banners/productos-banner.jpeg"}
-                          alt={group.label}
-                          fill
-                          sizes="(max-width: 768px) 216px, 252px"
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
+                      <div className="absolute inset-[4px] rounded-full border border-primary/10 overflow-hidden bg-[#F7D54A]">
+                        <div className="relative w-full h-full transition-transform duration-700 scale-[0.95] group-hover:scale-105">
+                          <Image
+                            src={categoryImages[group.slug] || "/hero-banners/productos-banner.jpeg"}
+                            alt={group.label}
+                            fill
+                            sizes="(max-width: 768px) 216px, 252px"
+                            className="object-contain"
+                          />
+                        </div>
                       </div>
                       {/* Checkmark on selected */}
                       {isActive && (
-                        <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center z-20">
-                          <svg width="14" height="14" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <div className="absolute top-0 right-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center z-20">
+                          <svg width="10" height="10" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
                             <path d="m9 12 2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </div>

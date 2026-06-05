@@ -33,7 +33,7 @@ const GROUP_CATEGORIES: Record<string, string[]> = {
 
 export default function ProductosPage() {
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState("tipo");
+  const [activeTab, setActiveTab] = useState("todos");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   // Read ?categoria from URL on mount (from redirect)
@@ -46,17 +46,28 @@ export default function ProductosPage() {
   }, []);
 
   const filteredProducts = useMemo(() => {
-    // If "todos" tab is selected, show all products regardless of filter
-    if (activeTab === "todos") return products;
-    if (!activeCategory) return products;
-    const categories = GROUP_CATEGORIES[activeCategory];
-    if (!categories) return products;
-    return products.filter((p) => categories.includes(p.category));
+    let filtered = products;
+
+    // Filter by meat type (ave / cerdo)
+    if (activeTab === "ave") {
+      filtered = filtered.filter((p) => p.meatType === "ave");
+    } else if (activeTab === "cerdo") {
+      filtered = filtered.filter((p) => p.meatType === "cerdo");
+    }
+
+    // Filter by category (from carousel)
+    if (activeCategory) {
+      const categories = GROUP_CATEGORIES[activeCategory];
+      if (categories) {
+        filtered = filtered.filter((p) => categories.includes(p.category));
+      }
+    }
+
+    return filtered;
   }, [activeCategory, activeTab]);
 
   const handleCategorySelect = (slug: string | null) => {
     setActiveCategory(slug);
-    setActiveTab("tipo");
   };
 
   const handleTabChange = (tabId: string) => {
@@ -225,9 +236,6 @@ export default function ProductosPage() {
               <div className="absolute bottom-0 left-0 w-52 h-52 bg-accent/5 rounded-full blur-[80px] -ml-24 -mb-24 pointer-events-none" />
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
-                  ¿Listo para descubrir?
-                </span>
                 <h3 className="text-white font-[family-name:var(--font-luckiest-guy)] text-3xl md:text-5xl uppercase leading-[0.9] tracking-tight mb-6">
                   Encuentra tu
                   <br />

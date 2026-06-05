@@ -87,7 +87,7 @@ function ProductDetailContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-2"
         >
           <Link
             href="/productos"
@@ -102,7 +102,7 @@ function ProductDetailContent() {
         </motion.div>
 
         {/* MAIN — Heinz-inspired product layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           {/* IMAGE: Sticky product — grid item stretches full row height */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -138,7 +138,7 @@ function ProductDetailContent() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6 flex flex-col justify-start gap-6 lg:gap-8"
+            className="lg:col-span-6 flex flex-col justify-start gap-4 lg:gap-5"
           >
             {/* Brand name (subhead) */}
             <h2 className="text-accent text-[1.6875rem] font-bold uppercase tracking-widest">El Drago</h2>
@@ -150,7 +150,7 @@ function ProductDetailContent() {
 
             {/* Weight / Size selector (Heinz-style) */}
             <div className="w-full">
-              <div className="flex items-baseline gap-1 mb-3">
+              <div className="flex items-baseline gap-1 mb-1">
                 <span className="text-primary-dark font-bold text-sm uppercase tracking-wider">Peso disponible:</span>
                 <span className="text-primary-dark/60 text-sm font-medium">{(product as any).peso || "—"}</span>
               </div>
@@ -163,7 +163,7 @@ function ProductDetailContent() {
 
             {/* Buy Online button (Heinz-style with location icon) */}
             <div>
-              <div className="text-primary-dark font-bold text-sm uppercase tracking-wider mb-3">Buy Online</div>
+              <div className="text-primary-dark font-bold text-sm uppercase tracking-wider mb-1">Contacto</div>
               <Link
                 href="/#contacto"
                 className="inline-flex items-center justify-center gap-3 bg-[#5a0f12] text-white font-bold px-8 py-4 rounded-full hover:bg-[#7a1518] transition-all duration-300 shadow-md w-full lg:w-auto lg:self-start text-sm lg:text-base"
@@ -180,14 +180,14 @@ function ProductDetailContent() {
 
             {/* Description */}
             <div>
-              <h4 className="text-primary-dark font-bold text-sm uppercase tracking-wider mb-3">Description</h4>
-              <p className="text-primary-dark/70 text-base md:text-lg leading-relaxed font-medium">
+              <h4 className="text-primary-dark font-bold text-sm uppercase tracking-wider mb-1">Description</h4>
+              <p className="text-primary-dark/70 text-base md:text-lg leading-normal font-medium">
                 {product.description}
               </p>
             </div>
 
             {/* Accordion sections (Heinz reference) */}
-            <div className="w-full mt-2">
+            <div className="w-full">
               <hr className="border-t-2 border-primary/10" />
               <AccordionItem label="Información del producto">
                 <div className="space-y-3">
@@ -271,22 +271,23 @@ function ProductDetailContent() {
           </motion.div>
         )}
 
-        {/* RECIPES CAROUSEL — Inspired by Heinz Cook With Us */}
+        {/* RECIPES CAROUSEL — Heinz Cook With Us style */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.7 }}
           className="mt-24"
         >
-          <div className="pl-0">
-            <div className="pb-6 md:pb-8 flex justify-between items-center">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary-dark uppercase tracking-tight">
+          <div className="pl-4 md:pl-8 xl:pl-10 py-8 md:py-14">
+            {/* Title + arrows */}
+            <div className="pb-6 md:pb-8 xl:pb-10 flex justify-between items-center">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-primary-dark uppercase tracking-tight">
                 Nuestras recetas
               </h2>
-              <div className="flex space-x-3 pr-4 md:pr-0">
+              <div className="flex space-x-2 md:space-x-4 pr-4 md:pr-8 xl:pr-10">
                 <button
                   onClick={() => scrollCarousel("left")}
-                  className="flex items-center justify-center rounded-full h-11 w-11 bg-white/80 border-2 border-gray-300 text-[#1D1D1D] hover:bg-[#FCF9F0] transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center rounded-full h-11 w-11 md:h-12 md:w-12 bg-white/80 border-2 border-gray-300 text-[#1D1D1D] hover:bg-[#FCF9F0] transition-all duration-300 cursor-pointer"
                   aria-label="Anterior"
                 >
                   <svg className="-rotate-90" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -295,7 +296,7 @@ function ProductDetailContent() {
                 </button>
                 <button
                   onClick={() => scrollCarousel("right")}
-                  className="flex items-center justify-center rounded-full h-11 w-11 bg-white/80 border-2 border-gray-300 text-[#1D1D1D] hover:bg-[#FCF9F0] transition-all duration-300 cursor-pointer"
+                  className="flex items-center justify-center rounded-full h-11 w-11 md:h-12 md:w-12 bg-white/80 border-2 border-gray-300 text-[#1D1D1D] hover:bg-[#FCF9F0] transition-all duration-300 cursor-pointer"
                   aria-label="Siguiente"
                 >
                   <svg className="rotate-90" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -305,34 +306,41 @@ function ProductDetailContent() {
               </div>
             </div>
 
+            {/* Carousel */}
             <div>
-              <ol ref={carouselRef} className="flex gap-4 md:gap-5 overflow-x-auto overscroll-x-contain snap-x snap-mandatory pb-2 no-scrollbar">
+              <ol
+                ref={carouselRef}
+                className="flex gap-2 md:gap-4 xl:gap-5 overflow-x-auto overscroll-x-contain snap-x snap-mandatory pb-2 no-scrollbar"
+              >
                 {recipes.map((recipe) => (
                   <li key={recipe.id} className="snap-start shrink-0">
                     <Link
                       href={`/receta/${recipe.slug}`}
-                      className="group block w-[180px] md:w-[320px] lg:w-[420px]"
+                      className="group flex flex-col items-center w-[165px] md:w-[342px] lg:w-[437px]"
                     >
-                      <div className="relative overflow-hidden aspect-[4/5] bg-[#FCF9F0] rounded-2xl shadow-sm">
-                        <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
+                      {/* Image with Heinz shadow */}
+                      <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#FCF9F0] after:absolute after:content-[''] after:w-2/4 after:h-[7px] after:bottom-[5%] after:left-0 after:right-0 after:mx-auto after:bg-black/[0.15] after:blur-sm after:rounded-[50%] after:lg:blur-[6px] after:lg:h-[11px]">
+                        <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-110">
                           <Image
                             src={recipe.image}
                             alt={recipe.title}
                             fill
-                            sizes="(max-width: 768px) 180px, (max-width: 1024px) 320px, 420px"
+                            sizes="(max-width: 768px) 165px, (max-width: 1024px) 342px, 437px"
                             className="object-cover"
                           />
                         </div>
                       </div>
-                      <div className="text-center py-4">
-                        <h3 className="font-bold text-primary-dark uppercase truncate text-base md:text-lg">
+
+                      {/* Text section */}
+                      <div className="flex flex-col items-center text-center w-full h-auto py-4 lg:p-5">
+                        <h3 className="font-black text-primary-dark uppercase truncate text-ellipsis overflow-hidden max-w-full text-sm md:text-lg lg:text-xl">
                           {recipe.title}
                         </h3>
-                        <p className="text-xs text-primary-dark/50 uppercase mt-1 font-medium tracking-wider">
-                          {recipe.category}
+                        <p className="text-[10px] md:text-xs text-primary-dark/50 uppercase mt-0.5 mb-2 font-bold tracking-wider">
+                          Recetas
                         </p>
-                        <p className="text-xs text-primary-dark/40 mt-1">
-                          {recipe.time}
+                        <p className="text-[10px] md:text-xs text-primary-dark/40 capitalize flex items-center justify-center flex-wrap">
+                          <span>{recipe.time}</span>
                         </p>
                       </div>
                     </Link>
@@ -355,7 +363,7 @@ function AccordionItem({ label, children, defaultOpen = false }: { label: string
     <div>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between w-full py-5 text-left"
+        className="flex items-center justify-between w-full py-3 text-left"
       >
         <span className="text-primary-dark font-bold text-sm uppercase tracking-wider">{label}</span>
         <span

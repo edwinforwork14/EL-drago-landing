@@ -12,18 +12,6 @@ interface Tab {
 
 const tabs: Tab[] = [
   {
-    id: "tipo",
-    label: "Tipo",
-    description: "Filtrar por categoría de producto",
-    icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="inline mr-2">
-        <g strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 19h18M3 11h18a8 8 0 0 1-8 8h-2a8 8 0 0 1-8-8v0ZM9 8V5M12 5v3M15 5v3" />
-        </g>
-      </svg>
-    ),
-  },
-  {
     id: "todos",
     label: "Todos",
     description: "Ver todos los productos",
@@ -31,6 +19,41 @@ const tabs: Tab[] = [
       <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="inline mr-2">
         <g strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z" />
+        </g>
+      </svg>
+    ),
+  },
+  {
+    id: "ave",
+    label: "Ave",
+    description: "Filtrar productos de ave (pollo, pavo)",
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="inline mr-2">
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 7C13.5 5 8 6 8 10c0 1.5.5 3 2.5 4.5C12 16 12 18 11 20" />
+          <path d="M16 7c2-1 5-.5 5 2 0 3-3 4-6 4" />
+          <path d="M12 4V2" />
+          <path d="M10 4c-.5-1-1-1.5-2-2" />
+          <circle cx="8" cy="10" r="1" fill="currentColor" />
+        </g>
+      </svg>
+    ),
+  },
+  {
+    id: "cerdo",
+    label: "Cerdo",
+    description: "Filtrar productos de cerdo",
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="inline mr-2">
+        <g strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="13" rx="7" ry="4" />
+          <path d="M5 13c0 2 1.5 4 7 4s7-2 7-4" />
+          <circle cx="12" cy="12" r="2" />
+          <circle cx="8.5" cy="10.5" r="1" fill="currentColor" />
+          <circle cx="15.5" cy="10.5" r="1" fill="currentColor" />
+          <path d="M12 7V4M10 4l2-2 2 2" />
+          <path d="M3 15c-1 0-2-.5-2-1.5S2 12 3 12" />
+          <path d="M21 15c1 0 2-.5 2-1.5S22 12 21 12" />
         </g>
       </svg>
     ),
@@ -53,7 +76,7 @@ export default function CategoryFilterTabs({ activeTab, onTabChange }: CategoryF
           </h2>
 
           {/* Tab list */}
-          <div className="flex justify-center lg:pl-28" role="tablist" aria-orientation="horizontal" aria-label="Filtrar por">
+          <div className="flex justify-center lg:pl-28 gap-1" role="tablist" aria-orientation="horizontal" aria-label="Filtrar por">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
