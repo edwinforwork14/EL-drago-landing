@@ -4,12 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { products } from '@/data/products';
-import { getProductImageUrl, getProductSlug, getCategorySlugForProduct } from '@/data/utils';
-
-const carouselProducts = products.filter((p) =>
-  ['pech-4', 'esp-2', 'pech-1'].includes(p.id)
-).slice(0, 3);
 
 const slides = [
   { type: 'image' as const, src: '/productos/JAMON (3).png', alt: 'Jamón 3' },
@@ -150,7 +144,7 @@ const ProductGrid = () => {
 
                   return (
                     <motion.div
-                      key={slide.type === 'product' && slide.product ? slide.product.id : `special-${index}`}
+                      key={`slide-${index}`}
                       initial={false}
                       animate={{ x: position.x, y: position.y, rotate: position.rotate, scale: position.scale, opacity: position.opacity }}
                       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -162,29 +156,7 @@ const ProductGrid = () => {
                         }
                       }}
                     >
-                      {slide.type === 'product' && slide.product && (
-                        <div className="block w-full h-full group">
-                          <div className="relative w-full h-full overflow-hidden rounded-[1.5rem]">
-                            <Image
-                              src={getProductImageUrl(slide.product)}
-                              alt={slide.product.name}
-                              fill
-                              sizes="(max-width: 768px) 100vw, 380px"
-                              className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-
-                            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                              <h3 className="text-white font-bold text-lg md:text-xl leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
-                                {slide.product.name}
-                              </h3>
-                            </div>
-                          </div>
-                          {/* Shadow under product (Heinz reference) */}
-                          {/* shadow removed */}
-                        </div>
-                      )}
-
-                      {slide.type === 'image' && (
+{slide.type === 'image' && (
                         <div className="block w-full h-full group">
                           <div className="relative w-full h-full overflow-hidden rounded-[1.5rem]">
                             <Image
