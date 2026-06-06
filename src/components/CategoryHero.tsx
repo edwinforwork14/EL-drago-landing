@@ -12,7 +12,7 @@ interface CategoryHeroProps {
 
 export default function CategoryHero({ imageSrc }: CategoryHeroProps) {
   return (
-    <section className="relative min-h-[40vh] md:min-h-screen overflow-hidden bg-primary">
+    <section className="relative min-h-[40vh] md:min-h-screen overflow-hidden">
       {/* ─── BANNER IMAGE ─── */}
       <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence>
@@ -27,7 +27,7 @@ export default function CategoryHero({ imageSrc }: CategoryHeroProps) {
             fill
             priority
             sizes="100vw"
-            className="object-contain md:object-cover"
+            className="object-cover"
             quality={100}
           />
         </AnimatePresence>
