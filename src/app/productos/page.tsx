@@ -13,11 +13,23 @@ import {
   CATEGORY_GROUPS,
 } from "@/data/utils";
 
-const HERO_BANNERS: Record<string, string> = {
-  productos: "/hero-banners/productos-banner.jpeg",
-  embutidos: "/hero-banners/embutidos-banner.jpeg",
-  ahumados: "/hero-banners/ahumados-banner.jpeg",
-  frescos: "/hero-banners/frescos-banner.jpeg",
+const HERO_BANNERS: Record<string, { desktop: string; mobile: string }> = {
+  productos: {
+    desktop: "/hero-banners/productos-banner.jpeg",
+    mobile: "/hero-banners/productos-banner-moblie.png",
+  },
+  embutidos: {
+    desktop: "/hero-banners/embutidos-banner.jpeg",
+    mobile: "/hero-banners/embutidos-banner-moblie.png",
+  },
+  ahumados: {
+    desktop: "/hero-banners/ahumados-banner.jpeg",
+    mobile: "/hero-banners/ahumados-banner-moblie.png",
+  },
+  frescos: {
+    desktop: "/hero-banners/frescos-banner.jpeg",
+    mobile: "/hero-banners/frescos-banner-moblie.png",
+  },
 };
 import CategoryFilterCarousel from "@/components/CategoryFilterCarousel";
 import CategoryFilterTabs from "@/components/CategoryFilterTabs";
@@ -83,14 +95,19 @@ export default function ProductosPage() {
 
       {/* Preload all category banners for instant hero transitions */}
       <div className="hidden" aria-hidden="true">
-        {Object.values(HERO_BANNERS).map((src) => (
+        {Object.values(HERO_BANNERS).flatMap((b) => [b.desktop, b.mobile]).map((src) => (
           <Image key={src} src={src} alt="" width={2560} height={1440} priority />
         ))}
       </div>
 
       {/* ─── HERO BANNER — cambia según filtro activo ─── */}
       <CategoryHero
-        imageSrc={activeCategory ? HERO_BANNERS[activeCategory] : HERO_BANNERS.productos}
+        imageSrc={
+          (activeCategory ? HERO_BANNERS[activeCategory] : HERO_BANNERS.productos).desktop
+        }
+        imageSrcMobile={
+          (activeCategory ? HERO_BANNERS[activeCategory] : HERO_BANNERS.productos).mobile
+        }
       />
 
       {/* ─── FILTER TABS ─── */}
