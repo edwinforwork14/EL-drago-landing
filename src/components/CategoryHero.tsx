@@ -13,7 +13,7 @@ interface CategoryHeroProps {
 
 export default function CategoryHero({ imageSrc, imageSrcMobile }: CategoryHeroProps) {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-primary-dark">
+    <section className="relative min-h-[70vh] md:min-h-screen overflow-hidden">
       {/* ─── BANNER IMAGE ─── */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Desktop banner — hidden below md */}
@@ -39,19 +39,21 @@ export default function CategoryHero({ imageSrc, imageSrcMobile }: CategoryHeroP
         {/* Mobile banner — visible only below md */}
         <AnimatePresence>
           {imageSrcMobile && (
-            <MotionImage
+            <motion.div
               key={`mobile-${imageSrcMobile}`}
               initial={{ scale: 1.08, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.98, opacity: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              src={imageSrcMobile}
-              alt="banner mobile"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover block md:hidden"
-              quality={100}
+              className="block md:hidden absolute inset-0"
+              role="img"
+              aria-label="banner categoría productos"
+              style={{
+                backgroundImage: `url(${imageSrcMobile})`,
+                backgroundSize: '100% auto',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             />
           )}
         </AnimatePresence>

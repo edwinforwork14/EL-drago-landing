@@ -117,6 +117,7 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                             fill
                             sizes="(max-width: 768px) 216px, 252px"
                             className="object-contain"
+                            loading="eager"
                           />
                         </div>
                       </div>
