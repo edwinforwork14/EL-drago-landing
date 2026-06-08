@@ -12,17 +12,6 @@ export const embutidos: Product[] = [
     caducidad: '9 meses',
   },
   {
-    id: 'fiam-1',
-    name: 'Fiambre de la Casa',
-    description: 'Una mezcla magistral de sabores tradicionales para tus tablas gourmet.',
-    image: 'page-0013.png',
-    tag: 'Tradicional',
-    category: 'Embutidos',
-    meatType: 'mixto',
-    peso: '300 g',
-    caducidad: '9 meses',
-  },
-  {
     id: 'fiam-2',
     name: 'Fiambre de Cerdo',
     description: 'Fiambre elaborado con carne de cerdo seleccionada, de textura suave y sabor equilibrado. Perfecto para sándwiches, desayunos y picaderas.',
