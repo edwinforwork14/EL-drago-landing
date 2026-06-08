@@ -6,9 +6,27 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const slides = [
-  { type: 'image' as const, src: '/productos/frescos/pechuga-pollo-cocido.png', alt: 'Pechuga de Pollo Cocido' },
-  { type: 'image' as const, src: '/productos/ahumados/espalda-de-cerdo-ahumada.png', alt: 'Espalda de Cerdo Ahumada' },
-  { type: 'image' as const, src: '/productos/embutidos/mortadela-extra.png', alt: 'Mortadela Extra' },
+  {
+    type: 'image' as const,
+    src: '/productos/frescos/pechuga-pollo-cocido.png',
+    alt: 'Pechuga de Pollo Cocido',
+    title: 'Frescos',
+    gradient: 'from-[#DF2122] to-[#C41A1E]',
+  },
+  {
+    type: 'image' as const,
+    src: '/productos/ahumados/espalda-de-cerdo-ahumada.png',
+    alt: 'Espalda de Cerdo Ahumada',
+    title: 'Ahumados',
+    gradient: 'from-[#C41A1E] to-[#9E1518]',
+  },
+  {
+    type: 'image' as const,
+    src: '/productos/embutidos/mortadela-extra.png',
+    alt: 'Mortadela Extra',
+    title: 'Embutidos',
+    gradient: 'from-[#A81518] to-[#7A0F11]',
+  },
   { type: 'special' as const, product: null },
 ];
 
@@ -158,16 +176,34 @@ const ProductGrid = () => {
                     >
 {slide.type === 'image' && (
                         <div className="block w-full h-full group">
-                          <div className="relative w-full h-full overflow-hidden rounded-[1.5rem]">
-                            <Image
-                              src={slide.src}
-                              alt={slide.alt}
-                              fill
-                              sizes="(max-width: 768px) 100vw, 380px"
-                              className="object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
+                          <div className={`relative w-full h-full rounded-[1.5rem] bg-gradient-to-br ${slide.gradient} flex flex-col items-center justify-center p-6 overflow-hidden`}>
+                            {/* Dots pattern for texture */}
+                            <div className="absolute inset-0 opacity-[0.04]">
+                              <div
+                                className="w-full h-full"
+                                style={{
+                                  backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px)`,
+                                  backgroundSize: '30px 30px',
+                                }}
+                              />
+                            </div>
+
+                            {/* Product image */}
+                            <div className="relative w-4/5 h-3/5 md:h-4/5 rounded-xl overflow-hidden shadow-2xl">
+                              <Image
+                                src={slide.src}
+                                alt={slide.alt}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 380px"
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                              />
+                            </div>
+
+                            {/* Category title */}
+                            <h3 className="text-accent font-[family-name:var(--font-mr-dafoe)] text-4xl md:text-5xl text-center leading-tight mt-3 relative z-10">
+                              {slide.title}
+                            </h3>
                           </div>
-                          {/* shadow removed */}
                         </div>
                       )}
 
