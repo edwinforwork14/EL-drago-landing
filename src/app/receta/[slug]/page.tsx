@@ -100,7 +100,7 @@ function RecipeDetailContent() {
     <div className="min-h-screen bg-[#FCF2E6] flex flex-col justify-between">
       <Navbar transparentInitially={false} />
 
-      <main className="pt-14 md:pt-32 flex-1 w-full">
+      <main className="pt-8 md:pt-32 flex-1 w-full">
         {/* ─── TOP BAR: breadcrumb + share ─── */}
         <div className="max-w-[1600px] mx-auto px-6 md:px-10 lg:px-16">
           <div className="flex justify-between items-center h-14 md:h-16">
