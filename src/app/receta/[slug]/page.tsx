@@ -50,13 +50,13 @@ function RecipeDetailContent() {
       case "1":
         return {
           name: "Mortadela Tipo Superior",
-          image: "/productos/mortadelas/page-0007.png",
+          image: "/productos/embutidos/mortadela-tipo-superior.png",
           slug: "mortadela-tipo-superior",
         };
       case "2":
         return {
           name: "Pechuga de Pavo Ahumada",
-          image: "/productos/pechugas-cosidas/JAMON(9).png",
+          image: "/productos/frescos/pechuga-pavo-ahumada.png",
           slug: "pechuga-de-pavo-ahumada",
         };
       case "3":
@@ -74,7 +74,7 @@ function RecipeDetailContent() {
       case "5":
         return {
           name: "Pechuga de Pavo Cocido Superior",
-          image: "/productos/pechugas-cosidas/JAMON (2).png",
+          image: "/productos/frescos/pechuga-pavo-cocido-superior.png",
           slug: "pechuga-de-pavo-cocido-superior",
         };
       case "6":

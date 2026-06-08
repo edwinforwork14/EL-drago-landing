@@ -6,9 +6,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const slides = [
-  { type: 'image' as const, src: '/productos/JAMON (3).png', alt: 'Jamón 3' },
-  { type: 'image' as const, src: '/productos/JAMON (6).png', alt: 'Jamón 6' },
-  { type: 'image' as const, src: '/productos/JAMON (4).png', alt: 'Jamón 4' },
+  { type: 'image' as const, src: '/productos/frescos/pechuga-pollo-cocido.png', alt: 'Pechuga de Pollo Cocido' },
+  { type: 'image' as const, src: '/productos/ahumados/espalda-de-cerdo-ahumada.png', alt: 'Espalda de Cerdo Ahumada' },
+  { type: 'image' as const, src: '/productos/embutidos/mortadela-extra.png', alt: 'Mortadela Extra' },
   { type: 'special' as const, product: null },
 ];
 
