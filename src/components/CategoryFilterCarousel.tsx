@@ -19,6 +19,12 @@ interface CategoryFilterCarouselProps {
 export default function CategoryFilterCarousel({ activeCategory, onSelect }: CategoryFilterCarouselProps) {
   return (
     <section className="w-full pt-8 pb-10 md:pt-10 md:pb-12">
+      {/* Preload draguitos images */}
+      <div className="hidden" aria-hidden="true">
+        {Object.values(categoryImages).map((src) => (
+          <Image key={src} src={src} alt="" width={252} height={252} priority />
+        ))}
+      </div>
       <div className="max-w-[1600px] mx-auto  px-5 md:px-8 lg:px-12">
         <div className="overflow-x-auto md:overflow-x-visible no-scrollbar">
           <div className="grid grid-cols-2 gap-6 md:flex md:gap-16 md:justify-center pt-2 md:pt-4 place-items-center">
