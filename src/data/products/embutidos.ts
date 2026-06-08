@@ -12,16 +12,6 @@ export const embutidos: Product[] = [
     caducidad: '9 meses',
   },
   {
-    id: 'mort-2',
-    name: 'Mortadela Gourmet',
-    description: 'Selección de carnes finas condimentadas a la perfección.',
-    image: 'page-0012.png',
-    category: 'Embutidos',
-    meatType: 'mixto',
-    peso: '250 g',
-    caducidad: '9 meses',
-  },
-  {
     id: 'fiam-1',
     name: 'Fiambre de la Casa',
     description: 'Una mezcla magistral de sabores tradicionales para tus tablas gourmet.',

@@ -1,37 +1,7 @@
 import type { Product } from './types';
 
 export const ahumados: Product[] = [
-  {
-    id: 'jam-1',
-    name: 'Jamón Gourmet Selección',
-    description: 'Nuestra pieza más exclusiva, curada con procesos tradicionales para un sabor inigualable.',
-    image: 'page-0003.png',
-    tag: 'Premium',
-    category: 'Ahumados',
-    meatType: 'cerdo',
-    peso: '1.2 kg',
-    caducidad: '12 meses',
-  },
-  {
-    id: 'jam-2',
-    name: 'Jamón Tradicional',
-    description: 'Sabor auténtico y textura perfecta para acompañar tus mejores momentos familiares.',
-    image: 'page-0004.png',
-    category: 'Ahumados',
-    meatType: 'cerdo',
-    peso: '1 kg',
-    caducidad: '12 meses',
-  },
-  {
-    id: 'jam-3',
-    name: 'Jamón Especial El Drago',
-    description: 'El equilibrio perfecto entre suavidad y carácter artesanal.',
-    image: 'page-0005.png',
-    category: 'Ahumados',
-    meatType: 'cerdo',
-    peso: '900 g',
-    caducidad: '10 meses',
-  },
+
   {
     id: 'jam-4',
     name: 'Jamón Cocido Superior',

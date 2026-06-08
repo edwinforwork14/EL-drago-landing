@@ -1,37 +1,7 @@
 import type { Product } from './types';
 
 export const frescos: Product[] = [
-  {
-    id: 'pech-1',
-    name: 'Pechuga de Pavo Especial',
-    description: 'Seleccionada y cocida lentamente para preservar toda su jugosidad y valor nutricional.',
-    image: 'page-0008.png',
-    tag: 'Saludable',
-    category: 'Frescos',
-    meatType: 'ave',
-    peso: '500 g',
-    caducidad: '30 días (refrigerado)',
-  },
-  {
-    id: 'pech-2',
-    name: 'Pechuga de Pollo Premium',
-    description: 'Sabor suave y natural, ideal para una alimentación balanceada.',
-    image: 'page-0009.png',
-    category: 'Frescos',
-    meatType: 'ave',
-    peso: '400 g',
-    caducidad: '30 días (refrigerado)',
-  },
-  {
-    id: 'pech-3',
-    name: 'Pechuga de Pavo Gourmet',
-    description: 'Finas lonjas de pechuga seleccionada con el sello de calidad El Drago.',
-    image: 'page-0010.png',
-    category: 'Frescos',
-    meatType: 'ave',
-    peso: '500 g',
-    caducidad: '30 días (refrigerado)',
-  },
+
   {
     id: 'pech-4',
     name: 'Pechuga de Pavo Cocido Superior',

@@ -38,7 +38,7 @@ const RecipeCTA = () => {
 
             <div className="flex items-center gap-4 w-full md:w-auto shrink-0 relative z-10">
               <Image
-                src="/Dragitos/DRAGUITO%20PRINCIPAL.png"
+                src="/dragitos/draguito-principal.png"
                 alt="Mascota El Drago"
                 width={224}
                 height={160}

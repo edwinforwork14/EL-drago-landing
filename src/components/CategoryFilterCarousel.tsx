@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { CATEGORY_GROUPS } from "@/data/utils";
 
 const categoryImages: Record<string, string> = {
-  embutidos: "/dragitos/DRAGUITO-EMBUTIDOS.png",
-  ahumados: "/dragitos/DRAGUITO-AHUMADOS.png",
-  frescos: "/dragitos/DRAGUITO PRINCIPAL.png",
+  embutidos: "/dragitos/draguito-embutidos.png",
+  ahumados: "/dragitos/draguito-ahumados.png",
+  frescos: "/dragitos/draguito-principal.png",
 };
 
 interface CategoryFilterCarouselProps {
