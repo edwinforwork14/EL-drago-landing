@@ -28,13 +28,15 @@ const tabs: Tab[] = [
     label: "Ave",
     description: "Filtrar productos de ave (pollo, pavo)",
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="inline mr-2">
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" className="inline mr-2">
         <g strokeLinecap="round" strokeLinejoin="round">
-          <path d="M16 7C13.5 5 8 6 8 10c0 1.5.5 3 2.5 4.5C12 16 12 18 11 20" />
-          <path d="M16 7c2-1 5-.5 5 2 0 3-3 4-6 4" />
-          <path d="M12 4V2" />
-          <path d="M10 4c-.5-1-1-1.5-2-2" />
-          <circle cx="8" cy="10" r="1" fill="currentColor" />
+          <path d="M9 18c-3 0-5-2-5-5 0-3.5 2.5-6 6-6 1.5 0 3 .5 4 1.5" />
+          <path d="M15 8c2.5 0 5 2 5 5s-2 5-5 5h-2" />
+          <path d="M7 18l-1 2" />
+          <path d="M11 18l1 2" />
+          <path d="M16 9l2-1-1 2" />
+          <circle cx="13" cy="10" r="0.8" fill="currentColor" stroke="none" />
+          <path d="M9 6c0-1.5-1-2.5-2-3" />
         </g>
       </svg>
     ),
@@ -44,16 +46,16 @@ const tabs: Tab[] = [
     label: "Cerdo",
     description: "Filtrar productos de cerdo",
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="inline mr-2">
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" className="inline mr-2">
         <g strokeLinecap="round" strokeLinejoin="round">
-          <ellipse cx="12" cy="13" rx="7" ry="4" />
-          <path d="M5 13c0 2 1.5 4 7 4s7-2 7-4" />
-          <circle cx="12" cy="12" r="2" />
-          <circle cx="8.5" cy="10.5" r="1" fill="currentColor" />
-          <circle cx="15.5" cy="10.5" r="1" fill="currentColor" />
-          <path d="M12 7V4M10 4l2-2 2 2" />
-          <path d="M3 15c-1 0-2-.5-2-1.5S2 12 3 12" />
-          <path d="M21 15c1 0 2-.5 2-1.5S22 12 21 12" />
+          <circle cx="12" cy="13" r="7" />
+          <path d="M7 8l-2-2v3" />
+          <path d="M17 8l2-2v3" />
+          <circle cx="9.5" cy="11" r="0.8" fill="currentColor" stroke="none" />
+          <circle cx="14.5" cy="11" r="0.8" fill="currentColor" stroke="none" />
+          <ellipse cx="12" cy="15" rx="3" ry="2" />
+          <circle cx="11" cy="15" r="0.4" fill="currentColor" stroke="none" />
+          <circle cx="13" cy="15" r="0.4" fill="currentColor" stroke="none" />
         </g>
       </svg>
     ),
