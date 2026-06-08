@@ -10,7 +10,7 @@ const Footer = () => {
         <svg 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none" 
-          className="relative block w-[120%] h-[40px] fill-[#9a0021] -left-[10%]"
+          className="relative block w-[120%] h-[40px] fill-primary -left-[10%]"
         >
           <path d="M0,0 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,0 L0,0 Z"></path>
         </svg>
