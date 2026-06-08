@@ -230,7 +230,17 @@ function ProductDetailContent() {
               También te puede interesar
             </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div
+              className={`grid gap-6 md:gap-8 ${
+                siblings.length === 1
+                  ? "grid-cols-1 max-w-sm mx-auto"
+                  : siblings.length === 2
+                    ? "grid-cols-2 mx-auto max-w-lg"
+                    : siblings.length === 3
+                      ? "grid-cols-2 md:grid-cols-3 mx-auto max-w-4xl"
+                      : "grid-cols-2 md:grid-cols-4"
+              }`}
+            >
               {siblings.map((sibling, i) => {
                 const siblingSlug = getProductSlug(sibling);
 

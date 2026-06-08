@@ -62,7 +62,7 @@ function RecipeDetailContent() {
       case "3":
         return {
           name: "Chuleta Ahumada Premium",
-          image: "/productos/chuletas/page-0016.jpg",
+          image: "/productos/ahumados/chuleta-ahumada.png",
           slug: "chuleta-ahumada-premium",
         };
       case "4":
@@ -80,7 +80,7 @@ function RecipeDetailContent() {
       case "6":
         return {
           name: "Tocineta Ahumada",
-          image: "/productos/tocinetas/page-0015.jpg",
+          image: "/productos/ahumados/tocineta-de-cerdo-ahumada.png",
           slug: "tocineta-ahumada",
         };
       default:
