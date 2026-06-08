@@ -11,21 +11,21 @@ const slides = [
     src: '/productos/frescos/pechuga-pollo-cocido.png',
     alt: 'Pechuga de Pollo Cocido',
     title: 'Frescos',
-    gradient: 'from-[#DF2122] to-[#C41A1E]',
+    gradient: 'from-[#DF2122]/70 to-[#C41A1E]/70',
   },
   {
     type: 'image' as const,
     src: '/productos/ahumados/espalda-de-cerdo-ahumada.png',
     alt: 'Espalda de Cerdo Ahumada',
     title: 'Ahumados',
-    gradient: 'from-[#C41A1E] to-[#9E1518]',
+    gradient: 'from-[#C41A1E]/70 to-[#9E1518]/70',
   },
   {
     type: 'image' as const,
     src: '/productos/embutidos/mortadela-extra.png',
     alt: 'Mortadela Extra',
     title: 'Embutidos',
-    gradient: 'from-[#A81518] to-[#7A0F11]',
+    gradient: 'from-[#A81518]/70 to-[#7A0F11]/70',
   },
   { type: 'special' as const, product: null },
 ];
@@ -153,10 +153,10 @@ const ProductGrid = () => {
           </div>
 
           {/* ─── RIGHT COLUMN: Carrusel ─── */}
-          <div className="flex-[0.9] w-full md:w-[340px] lg:w-[380px] order-2 md:order-2 shrink-0">
+          <div className="pt-4 flex-[0.9] w-full md:w-[340px] lg:w-[380px] order-2 md:order-2 shrink-0">
             <div className="relative">
               {/* Carousel card (stacked) */}
-              <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-none bg-[#FCF2E6]">
+              <div className=" ptrelative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-none bg-[#FCF2E6]">
                 {slides.map((slide, index) => {
                   const position = getStackPosition(index);
 
@@ -176,7 +176,7 @@ const ProductGrid = () => {
                     >
 {slide.type === 'image' && (
                         <div className="block w-full h-full group">
-                          <div className={`relative w-full h-full rounded-[1.5rem] bg-gradient-to-br ${slide.gradient} flex flex-col items-center justify-center p-6 overflow-hidden`}>
+                          <div className="relative w-full h-full rounded-[1.5rem] bg-accent/80 backdrop-blur-lg flex flex-col items-center justify-center p-6 overflow-hidden border-2 border-primary/40">
                             {/* Dots pattern for texture */}
                             <div className="absolute inset-0 opacity-[0.04]">
                               <div
@@ -188,19 +188,21 @@ const ProductGrid = () => {
                               />
                             </div>
 
-                            {/* Product image */}
-                            <div className="relative w-4/5 h-3/5 md:h-4/5 rounded-xl overflow-hidden shadow-2xl">
-                              <Image
-                                src={slide.src}
-                                alt={slide.alt}
-                                fill
-                                sizes="(max-width: 768px) 100vw, 380px"
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                              />
+                            {/* Product image - inner red container */}
+                            <div className="relative w-4/5 h-3/5 md:h-4/5 rounded-xl shadow-2xl bg-primary p-2">
+                              <div className="relative w-full h-full rounded-lg overflow-hidden">
+                                <Image
+                                  src={slide.src}
+                                  alt={slide.alt}
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 380px"
+                                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                              </div>
                             </div>
 
                             {/* Category title */}
-                            <h3 className="text-accent font-[family-name:var(--font-mr-dafoe)] text-4xl md:text-5xl text-center leading-tight mt-3 relative z-10">
+                            <h3 className="text-primary-dark font-[family-name:var(--font-mr-dafoe)] text-4xl md:text-5xl text-center leading-tight mt-3 relative z-10">
                               {slide.title}
                             </h3>
                           </div>
@@ -224,12 +226,12 @@ const ProductGrid = () => {
                               initial={{ scale: 1 }}
                               whileHover={{ scale: 1.1, rotate: 90 }}
                               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                              className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-white/30 flex items-center justify-center mb-4 backdrop-blur-sm"
+                              className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-accent/50 flex items-center justify-center mb-4 backdrop-blur-sm"
                             >
-                              <span className="material-symbols-outlined text-white text-3xl md:text-4xl">add</span>
+                              <span className="material-symbols-outlined text-accent text-3xl md:text-4xl">add</span>
                             </motion.div>
 
-                            <h3 className="text-white font-bold text-xl md:text-2xl text-center leading-tight">Ver Más</h3>
+                            <h3 className="text-accent font-[family-name:var(--font-mr-dafoe)] text-4xl md:text-5xl text-center leading-tight drop-shadow-[0_2px_6px_rgba(254,199,12,0.25)]">Ver Más</h3>
                             <p className="text-white/60 text-sm text-center mt-2 max-w-[200px]">Explora nuestro catálogo</p>
                           </div>
                         </Link>

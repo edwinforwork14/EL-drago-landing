@@ -64,16 +64,23 @@ const Hero = () => {
       </div>
 
       {/* ─── HERO CONTENT ─── */}
-      <div className="relative z-20 flex flex-col justify-end min-h-[50vh] md:min-h-[60vh] px-5 sm:px-6 md:px-12 lg:px-24 pb-10 sm:pb-12 md:pb-14 pt-20 sm:pt-24 md:pt-28">
-        <div className="w-full max-w-4xl md:max-w-2xl lg:max-w-3xl mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start md:translate-y-0">
+      <div
+        className="relative z-20 flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-24 pt-12 sm:pt-14 md:pt-24 pb-10 sm:pb-12 md:pb-14"
+        style={{
+          minHeight: isDesktop
+            ? `calc(100vh - ${navHeight}px)`
+            : '60vh',
+        }}
+      >
+        <div className="w-full max-w-4xl md:max-w-2xl lg:max-w-3xl xl:scale-110 2xl:scale-125 origin-left mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start">
           
           {/* Headline Composition */}
-          <div className="relative mb-6 sm:mb-6 md:mb-8 lg:mt-16">
+          <div className="relative mb-6 sm:mb-6 md:mb-8">
             <motion.h1
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-headline-lg text-headline-lg text-[3.5rem] max-[400px]:text-[3rem] max-[360px]:text-[2.6rem] sm:text-[5.98rem] md:text-[6.44rem] lg:text-[7.82rem] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-3 sm:-rotate-6 scale-90"
+              className="font-headline-lg text-headline-lg text-[clamp(3.15rem,7.2vw,9rem)] text-white leading-[0.75] uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] tracking-tighter -rotate-3 sm:-rotate-6 scale-90"
             >
               <span className="whitespace-nowrap">El favorito</span>
             </motion.h1>
@@ -84,8 +91,8 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="flex items-center justify-center md:justify-start gap-3 sm:gap-4 mt-4 sm:mt-6 md:mt-8 relative z-10 md:ml-12"
             >
-              <span className="font-black text-accent text-[2rem] max-[400px]:text-[1.8rem] max-[360px]:text-[1.5rem] sm:text-[2.15rem] md:text-[2.38rem] uppercase leading-none tracking-tighter px-2 sm:px-3 pt-6 sm:pt-8">de</span>
-              <span className="font-[family-name:var(--font-mr-dafoe)] text-[4rem] max-[400px]:text-[3.5rem] max-[360px]:text-[3rem] sm:text-[5.98rem] md:text-[6.9rem] lg:text-[8.74rem] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
+              <span className="font-black text-accent text-[clamp(1.6rem,3.6vw,3.6rem)] uppercase leading-none tracking-tighter px-2 sm:px-3 pt-6 sm:pt-8">de</span>
+              <span className="font-[family-name:var(--font-mr-dafoe)] text-[clamp(3.6rem,8.1vw,10.8rem)] text-accent leading-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
                 Todos
               </span>
             </motion.div>
