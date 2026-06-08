@@ -72,7 +72,7 @@ const AboutUs = () => {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-yellow-400/80 -rotate-0 flex items-center justify-center font-black text-[9px] uppercase tracking-widest shadow-sm text-yellow-900 z-20">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-44 h-7 bg-primary -rotate-0 flex items-center justify-center font-black text-[10px] uppercase tracking-widest shadow-sm text-white z-20">
                 El Drago Factory
               </div>
             </div>
