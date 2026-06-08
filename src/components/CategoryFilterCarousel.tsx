@@ -65,7 +65,7 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                       className={`${activeCategory === null ? "" : "text-primary-dark/60"} md:w-12 md:h-12`}
                     >
                       <g strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z" />
+                        <path d="M12 5v14M5 12h14" />
                       </g>
                     </svg>
                   </div>
