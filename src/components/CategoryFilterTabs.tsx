@@ -30,13 +30,11 @@ const tabs: Tab[] = [
     icon: (
       <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" className="inline mr-2">
         <g strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 18c-3 0-5-2-5-5 0-3.5 2.5-6 6-6 1.5 0 3 .5 4 1.5" />
-          <path d="M15 8c2.5 0 5 2 5 5s-2 5-5 5h-2" />
-          <path d="M7 18l-1 2" />
-          <path d="M11 18l1 2" />
-          <path d="M16 9l2-1-1 2" />
-          <circle cx="13" cy="10" r="0.8" fill="currentColor" stroke="none" />
-          <path d="M9 6c0-1.5-1-2.5-2-3" />
+          <circle cx="11" cy="12" r="5" />
+          <circle cx="10" cy="11" r="0.7" fill="currentColor" stroke="none" />
+          <path d="M16 12l4-1.5L16 9" />
+          <path d="M8 7l1.2-2 1.3 2 1.3-2 1.2 2" />
+          <path d="M10 16c0 1 1 2 2 2" />
         </g>
       </svg>
     ),
