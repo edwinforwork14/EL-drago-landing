@@ -17,7 +17,7 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           
           {/* Column 1: Logo & Slogan — full width on mobile */}
           <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3">

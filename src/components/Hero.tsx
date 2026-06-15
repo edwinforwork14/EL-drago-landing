@@ -11,7 +11,7 @@ const MotionImage = motion(Image);
 const Hero = () => {
   const navRef = useRef<HTMLDivElement | null>(null);
   const [navHeight, setNavHeight] = useState(0);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [breakpoint, setBreakpoint] = useState<'mobile' | 'tablet' | 'desktop'>('mobile');
 
   useEffect(() => {
     const measure = () => {
@@ -25,17 +25,27 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
-    setIsDesktop(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+    const check = () => {
+      const w = window.innerWidth;
+      if (w < 768) setBreakpoint('mobile');
+      else if (w < 1024) setBreakpoint('tablet');
+      else setBreakpoint('desktop');
+    };
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, []);
 
   return (
     <section
       className="relative overflow-hidden"
-      style={{ minHeight: isDesktop ? `calc(100vh - ${navHeight}px)` : '60vh' }}
+      style={{
+        minHeight: breakpoint === 'desktop'
+          ? `calc(100vh - ${navHeight}px)`
+          : breakpoint === 'tablet'
+            ? '75vh'
+            : '60vh',
+      }}
     >
       <div ref={navRef}>
         <Navbar transparentInitially={true} appearOnScroll={true} />
@@ -67,9 +77,11 @@ const Hero = () => {
       <div
         className="relative z-20 flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-24 pt-12 sm:pt-14 md:pt-24 pb-10 sm:pb-12 md:pb-14"
         style={{
-          minHeight: isDesktop
+          minHeight: breakpoint === 'desktop'
             ? `calc(100vh - ${navHeight}px)`
-            : '60vh',
+            : breakpoint === 'tablet'
+              ? '75vh'
+              : '60vh',
         }}
       >
         <div className="w-full max-w-4xl md:max-w-2xl lg:max-w-3xl xl:scale-110 2xl:scale-125 origin-left mx-auto md:mx-0 text-center md:text-left flex flex-col items-center md:items-start">

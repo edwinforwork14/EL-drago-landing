@@ -115,7 +115,7 @@ const ProductGrid = () => {
           className="flex flex-col md:flex-row md:items-center gap-8 md:gap-16"
         >
           {/* ─── LEFT COLUMN: Content + Button ─── */}
-          <div className="flex-[1.6] max-w-none order-1 md:order-1 px-10 md:px-20">
+          <div className="flex-[1.6] max-w-none order-1 md:order-1 px-10 md:px-10 lg:px-20">
             {/* Eyebrow badge removed per request */}
 
             {/* Main title */}
@@ -153,7 +153,7 @@ const ProductGrid = () => {
           </div>
 
           {/* ─── RIGHT COLUMN: Carrusel ─── */}
-          <div className="pt-4 flex-[0.9] w-full md:w-[340px] lg:w-[380px] order-2 md:order-2 shrink-0">
+          <div className="pt-4 flex-[0.9] w-full md:w-[380px] lg:w-[380px] order-2 md:order-2 shrink-0">
             <div className="relative">
               {/* Carousel card (stacked) */}
               <div className=" ptrelative aspect-[3/4] rounded-[1.5rem] overflow-visible shadow-none bg-[#FCF2E6]">

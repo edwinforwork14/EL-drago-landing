@@ -62,7 +62,7 @@ const AboutUs = () => {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative order-2"
           >
-            <div className="bg-[#FCF2E6] p-2 pb-8 shadow-2xl rotate-0 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
+            <div className="bg-[#FCF2E6] p-2 pb-8 shadow-2xl rotate-0 hover:rotate-0 transition-transform duration-500 max-w-xs md:max-w-md lg:max-w-sm mx-auto lg:ml-auto border-[4px] border-white">
               <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-gray-100">
                 <Image 
                   src="/imagenes/1/IMG_0217.PNG" 

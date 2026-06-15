@@ -21,7 +21,7 @@ const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`group relative overflow-hidden rounded-[1.08rem] cursor-pointer bg-black ${
-        isVertical ? "h-[380px] md:h-full" : "h-[320px] md:h-[220px]"
+        isVertical ? "h-[380px] md:h-full" : "h-[320px] md:h-[250px] lg:h-[220px]"
       } w-full`}
     >
       <Link href={`/receta/${recipe.slug}`} className="absolute inset-0 z-10">
