@@ -1,4 +1,5 @@
 
+import VideoHero from "@/components/VideoHero";
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
 import RecipeCTA from "@/components/RecipeCTA";
@@ -15,6 +16,7 @@ export default function Home() {
       <LoadingScreen />
 
       <main className="flex-1 overflow-x-hidden">
+        <VideoHero />
         <Hero />
         <RecipeCTA />
         <ProductGrid />

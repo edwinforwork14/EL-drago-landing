@@ -38,7 +38,7 @@ const Hero = () => {
       style={{ minHeight: isDesktop ? `calc(100vh - ${navHeight}px)` : '60vh' }}
     >
       <div ref={navRef}>
-        <Navbar transparentInitially={true} />
+        <Navbar transparentInitially={true} appearOnScroll={true} />
       </div>
 
       {/* ─── HERO IMAGE — Mobile: right-focus, Desktop: full ─── */}
