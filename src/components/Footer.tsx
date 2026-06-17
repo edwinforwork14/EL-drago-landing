@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Column 1: Logo & Slogan — full width on mobile */}
           <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left space-y-3">
             <Image 
-              src="/hero-logo/logodrago.png" 
+              src="/logos/logo.rojo.png" 
               alt="El Drago" 
               width={144}
               height={50}
@@ -49,10 +49,9 @@ const Footer = () => {
           <div className="flex flex-col items-start">
             <h3 className="font-bold uppercase tracking-widest text-[10px] mb-3">Categorías</h3>
             <ul className="space-y-0.5 font-medium text-xs w-full">
-              <li><Link href="/productos/ahumados" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Jamón Cocido</Link></li>
-              <li><Link href="/productos/frescos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Pechuga de Pavo</Link></li>
-              <li><Link href="/productos/ahumados" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Jamón Artesanal</Link></li>
-              <li><Link href="/productos/embutidos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Otros Embutidos</Link></li>
+              <li><Link href="/productos/embutidos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Embutidos</Link></li>
+              <li><Link href="/productos/ahumados" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Ahumados</Link></li>
+              <li><Link href="/productos/frescos" className="hover:opacity-70 transition-opacity flex items-center gap-2 py-1.5"><span className="text-[6px]">●</span> Frescos</Link></li>
             </ul>
           </div>
 

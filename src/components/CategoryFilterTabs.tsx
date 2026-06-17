@@ -63,9 +63,10 @@ const tabs: Tab[] = [
 interface CategoryFilterTabsProps {
   activeTab: string;
   onTabChange: (tabId: string) => void;
+  activeCategory?: string | null;
 }
 
-export default function CategoryFilterTabs({ activeTab, onTabChange }: CategoryFilterTabsProps) {
+export default function CategoryFilterTabs({ activeTab, onTabChange, activeCategory }: CategoryFilterTabsProps) {
   return (
     <section className="w-full py-6 md:py-8">
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
@@ -78,6 +79,7 @@ export default function CategoryFilterTabs({ activeTab, onTabChange }: CategoryF
           {/* Tab list */}
           <div className="flex justify-center lg:pl-28 gap-1" role="tablist" aria-orientation="horizontal" aria-label="Filtrar por">
             {tabs.map((tab) => {
+              if (activeCategory === "ahumados" && tab.id === "ave") return null;
               const isActive = activeTab === tab.id;
               return (
                 <button

@@ -56,56 +56,47 @@ const VideoHero = () => {
         transition={{ duration: 1.2, delay: 0.3 }}
       />
 
-      {/* ─── Brand Separator with Concave Curve ─── */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 h-[55px] md:h-[70px]">
+      {/* ─── Relleno inferior (tapa el hueco debajo del SVG) ─── */}
+      <div className="absolute bottom-0 left-0 w-full h-12 md:h-20 bg-primary z-20" />
+
+      {/* ─── Brand Separator — Unified Wave ─── */}
+      <div className="absolute bottom-12 md:bottom-20 left-0 w-full z-20 h-[160px] md:h-[200px]">
         <svg
           viewBox="0 0 1440 120"
           preserveAspectRatio="none"
           className="w-full h-full"
         >
-          {/* Main curved band — concave top */}
+          {/* Extremos curveados (estilo referencia) + dip cóncavo central */}
           <path
-            d="M0,0 C360,70 1080,70 1440,0 L1440,120 L0,120 Z"
+            d="M0,40 C250,80 450,65 509,65 C634,75 634,112 722.5,112 S811,75 931,65 C990,65 1190,80 1440,40 L1440,120 L0,120 Z"
             fill="#C41A1E"
-          />
-          {/* Golden accent line at base */}
-          <line
-            x1="0"
-            y1="119"
-            x2="1440"
-            y2="119"
-            stroke="#FEC70C"
-            strokeWidth="3"
           />
         </svg>
 
-        {/* ─── Scroll Indicator ─── */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-          <button
+        {/* ─── Scroll Down Indicator ─── */}
+        <div className="absolute top-[70%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+          <div
+            role="button"
+            tabIndex={0}
             onClick={handleScrollDown}
-            className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center cursor-pointer hover:bg-white/25 hover:border-white/50 hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg group"
-            aria-label="Scroll down para descubrir"
+            className="cursor-pointer rounded-full flex justify-center items-center text-white hover:bg-white/10 transition-colors border-2 border-solid bg-transparent border-current w-[72px] h-[72px] lg:w-[88px] lg:h-[88px] animate-bounce"
+            aria-label="Scroll to next section"
           >
-            <motion.svg
-              className="w-4 h-4 md:w-5 md:h-5 text-white"
+            <svg
+              className="rotate-180 stroke-1 w-16 h-16 lg:w-20 lg:h-20"
+              width="32"
+              height="32"
               fill="none"
-              viewBox="0 0 24 24"
               stroke="currentColor"
-              strokeWidth={2.5}
-              animate={{ y: [0, 8, 0] }}
-              transition={{
-                duration: 2.2,
-                repeat: Infinity,
-                ease: [0.45, 0.05, 0.55, 0.95],
-              }}
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </motion.svg>
-          </button>
+              <g strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M16 9l-4-4M8 9l4-4"></path>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
     </section>

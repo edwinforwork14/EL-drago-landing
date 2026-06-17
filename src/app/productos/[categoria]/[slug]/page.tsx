@@ -140,9 +140,6 @@ function ProductDetailContent() {
             transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 flex flex-col justify-start gap-4 lg:gap-5"
           >
-            {/* Brand name (subhead) */}
-            <h2 className="text-accent text-[1.6875rem] font-bold uppercase tracking-widest">El Drago</h2>
-
             {/* Product name */}
             <h1 className="font-headline-lg text-display-lg font-black text-[#C41A1E] uppercase leading-[0.9] tracking-tight">
               {product.name}

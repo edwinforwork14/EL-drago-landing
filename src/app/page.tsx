@@ -1,7 +1,8 @@
 
+import Navbar from "@/components/Navbar";
 import VideoHero from "@/components/VideoHero";
 import Hero from "@/components/Hero";
-import ProductGrid from "@/components/ProductGrid";
+//import ProductGrid from "@/components/ProductGrid";//
 import RecipeCTA from "@/components/RecipeCTA";
 import AboutUs from "@/components/AboutUs";
 import Contact from "@/components/Contact";
@@ -16,13 +17,17 @@ export default function Home() {
       <LoadingScreen />
 
       <main className="flex-1 overflow-x-hidden">
-        <VideoHero />
+        <Navbar />
+        <div className="-mt-7 md:-mt-9">
+          <VideoHero />
+        </div>
         <Hero />
-        <RecipeCTA />
-        <ProductGrid />
-        <AboutUs />
         <SocialMedia />
-        <Contact />
+        <RecipeCTA />
+        <AboutUs />
+        <div className="-mt-[40px] md:-mt-[60px] relative z-10">
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>

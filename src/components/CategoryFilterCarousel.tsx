@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { CATEGORY_GROUPS } from "@/data/utils";
 
 const categoryImages: Record<string, string> = {
-  embutidos: "/dragitos/draguito-embutidos.png",
-  ahumados: "/dragitos/draguito-ahumados.png",
-  frescos: "/dragitos/draguito-principal.png",
+  embutidos: "/filtros/embutidos.jpg",
+  ahumados: "/filtros/ahumados.jpg",
+  frescos: "/filtros/frescos1.jpg",
 };
 
 interface CategoryFilterCarouselProps {
@@ -41,18 +41,18 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                 <div className="relative w-[140px] h-[140px] md:w-[252px] md:h-[252px]">
                   {/* Selected ring */}
                   <div
-                    className={`absolute inset-0 rounded-full border-[3px] transition-all duration-500 ${
+                    className={`absolute inset-0 rounded-2xl border-[3px] transition-all duration-500 z-10 pointer-events-none ${
                       activeCategory === null
                         ? "border-primary"
                         : "border-primary/20 group-hover:border-primary/50"
                     }`}
                   />
-                  {/* Inner circle with all-icon */}
+                  {/* Inner shape with all-icon */}
                   <div
-                    className={`absolute inset-[4px] rounded-full border border-primary/10 overflow-hidden flex items-center justify-center ${
+                    className={`absolute inset-0 rounded-2xl overflow-hidden flex items-center justify-center ${
                       activeCategory === null
                         ? "bg-primary"
-                        : "bg-[#F7D54A]/40"
+                        : "bg-black/5"
                     }`}
                   >
                     <svg
@@ -78,7 +78,7 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                     </div>
                   )}
                   {/* Hover glow */}
-                  <div className="absolute inset-0 rounded-full bg-accent/0 group-hover:bg-accent/10 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl bg-accent/0 group-hover:bg-accent/10 transition-all duration-500" />
                 </div>
                 <span
                   className={`font-bold text-lg md:text-2xl uppercase tracking-wider text-center transition-colors duration-300 ${
@@ -108,22 +108,23 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                 <div className="relative w-[140px] h-[140px] md:w-[252px] md:h-[252px]">
                       {/* Outer ring — selected vs unselected */}
                       <div
-                        className={`absolute inset-0 rounded-full border-[3px] transition-all duration-500 ${
+                        className={`absolute inset-0 rounded-2xl border-[3px] transition-all duration-500 z-10 pointer-events-none ${
                           isActive
                             ? "border-primary"
                             : "border-primary/20 group-hover:border-primary/50"
                         }`}
                       />
-                      {/* Inner padding ring with image */}
-                      <div className="absolute inset-[4px] rounded-full border border-primary/10 overflow-hidden bg-[#F7D54A]">
-                        <div className="relative w-full h-full transition-transform duration-700 scale-[0.95] group-hover:scale-105">
+                      {/* Inner padding shape with image */}
+                      <div className="absolute inset-0 rounded-2xl overflow-hidden bg-transparent">
+                        <div className="relative w-full h-full transition-transform duration-700 scale-100 group-hover:scale-105">
                           <Image
                             src={categoryImages[group.slug] || "/hero-banners/productos-banner.jpeg"}
                             alt={group.label}
                             fill
                             sizes="(max-width: 768px) 216px, 252px"
-                            className="object-contain"
+                            className="object-cover"
                             loading="eager"
+                            unoptimized={true}
                           />
                         </div>
                       </div>
@@ -136,7 +137,7 @@ export default function CategoryFilterCarousel({ activeCategory, onSelect }: Cat
                         </div>
                       )}
                       {/* Hover glow */}
-                      <div className="absolute inset-0 rounded-full bg-accent/0 group-hover:bg-accent/10 transition-all duration-500" />
+                      <div className="absolute inset-0 rounded-2xl bg-accent/0 group-hover:bg-accent/10 transition-all duration-500" />
                     </div>
 
                     <span

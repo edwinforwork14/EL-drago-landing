@@ -114,6 +114,7 @@ export default function ProductosPage() {
       <CategoryFilterTabs
         activeTab={activeTab}
         onTabChange={handleTabChange}
+        activeCategory={activeCategory}
       />
 
       {/* ─── CATEGORY FILTER CAROUSEL ─── */}
@@ -211,9 +212,6 @@ export default function ProductosPage() {
                         </div>
                         {/* TEXT SECTION */}
                         <div className="flex flex-col items-center text-center w-full h-auto py-3 md:py-5">
-                          <p className="text-accent font-[family-name:var(--font-blacksword)] text-sm md:text-lg uppercase tracking-widest mb-1">
-                            El Drago
-                          </p>
                           <p className="text-primary-dark font-bold text-sm md:text-xl mb-1 leading-tight line-clamp-1">
                             {product.name}
                           </p>
