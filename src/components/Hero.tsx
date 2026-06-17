@@ -51,7 +51,7 @@ const Hero = () => {
         height={555}
         priority
         sizes="100vw"
-        className="w-full h-[450px] md:h-auto md:aspect-[1536/555] object-cover block"
+        className="w-full h-[540px] md:h-auto md:aspect-[1536/660] object-cover block"
       />
 
       {/* Cinematic Overlays */}
