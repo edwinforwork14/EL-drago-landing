@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { recipes, Recipe } from "@/data/recipes";
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 const RecipeCard = ({ recipe, isVertical, index }: { recipe: Recipe; isVertical?: boolean; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);

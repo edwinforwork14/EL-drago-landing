@@ -77,13 +77,7 @@ const RecipeCTA = () => {
         </div>
       </div>
 
-      {/* Bottom "Carving" Wave */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
-          className="relative block w-[120%] h-[80px] md:h-[120px] fill-[#FCF2E6] -left-[10%]">
-          <path d="M0,80 C200,0 400,120 600,60 C800,0 1000,120 1200,80 L1200,120 L0,120 Z" />
-        </svg>
-      </div>
+
     </section>
   );
 };

@@ -4,45 +4,68 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NextImage from 'next/image';
 
-// Lista de imágenes críticas a precargar antes de ocultar el loading screen
+// ─── Imágenes esenciales del HOME PAGE (solo lo visible al scrollear) ───
 const CRITICAL_IMAGES = [
+  // Navbar + Loading screen
   '/hero-logo/logodrago.png',
+  // VideoHero poster
   '/hero-logo/hero-el-drago.png',
-  '/dragitos/draguito-embutidos.png',
-  '/dragitos/draguito-ahumados.png',
+  // Hero background
+  '/hero-logo/hero-el-drago3.jpg',
+  // RecipeCTA
   '/dragitos/draguito-principal.png',
-  '/dragitos/draguito-categorias.png',
-  '/productos/ahumados/jamon-cocido-superior.png',
-  '/productos/ahumados/jamon-de-espalda-cocido-estandar.png',
-  '/productos/ahumados/jamon-cocido-superior-1kg.png',
-  '/productos/ahumados/espalda-de-cerdo-ahumada.png',
-  '/productos/frescos/pechuga-pavo-cocido-superior.png',
-  '/productos/frescos/pechuga-pollo-cocido.png',
-  '/productos/frescos/pechuga-pavo-ahumada.png',
-  '/productos/embutidos/mortadela-especial.png',
-  '/productos/embutidos/fiambre-de-cerdo.png',
-  '/productos/embutidos/mortadela-extra.png',
-  '/productos/embutidos/mortadela-tipo-superior.png',
+  // AboutUs
+  '/imagenes/1/IMG_0217.PNG',
+  // Contact background
+  '/hero-logo/cambion-drago.jpg',
+  // Footer
+  '/logos/logo.rojo.png',
+  // SocialMedia - 4 recipe cards
+  '/imagenes/1/IMG_0205.JPG.jpeg',
+  '/imagenes/1/IMG_0208.JPG.jpeg',
+  '/imagenes/1/IMG_0209.JPG.jpeg',
+  '/imagenes/1/IMG_0211.JPG.jpeg',
 ];
 
 interface LoadingScreenProps {
   customImages?: string[];
   title?: string;
   subtitle?: string;
+  /** Reducir timeout para secciones con prioridad (e.g. /productos) */
+  priority?: boolean;
 }
+
+const MIN_DISPLAY_MS = 800;    // tiempo mínimo visible para evitar flash
+const DEFAULT_TIMEOUT_MS = 10000;
+const PRIORITY_TIMEOUT_MS = 5000;
 
 const LoadingScreen = ({
   customImages,
   title = "Preparando Delicias",
-  subtitle = "Tradición que se comparte"
+  subtitle = "Tradición que se comparte",
+  priority = false,
 }: LoadingScreenProps) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [allLoaded, setAllLoaded] = useState(false);
   const mountedRef = useRef(true);
+  const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
+    startTimeRef.current = Date.now();
     return () => { mountedRef.current = false; };
   }, []);
+
+  // Efecto separado para ocultar el loading cuando se cumplan las condiciones
+  useEffect(() => {
+    if (!allLoaded) return;
+    const elapsed = Date.now() - startTimeRef.current;
+    const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+    const timer = setTimeout(() => {
+      if (mountedRef.current) setLoading(false);
+    }, remaining);
+    return () => clearTimeout(timer);
+  }, [allLoaded]);
 
   useEffect(() => {
     let completed = 0;
@@ -52,7 +75,7 @@ const LoadingScreen = ({
 
     if (total === 0) {
       setProgress(100);
-      if (mountedRef.current) setLoading(false);
+      setAllLoaded(true);
       return;
     }
 
@@ -63,9 +86,10 @@ const LoadingScreen = ({
       const pct = Math.min(Math.round((completed / total) * 100), 100);
       if (mountedRef.current) setProgress(pct);
       if (completed >= total) {
-        setTimeout(() => {
-          if (mountedRef.current) setLoading(false);
-        }, 400);
+        if (mountedRef.current) {
+          setProgress(100);
+          setAllLoaded(true);
+        }
       }
     };
 
@@ -77,32 +101,20 @@ const LoadingScreen = ({
       img.src = url;
     });
 
-    // Timeout de seguridad: si después de 6s no ha terminado, salir igual
+    // Timeout de seguridad: si no ha terminado, salir igual
+    const timeoutMs = priority ? PRIORITY_TIMEOUT_MS : DEFAULT_TIMEOUT_MS;
     const timeout = setTimeout(() => {
       if (!isCancelled && mountedRef.current) {
         setProgress(100);
-        setTimeout(() => {
-          if (mountedRef.current) setLoading(false);
-        }, 400);
+        setAllLoaded(true);
       }
-    }, 6000);
-
-    // También escuchar el evento load global de la ventana
-    const handleWindowLoad = () => {
-      if (mountedRef.current) setProgress(100);
-    };
-    if (document.readyState === 'complete') {
-      handleWindowLoad();
-    } else {
-      window.addEventListener('load', handleWindowLoad);
-    }
+    }, timeoutMs);
 
     return () => {
       isCancelled = true;
       clearTimeout(timeout);
-      window.removeEventListener('load', handleWindowLoad);
     };
-  }, [customImages]);
+  }, [customImages, priority]);
 
   return (
     <AnimatePresence>

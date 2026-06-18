@@ -45,10 +45,13 @@ const GROUP_CATEGORIES: Record<string, string[]> = {
 };
 
 const PRODUCTOS_CRITICAL_IMAGES = [
+  // Hero banners para todas las categorías
   ...Object.values(HERO_BANNERS).flatMap((b) => [b.desktop, b.mobile]),
+  // Imágenes de filtros
   "/filtros/embutidos.jpg",
   "/filtros/ahumados.jpg",
   "/filtros/frescos1.jpg",
+  // Todos los productos visibles en el grid
   ...products.map(getProductImageUrl),
 ];
 
@@ -100,15 +103,10 @@ export default function ProductosPage() {
 
   return (
     <div className="min-h-screen bg-[#FCF2E6] overflow-x-hidden">
-      <LoadingScreen customImages={PRODUCTOS_CRITICAL_IMAGES} title="Cargando Productos" />
+      <LoadingScreen customImages={PRODUCTOS_CRITICAL_IMAGES} title="Cargando Productos" priority />
       <Navbar appearOnScroll={true} />
 
-      {/* Preload all category banners for instant hero transitions */}
-      <div className="hidden" aria-hidden="true">
-        {Object.values(HERO_BANNERS).flatMap((b) => [b.desktop, b.mobile]).map((src) => (
-          <Image key={src} src={src} alt="" width={2560} height={1440} priority />
-        ))}
-      </div>
+      {/* Los banners ya se precargan via LoadingScreen — quitamos el div oculto duplicado */}
 
       {/* ─── HERO BANNER — cambia según filtro activo ─── */}
       <CategoryHero

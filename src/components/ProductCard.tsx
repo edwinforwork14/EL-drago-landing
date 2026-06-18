@@ -7,7 +7,7 @@ import { Product } from '@/data/products';
 import Link from 'next/link';
 import { getProductSlug, getCategorySlugForProduct, getProductImageUrl } from '@/data/utils';
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 interface ProductCardProps {
   product: Product;

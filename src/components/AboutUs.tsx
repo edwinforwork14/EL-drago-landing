@@ -8,11 +8,15 @@ const AboutUs = () => {
   return (
     <section id="nosotros" className="relative w-full overflow-hidden bg-[#C41A1E] py-0">
 
-      {/* Top "Carving" Wave */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
-        <svg viewBox="0 0 1200 160" preserveAspectRatio="none"
-          className="relative block w-[120%] h-[40px] md:h-[60px] fill-[#FCF2E6] -left-[10%]">
-          <path d="M0,70 C100,20 240,120 360,90 C480,60 600,120 720,90 C840,60 960,120 1080,90 C1140,76 1180,72 1200,70 L1200,0 L0,0 Z" />
+      {/* Top "Carving" Wave — continuacion de RecipeCTA */}
+      <div className="absolute top-0 left-0 w-full leading-[0] z-10 pointer-events-none">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          overflow="visible"
+          className="relative block w-[120%] h-[40px] md:h-[60px] fill-[#FEC70C] -left-[10%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] -scale-x-100"
+        >
+          <path d="M0,20 C200,160 400,-20 600,100 C800,200 1000,-30 1200,20 L1200,0 L0,0 Z"></path>
         </svg>
       </div>
 

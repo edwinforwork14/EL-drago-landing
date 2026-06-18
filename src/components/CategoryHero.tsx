@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 interface CategoryHeroProps {
   imageSrc: string;

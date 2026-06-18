@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 const Hero = () => {
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +51,7 @@ const Hero = () => {
         height={555}
         priority
         sizes="100vw"
-        className="w-full h-[540px] md:h-auto md:aspect-[1536/660] object-cover block"
+        className="w-full h-[540px] md:h-auto md:aspect-[1536/660] object-cover object-[center_75%] block"
       />
 
       {/* Cinematic Overlays */}
