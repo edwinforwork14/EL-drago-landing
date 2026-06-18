@@ -56,11 +56,10 @@ const VideoHero = () => {
         transition={{ duration: 1.2, delay: 0.3 }}
       />
 
-      {/* ─── Relleno inferior (tapa el hueco debajo del SVG) ─── */}
-      <div className="absolute bottom-0 left-0 w-full h-12 md:h-20 bg-primary z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-[20vh] md:h-20 bg-primary z-20" />
 
       {/* ─── Brand Separator — Unified Wave ─── */}
-      <div className="absolute bottom-12 md:bottom-20 left-0 w-full z-20 h-[160px] md:h-[200px]">
+      <div className="absolute bottom-[20vh] md:bottom-20 left-0 w-full z-20 h-[160px] md:h-[200px]">
         <svg
           viewBox="0 0 1440 120"
           preserveAspectRatio="none"

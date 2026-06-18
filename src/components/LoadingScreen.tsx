@@ -25,7 +25,17 @@ const CRITICAL_IMAGES = [
   '/productos/embutidos/mortadela-tipo-superior.png',
 ];
 
-const LoadingScreen = () => {
+interface LoadingScreenProps {
+  customImages?: string[];
+  title?: string;
+  subtitle?: string;
+}
+
+const LoadingScreen = ({
+  customImages,
+  title = "Preparando Delicias",
+  subtitle = "Tradición que se comparte"
+}: LoadingScreenProps) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const mountedRef = useRef(true);
@@ -37,7 +47,14 @@ const LoadingScreen = () => {
   useEffect(() => {
     let completed = 0;
     let isCancelled = false;
-    const total = CRITICAL_IMAGES.length;
+    const imagesToLoad = customImages || CRITICAL_IMAGES;
+    const total = imagesToLoad.length;
+
+    if (total === 0) {
+      setProgress(100);
+      if (mountedRef.current) setLoading(false);
+      return;
+    }
 
     // Actualizar progreso basado en cuántas imágenes han cargado
     const updateProgress = () => {
@@ -53,7 +70,7 @@ const LoadingScreen = () => {
     };
 
     // Precargar cada imagen usando new Image()
-    CRITICAL_IMAGES.forEach((url) => {
+    imagesToLoad.forEach((url) => {
       const img = new Image();
       img.onload = updateProgress;
       img.onerror = updateProgress; // contar errores también para no bloquear
@@ -85,7 +102,7 @@ const LoadingScreen = () => {
       clearTimeout(timeout);
       window.removeEventListener('load', handleWindowLoad);
     };
-  }, []);
+  }, [customImages]);
 
   return (
     <AnimatePresence>
@@ -141,7 +158,7 @@ const LoadingScreen = () => {
             className="text-center"
           >
             <p className="text-secondary-container font-[family-name:var(--font-luckiest-guy)] text-xl tracking-[0.2em] uppercase mb-4">
-              Preparando Delicias
+              {title}
             </p>
             
             {/* Progress Bar Container */}
@@ -164,7 +181,7 @@ const LoadingScreen = () => {
           {/* Bottom Branding */}
           <div className="absolute bottom-12 left-0 right-0 text-center">
             <p className="text-white/20 text-xs font-bold uppercase tracking-[0.4em]">
-              Tradición que se comparte
+              {subtitle}
             </p>
           </div>
         </motion.div>

@@ -36,12 +36,21 @@ import CategoryFilterTabs from "@/components/CategoryFilterTabs";
 import CategoryHero from "@/components/CategoryHero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const GROUP_CATEGORIES: Record<string, string[]> = {
   embutidos: ["Embutidos"],
   ahumados: ["Ahumados"],
   frescos: ["Frescos"],
 };
+
+const PRODUCTOS_CRITICAL_IMAGES = [
+  ...Object.values(HERO_BANNERS).flatMap((b) => [b.desktop, b.mobile]),
+  "/filtros/embutidos.jpg",
+  "/filtros/ahumados.jpg",
+  "/filtros/frescos1.jpg",
+  ...products.map(getProductImageUrl),
+];
 
 export default function ProductosPage() {
   const searchParams = useSearchParams();
@@ -91,6 +100,7 @@ export default function ProductosPage() {
 
   return (
     <div className="min-h-screen bg-[#FCF2E6] overflow-x-hidden">
+      <LoadingScreen customImages={PRODUCTOS_CRITICAL_IMAGES} title="Cargando Productos" />
       <Navbar appearOnScroll={true} />
 
       {/* Preload all category banners for instant hero transitions */}

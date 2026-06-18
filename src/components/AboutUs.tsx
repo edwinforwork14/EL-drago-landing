@@ -11,12 +11,12 @@ const AboutUs = () => {
       {/* Top "Carving" Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
         <svg viewBox="0 0 1200 160" preserveAspectRatio="none"
-          className="relative block w-[120%] h-[80px] md:h-[150px] fill-[#FCF2E6] -left-[10%]">
+          className="relative block w-[120%] h-[40px] md:h-[60px] fill-[#FCF2E6] -left-[10%]">
           <path d="M0,70 C100,20 240,120 360,90 C480,60 600,120 720,90 C840,60 960,120 1080,90 C1140,76 1180,72 1200,70 L1200,0 L0,0 Z" />
         </svg>
       </div>
 
-      <div className="pt-[150px] md:pt-[220px] pb-[80px] md:pb-[120px] px-5 md:px-10 lg:px-16 relative z-0">
+      <div className="pt-[70px] md:pt-[100px] pb-[80px] md:pb-[120px] px-5 md:px-10 lg:px-16 relative z-0">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* Text — always first on mobile */}

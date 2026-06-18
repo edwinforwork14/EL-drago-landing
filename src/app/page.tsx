@@ -24,7 +24,9 @@ export default function Home() {
         <Hero />
         <SocialMedia />
         <RecipeCTA />
-        <AboutUs />
+        <div className="-mt-[40px] md:-mt-[60px] relative z-10">
+          <AboutUs />
+        </div>
         <div className="-mt-[40px] md:-mt-[60px] relative z-10">
           <Contact />
         </div>
