@@ -55,7 +55,7 @@ const PRODUCTOS_CRITICAL_IMAGES = [
   ...products.map(getProductImageUrl),
 ];
 
-export default function ProductosPage() {
+function ProductosPageContent() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState("todos");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -300,5 +300,13 @@ export default function ProductosPage() {
       </section>
       <Footer />
     </div>
+  );
+}
+
+export default function ProductosPage() {
+  return (
+    <React.Suspense fallback={null}>
+      <ProductosPageContent />
+    </React.Suspense>
   );
 }

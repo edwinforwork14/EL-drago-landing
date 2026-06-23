@@ -21,13 +21,11 @@ const RecipeCTA = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-10 p-2 md:p-10 text-primary-dark group relative overflow-hidden"
+            className="w-full grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1.5fr] items-center justify-items-center lg:justify-items-stretch gap-8 lg:gap-12 p-2 md:p-10 text-primary-dark group relative"
           >
-            {/* Background Accent Decor */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-dark/10 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
             
             {/* 1. Título y texto */}
-            <div className="max-w-xl relative z-10 text-center lg:text-left mb-6 lg:mb-0 shrink-0">
+            <div className="relative z-10 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
               <h2 className="font-headline-lg text-headline-lg text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter mb-4 leading-[0.9] text-primary-dark">
                 ÚNETE A NUESTRA <br className="lg:hidden" /> <span className="text-[#C41A1E] font-[family-name:var(--font-mr-dafoe)] normal-case text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] -rotate-2 inline-block md:ml-2">Comunidad</span>
               </h2>
@@ -37,18 +35,18 @@ const RecipeCTA = () => {
             </div>
 
             {/* 2. Imagen del Draguito (Tamaño original restaurado) */}
-            <div className="relative z-10 shrink-0 mb-6 lg:mb-0">
+            <div className="relative z-10 flex justify-center items-center">
               <Image
                 src="/dragitos/draguito-principal.png"
                 alt="Mascota El Drago"
                 width={224}
                 height={160}
-                className="w-80 h-40 md:w-48 md:h-68 lg:w-56 lg:h-70 object-contain shrink-0"
+                className="w-80 h-40 md:w-48 md:h-68 lg:w-56 lg:h-70 object-contain"
               />
             </div>
 
             {/* 3. Botón 1 y Botón 2 (Lado a lado en pantallas sm+) */}
-            <div className="flex flex-col sm:flex-row gap-4 relative z-10 shrink-0 w-full sm:w-auto justify-center">
+            <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 relative z-10 w-full justify-center lg:justify-end items-center">
               <a
                 href="https://www.instagram.com/eldrago.ca?igsh=MXZsbTkxNWQ0c3ZsOA=="
                 target="_blank"
